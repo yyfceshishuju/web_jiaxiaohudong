@@ -12,7 +12,7 @@
          http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd"  >
 
     <!-- ①：对com.springmvc包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
-    <context:component-scan base-package="com.springmvc"/>
+    <context:component-scan base-package="com.jiaxiaohudong"/>
     <mvc:annotation-driven />
     <!-- 静态资源访问 -->
     <!--如果webapp下你新建了文件夹，想访问里面的静态资源，那么就要在这配置一下-->
@@ -91,17 +91,23 @@
         <!-- 数据源 -->
         <property name="dataSource" ref="dataSource"/>
         <property name="mapperLocations" value="classpath:sqlmap/*Mapper.xml"/>
-        <property name="typeAliasesPackage" value="com.springmvc.entity" />
+        <property name="typeAliasesPackage" value="com.jiaxiaohudong.entity" />
 
     </bean>
 
     <!-- 在spring容器中配置mapper的扫描器产生的动态代理对象在spring的容器中自动注册，bean的id就是mapper类名（首字母小写）-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 指定扫描包的路径，就是mapper接口的路径，多个包中间以 半角逗号隔开   -->
-        <property name="basePackage" value="com.springmvc.dao"/>
+        <property name="basePackage" value="com.jiaxiaohudong.dao"/>
         <!-- 配置sqlSessionFactoryBeanName -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
+
+    <!-- 设置上传文件最大值   1M=1*1024*1024(B)=1048576 bytes -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1048576" />
+    </bean>
+
 
     <!-- 拦截器 -->
     <mvc:interceptors>
