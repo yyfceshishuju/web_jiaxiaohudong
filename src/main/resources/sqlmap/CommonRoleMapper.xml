@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiaxiaohudong.dao.CommonRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.jiaxiaohudong.entity.CommonRole" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="role" property="role" jdbcType="VARCHAR" />
+    <result column="did" property="did" jdbcType="INTEGER" />
+    <result column="identity" property="identity" jdbcType="TINYINT" />
+    <result column="power" property="power" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, role, did, identity, power
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from common_role
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from common_role
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jiaxiaohudong.entity.CommonRole" >
+    insert into common_role (id, role, did, 
+      identity, power)
+    values (#{id,jdbcType=INTEGER}, #{role,jdbcType=VARCHAR}, #{did,jdbcType=INTEGER}, 
+      #{identity,jdbcType=TINYINT}, #{power,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiaxiaohudong.entity.CommonRole" >
+    insert into common_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="role != null" >
+        role,
+      </if>
+      <if test="did != null" >
+        did,
+      </if>
+      <if test="identity != null" >
+        identity,
+      </if>
+      <if test="power != null" >
+        power,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="did != null" >
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="identity != null" >
+        #{identity,jdbcType=TINYINT},
+      </if>
+      <if test="power != null" >
+        #{power,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiaxiaohudong.entity.CommonRole" >
+    update common_role
+    <set >
+      <if test="role != null" >
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="did != null" >
+        did = #{did,jdbcType=INTEGER},
+      </if>
+      <if test="identity != null" >
+        identity = #{identity,jdbcType=TINYINT},
+      </if>
+      <if test="power != null" >
+        power = #{power,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiaxiaohudong.entity.CommonRole" >
+    update common_role
+    set role = #{role,jdbcType=VARCHAR},
+      did = #{did,jdbcType=INTEGER},
+      identity = #{identity,jdbcType=TINYINT},
+      power = #{power,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

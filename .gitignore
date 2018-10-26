@@ -1,0 +1,6 @@
+/target/*
+/.git/*
+/.idea/*
+/hellobeijing.iml
+/META-INF
+!.gitignore

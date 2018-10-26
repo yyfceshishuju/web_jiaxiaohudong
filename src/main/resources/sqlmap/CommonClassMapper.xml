@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiaxiaohudong.dao.CommonClassMapper" >
+  <resultMap id="BaseResultMap" type="com.jiaxiaohudong.entity.CommonClass" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="schoolName" property="schoolname" jdbcType="BIGINT" />
+    <result column="grade" property="grade" jdbcType="VARCHAR" />
+    <result column="className" property="classname" jdbcType="VARCHAR" />
+    <result column="tOrSid" property="torsid" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, schoolName, grade, className, tOrSid, type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from common_class
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from common_class
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jiaxiaohudong.entity.CommonClass" >
+    insert into common_class (id, schoolName, grade, 
+      className, tOrSid, type
+      )
+    values (#{id,jdbcType=INTEGER}, #{schoolname,jdbcType=BIGINT}, #{grade,jdbcType=VARCHAR}, 
+      #{classname,jdbcType=VARCHAR}, #{torsid,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiaxiaohudong.entity.CommonClass" >
+    insert into common_class
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="schoolname != null" >
+        schoolName,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="classname != null" >
+        className,
+      </if>
+      <if test="torsid != null" >
+        tOrSid,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="schoolname != null" >
+        #{schoolname,jdbcType=BIGINT},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null" >
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="torsid != null" >
+        #{torsid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiaxiaohudong.entity.CommonClass" >
+    update common_class
+    <set >
+      <if test="schoolname != null" >
+        schoolName = #{schoolname,jdbcType=BIGINT},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null" >
+        className = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="torsid != null" >
+        tOrSid = #{torsid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiaxiaohudong.entity.CommonClass" >
+    update common_class
+    set schoolName = #{schoolname,jdbcType=BIGINT},
+      grade = #{grade,jdbcType=VARCHAR},
+      className = #{classname,jdbcType=VARCHAR},
+      tOrSid = #{torsid,jdbcType=INTEGER},
+      type = #{type,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
