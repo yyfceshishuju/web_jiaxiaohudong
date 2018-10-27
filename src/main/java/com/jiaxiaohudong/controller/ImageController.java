@@ -2,8 +2,6 @@ package com.jiaxiaohudong.controller;
 
 import com.jiaxiaohudong.baidu_service.Sample;
 import org.json.JSONObject;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +12,7 @@ import java.io.File;
 import java.util.Map;
 
 @Controller
+@RequestMapping("/image")
 public class ImageController {
 
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
@@ -38,12 +37,6 @@ public class ImageController {
         map.put("result",result);
         return new JSONObject(json.get("words_result"));
     }
-
-
-
-
-
-
 
 
 }

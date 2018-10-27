@@ -11,19 +11,20 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by yyf on 2018/10/17.
  */
 @Controller
+@RequestMapping("/message")
 public class messageController {
-    @RequestMapping("/message/go")
+    @RequestMapping("/go")
     public String goTest(){
         return "reach";
     }
 
-    @RequestMapping("/message/detail/data={uname}")
+    @RequestMapping("/detail/data={uname}")
     public String goDetail(@PathVariable("uname")String data, Model model){
         model.addAttribute("data", data);
         return "detail";
     }
 
-    @RequestMapping(value = "/message/report1", method = RequestMethod.GET)
+    @RequestMapping(value = "/report1", method = RequestMethod.GET)
     public String reportGet(@RequestParam("begin") String begin,
                             @RequestParam("end") String end, Model model){
         model.addAttribute("begin", begin);
@@ -32,7 +33,7 @@ public class messageController {
         return "report";
     }
 
-    @RequestMapping(value = "/message/report2", method = RequestMethod.POST)
+    @RequestMapping(value = "/report2", method = RequestMethod.POST)
     public String reportPost(@RequestParam("begin") String begin,
                             @RequestParam("end") String end, Model model){
         model.addAttribute("begin", begin);

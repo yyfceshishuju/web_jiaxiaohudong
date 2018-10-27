@@ -19,16 +19,17 @@ import java.util.List;
  * Created by yyf on 2018/10/17.
  */
 @Controller
+@RequestMapping("/user")
 public class userController {
     @Autowired
     private UserinfoService userService;
 
-    @RequestMapping(value="/user/login.do", method = RequestMethod.GET)
+    @RequestMapping(value="/login.do", method = RequestMethod.GET)
     public String login() {
         return "login";
     }
 
-    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginValidate(HttpSession session, Model model, @ModelAttribute Userinfo user) {
         List<Userinfo> list = new ArrayList<Userinfo>();
         Userinfo record  = new Userinfo();
@@ -50,14 +51,14 @@ public class userController {
         return "login";
     }
 
-    @RequestMapping(value = "/user/logout", method = RequestMethod.GET)
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
         session.invalidate();
         //session.removeAttribute("user");
         return "login";
     }
 
-    @RequestMapping(value="/user/userInfo", method = RequestMethod.GET)
+    @RequestMapping(value="/userInfo", method = RequestMethod.GET)
     public String userInfo(Model model, HttpSession session) {
         Userinfo user = (Userinfo) session.getAttribute("userinfo");
         if(user != null){
@@ -67,12 +68,12 @@ public class userController {
         return "userInfo";
     }
 
-    @RequestMapping(value="/user/register", method = RequestMethod.GET)
+    @RequestMapping(value="/register", method = RequestMethod.GET)
     public String register() {
         return "register";
     }
 
-    @RequestMapping(value="/user/register", method = RequestMethod.POST)
+    @RequestMapping(value="/register", method = RequestMethod.POST)
     public String addUser(@ModelAttribute Userinfo user, Model model) {
         Userinfo record = new Userinfo();
         record.setName(user.getName());

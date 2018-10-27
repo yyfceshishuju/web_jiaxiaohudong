@@ -4,3 +4,4 @@
 /hellobeijing.iml
 /META-INF
 !.gitignore
+/*.stackdump
