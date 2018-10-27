@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jiaxiaohudong.dao.MessageMapper" >
-  <resultMap id="BaseResultMap" type="com.jiaxiaohudong.entity.Message" >
+  <resultMap id="messageResult" type="com.jiaxiaohudong.entity.Message" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="command" property="command" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
@@ -10,7 +10,7 @@
   <sql id="Base_Column_List" >
     id, command, description, content
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="messageResult" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from message

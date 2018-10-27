@@ -2,48 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63460be8-8265-4f9c-8e3e-def3c218f167" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/PageController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/util/R.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_29.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/springmvc/controller/messageController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/springmvc/controller/userController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/springmvc/dao/MessageMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/springmvc/dao/UserinfoMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/springmvc/entity/Message.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/springmvc/entity/Userinfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/springmvc/service/UserinfoService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/springmvc/service/impl/UserinfoServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/springmvc/util/Encryption.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/com/springmvc/dao/MessageMapperTest.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/jiaxiaohudong/baidu_service/Sample.class" afterPath="$PROJECT_DIR$/target/classes/com/jiaxiaohudong/baidu_service/Sample.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/com/jiaxiaohudong/baidu_service/Sample.class" afterPath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/com/jiaxiaohudong/baidu_service/Sample.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/hellobeijing_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/hellobeijing_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/jiaxiaohudong/controller/userController.class" afterPath="$PROJECT_DIR$/target/classes/com/jiaxiaohudong/controller/userController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/com/jiaxiaohudong/controller/userController.class" afterPath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/com/jiaxiaohudong/controller/userController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/userController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/userController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/entity/CommonStudent.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/entity/CommonStudent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonAnswerMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonAnswerMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonCategoryMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonCategoryMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonClassMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonClassMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonCommentMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonCommentMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonDivisionMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonDivisionMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonLikeMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonLikeMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonQuestionMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonQuestionMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonRepositoryMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonRepositoryMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonRoleMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonRoleMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonStudentMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonStudentMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonUserMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonUserMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/MessageMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/MessageMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/UserinfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/UserinfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/generator.properties" afterPath="$PROJECT_DIR$/target/classes/generator.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterPath="$PROJECT_DIR$/target/classes/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/helloworld/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/helloworld/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/generator.properties" afterPath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/generator.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/generatorConfig.xml" afterPath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/jdbc.properties" afterPath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/jdbc.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sqlmap/MessageMapper.xml" afterPath="$PROJECT_DIR$/target/classes/sqlmap/MessageMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sqlmap/UserinfoMapper.xml" afterPath="$PROJECT_DIR$/target/classes/sqlmap/UserinfoMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/sqlmap/MessageMapper.xml" afterPath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/sqlmap/MessageMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/sqlmap/UserinfoMapper.xml" afterPath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/sqlmap/UserinfoMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1040,12 +1005,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540570237231</updated>
-      <workItem from="1540570241263" duration="5353000" />
+      <workItem from="1540570241263" duration="5568000" />
     </task>
+    <task id="LOCAL-00001" summary="dao">
+      <created>1540602811983</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1540602811983</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5353000" />
+    <option name="totallyTimeSpent" value="5568000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1070,7 +1043,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -1091,6 +1064,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dao" />
+    <option name="LAST_COMMIT_MESSAGE" value="dao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
