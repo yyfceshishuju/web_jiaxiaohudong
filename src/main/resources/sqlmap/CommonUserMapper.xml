@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jiaxiaohudong.dao.CommonUserMapper" >
-  <resultMap id="BaseResultMap" type="com.jiaxiaohudong.entity.CommonUser" >
+  <resultMap id="userResult" type="com.jiaxiaohudong.entity.CommonUser" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="icon" property="icon" jdbcType="VARCHAR" />
@@ -16,7 +16,7 @@
   <sql id="Base_Column_List" >
     id, name, icon, grade, phone, password, rid, addtime, status, type
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="userResult" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from common_user

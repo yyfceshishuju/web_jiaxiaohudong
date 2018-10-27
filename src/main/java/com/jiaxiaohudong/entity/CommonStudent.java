@@ -25,7 +25,7 @@ public class CommonStudent {
 
     private Byte status;
 
-    private Byte class;
+    private Byte grad;
 
     public Integer getId() {
         return id;
@@ -123,11 +123,11 @@ public class CommonStudent {
         this.status = status;
     }
 
-    public Byte getClass() {
-        return class;
+    public Byte getGrad() {
+        return grad;
     }
 
-    public void setClass(Byte class) {
-        this.class = class;
+    public void setGrad(Byte grad) {
+        this.grad = grad;
     }
 }

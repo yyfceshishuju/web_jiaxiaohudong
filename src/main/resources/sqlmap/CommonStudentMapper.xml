@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jiaxiaohudong.dao.CommonStudentMapper" >
-  <resultMap id="BaseResultMap" type="com.jiaxiaohudong.entity.CommonStudent" >
+  <resultMap id="studentResult" type="com.jiaxiaohudong.entity.CommonStudent" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="icon" property="icon" jdbcType="VARCHAR" />
@@ -14,13 +14,13 @@
     <result column="answer" property="answer" jdbcType="INTEGER" />
     <result column="addtime" property="addtime" jdbcType="INTEGER" />
     <result column="status" property="status" jdbcType="TINYINT" />
-    <result column="class" property="class" jdbcType="TINYINT" />
+    <result column="grad" property="grad" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, icon, phone, birthday, sex, pid, tid, question, answer, addtime, status, 
-    class
+    grad
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="studentResult" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from common_student
@@ -35,12 +35,12 @@
       phone, birthday, sex, 
       pid, tid, question, 
       answer, addtime, status, 
-      class)
+      grad)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
       #{phone,jdbcType=BIGINT}, #{birthday,jdbcType=INTEGER}, #{sex,jdbcType=TINYINT}, 
       #{pid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{question,jdbcType=INTEGER}, 
       #{answer,jdbcType=INTEGER}, #{addtime,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, 
-      #{class,jdbcType=TINYINT})
+      #{grad,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.jiaxiaohudong.entity.CommonStudent" >
     insert into common_student
@@ -81,8 +81,8 @@
       <if test="status != null" >
         status,
       </if>
-      <if test="class != null" >
-        class,
+      <if test="grad != null" >
+        grad,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -122,8 +122,8 @@
       <if test="status != null" >
         #{status,jdbcType=TINYINT},
       </if>
-      <if test="class != null" >
-        #{class,jdbcType=TINYINT},
+      <if test="grad != null" >
+        #{grad,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -163,8 +163,8 @@
       <if test="status != null" >
         status = #{status,jdbcType=TINYINT},
       </if>
-      <if test="class != null" >
-        class = #{class,jdbcType=TINYINT},
+      <if test="grad != null" >
+        grad = #{grad,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -182,7 +182,7 @@
       answer = #{answer,jdbcType=INTEGER},
       addtime = #{addtime,jdbcType=INTEGER},
       status = #{status,jdbcType=TINYINT},
-      class = #{class,jdbcType=TINYINT}
+      grad = #{grad,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

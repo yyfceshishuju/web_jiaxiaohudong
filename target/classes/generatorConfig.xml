@@ -6,7 +6,8 @@
     <properties resource="generator.properties"/>
 
     <classPathEntry
-            location="D:\server\maven\repository\mysql\mysql-connector-java\5.1.29\mysql-connector-java-5.1.29.jar" />
+            location="C:\Users\yjing\.m2\repository\mysql\mysql-connector-java\8.0.13\mysql-connector-java-8.0.13.jar" />
+            <!--location="D:\server\maven\repository\mysql\mysql-connector-java\5.1.29\mysql-connector-java-5.1.29.jar" />-->
     <context id="context1">
         <!-- 注释 -->
         <commentGenerator>
