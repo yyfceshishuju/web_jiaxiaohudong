@@ -18,8 +18,9 @@
     <!--如果webapp下你新建了文件夹，想访问里面的静态资源，那么就要在这配置一下-->
     <mvc:resources location="/images/" mapping="/images/**"/>
     <mvc:resources location="/css/" mapping="/css/**"/>
-    <mvc:resources location="/styles/" mapping="/styles/**"/>
+    <mvc:resources location="/img/" mapping="/img/**"/>
     <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources location="/weui-master/" mapping="/weui/**"/>
 
     <!-- Configures the @Controller programming model
     <mvc:annotation-driven />-->
@@ -116,5 +117,13 @@
     </mvc:interceptors>
     <!-- 定义无Controller的path<->view直接映射 -->
     <!-- <mvc:view-controller path="/" view-name="redirect:/" /> -->
-
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- /**表示所有url包括子url路径 -->
+            <mvc:mapping path="/**.do"/>
+            <mvc:exclude-mapping path="/login.do"/>
+            <bean class="com.jiaxiaohudong.interceptor.SysInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
