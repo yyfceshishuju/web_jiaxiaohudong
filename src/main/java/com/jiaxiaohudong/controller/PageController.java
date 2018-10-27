@@ -21,21 +21,4 @@ public class PageController {
         return "index";
     }
 
-    @RequestMapping(value = "/message/report1", method = RequestMethod.GET)
-    public String reportGet(@RequestParam("begin") String begin,
-                            @RequestParam("end") String end, Model model){
-        model.addAttribute("begin", begin);
-        model.addAttribute("end", end);
-        model.addAttribute("formType", "GET");
-        return "report";
-    }
-
-    @RequestMapping(value = "/message/report2", method = RequestMethod.POST)
-    public String reportPost(@RequestParam("begin") String begin,
-                             @RequestParam("end") String end, Model model){
-        model.addAttribute("begin", begin);
-        model.addAttribute("end", end);
-        model.addAttribute("formType", "POST");
-        return "report";
-    }
 }
