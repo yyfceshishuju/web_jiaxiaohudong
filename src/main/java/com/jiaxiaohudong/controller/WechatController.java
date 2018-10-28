@@ -2,6 +2,7 @@ package com.jiaxiaohudong.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.jiaxiaohudong.util.SendMessage;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.HttpGet;
@@ -76,6 +77,28 @@ public class WechatController {
         return "index";
     }
 
+    public void send(HttpServletRequest request, HttpServletResponse response) {
+        String phone = request.getParameter("phone");
+        try {
+            String code = SendMessage.sendMess(phone);//此处为自己封装的sendMess（）方法，获取验证码，见下面。
+            request.getSession().setAttribute("code", code);
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            try {
+                response.getWriter().write("发送失败了");
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        try {
+            response.getWriter().write("发送成功");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
 
     private JSONObject httpGet(String url) {
         JSONObject jsonResult = null;

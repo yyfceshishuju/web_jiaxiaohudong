@@ -21,6 +21,7 @@
     <mvc:resources location="/img/" mapping="/img/**"/>
     <mvc:resources location="/js/" mapping="/js/**"/>
     <mvc:resources location="/weui-master/" mapping="/weui/**"/>
+    <mvc:resources location="/upload/" mapping="/upload/**"/>
 
     <!-- Configures the @Controller programming model
     <mvc:annotation-driven />-->
