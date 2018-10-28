@@ -11,6 +11,32 @@ public class CommonUser {
 
     private Long phone;
 
+    private String openid;
+
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
+
+    public CommonUser() {
+
+    }
+
+    public CommonUser(String name, String icon, Long phone, String openid, String password, Integer addtime, Byte status, Byte type) {
+
+        this.name = name;
+        this.icon = icon;
+        this.phone = phone;
+        this.openid = openid;
+        this.password = password;
+        this.addtime = addtime;
+        this.status = status;
+        this.type = type;
+    }
+
     private String password;
 
     private Integer rid;

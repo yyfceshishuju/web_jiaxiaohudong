@@ -11,6 +11,10 @@ public interface CommonUserMapper {
 
     CommonUser selectByPrimaryKey(Integer id);
 
+    CommonUser selectByPhone(Long phone);
+
+    CommonUser selectByOpenId(Long phone);
+
     int updateByPrimaryKeySelective(CommonUser record);
 
     int updateByPrimaryKey(CommonUser record);

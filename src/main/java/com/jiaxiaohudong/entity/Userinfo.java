@@ -9,9 +9,34 @@ public class Userinfo {
 
     private String name;
 
+
+    private String phone;
+
+    private String icon;
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
     private String pw;
 
     private Date createtime;
+
+    public Userinfo() {
+    }
+
+    public Userinfo(String name, String phone, String icon, String pw, Date createtime) {
+
+        this.name = name;
+        this.phone = phone;
+        this.icon = icon;
+        this.pw = pw;
+        this.createtime = createtime;
+    }
 
     public Integer getId() {
         return id;

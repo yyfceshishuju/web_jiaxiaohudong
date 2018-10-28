@@ -29,6 +29,22 @@
 <div class="weui-cells weui-cells_form">
 
     <div class="weui-cells__title">账号注册</div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">上传头像</label></div>
+        <div class="weui-uploader">
+            <div class="weui-uploader__bd">
+                <ul class="weui-uploader__files" id="uploaderFiles">
+                    <li class="weui-uploader__file"></li></ul>
+                <div class="weui-uploader__input-box">
+                    <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+        <div class="weui-cell__bd weui-cell_primary"><input class="weui-input" type="text" placeholder="请输入姓名"></div>
+    </div>
     <div class="weui-cell weui-cell_vcode">
         <div class="weui-cell__hd">
             <label class="weui-label">手机号</label>
