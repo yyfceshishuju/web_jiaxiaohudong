@@ -45,7 +45,7 @@
             <div class="weui-cell__hd"><label class="weui-label">上传头像</label></div>
             <div class="weui-uploader">
                 <div class="weui-uploader__bd">
-                    <img class="weui-uploader__file" alt="头像" hidden>
+                    <img id="icon" class="weui-uploader__file" alt="头像" hidden>
                     <div class="weui-uploader__input-box" id="uploadbox">
                         <input id="uploaderInput" name="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="" >
                     </div>
@@ -97,17 +97,16 @@
 </form>
 <script type="text/javascript">
     $(function(){
-        var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
-            $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
+        var $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
             $uploaderInput = $("#uploaderInput"),
-            $uploaderFiles = $("#uploaderFiles"),
+            $icon = $("#icon"),
+            $icondelete = $(".weui-icon_gallery-delete"),
+            $uploadbox = $("#uploadbox"),
             $pw = $("#pw"),
             $password = $("#password"),
-            $dialog = $("#dialog"),
             $codeButton = $("#codeButton"),
             $phone = $("#phone"),
             $submit = $("#submit"),
-            $form = $("#form"),
             $countdown = 60,
 
             registerUrl = "/user/register",
@@ -147,13 +146,13 @@
                 } else {
                     src = e.target.result;
                 }
-
-                $uploaderFiles.append($(tmpl.replace('#url#', src)));
-                $uploaderInput.hide();
+                $icon.attr('src', src);
+                $icon.show();
+                $uploadbox.hide();
             }
         });
-        $uploaderFiles.on("click", "li", function(){
-            $galleryImg.attr("style", this.getAttribute("style"));
+        $icon.on("click", function(){
+            $galleryImg.attr("style", this.getAttribute("background-image:url(" + $icon.attr("src")+")"));
             $gallery.fadeIn(100);
         });
         $gallery.on("click", function(){

@@ -28,7 +28,7 @@
 </div>
 
 <div class="weui-gallery" id="gallery">
-    <img class="weui-gallery__img" id="galleryImg"></img>
+    <span class="weui-gallery__img" id="galleryImg"></span>
     <div class="weui-gallery__opr">
         <a href="javascript:" class="weui-gallery__del">
             <i class="weui-icon-delete weui-icon_gallery-delete"></i>
@@ -147,11 +147,12 @@
                     src = e.target.result;
                 }
                 $icon.attr('src', src);
+                $icon.show();
                 $uploadbox.hide();
             }
         });
         $icon.on("click", function(){
-            $galleryImg.attr("style", this.getAttribute("style"));
+            $galleryImg.attr("style", this.getAttribute("background-image:url(" + $icon.attr("src")+")"));
             $gallery.fadeIn(100);
         });
         $gallery.on("click", function(){
