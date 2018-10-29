@@ -16,14 +16,16 @@ public class CommonUserServiceImpl implements CommonUserService {
     private CommonUserMapper mapper;
 
     public R insert(CommonUser record) {
-        return null;
+        R result = new R();
+        result.put("msg", mapper.insertSelective(record));
+        return result;
     }
 
-    public R selectByOpenId(String openid) {
-        return null;
+    public CommonUser selectByOpenId(String openid) {
+       return mapper.selectByOpenId(openid);
     }
 
-    public R selectByPhone(long phone) {
-        return null;
+    public CommonUser selectByPhone(long phone) {
+        return mapper.selectByPhone(phone);
     }
 }

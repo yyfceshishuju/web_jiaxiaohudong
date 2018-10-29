@@ -77,10 +77,11 @@ public class WechatController {
         return "index";
     }
 
+    @RequestMapping(value = "/send")
     public void send(HttpServletRequest request, HttpServletResponse response) {
         String phone = request.getParameter("phone");
         try {
-            String code = SendMessage.sendMess(phone);//此处为自己封装的sendMess（）方法，获取验证码，见下面。
+            String code = SendMessage.sendMess(phone);
             request.getSession().setAttribute("code", code);
         } catch (Exception e1) {
             // TODO Auto-generated catch block

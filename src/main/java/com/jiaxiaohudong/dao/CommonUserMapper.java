@@ -13,7 +13,7 @@ public interface CommonUserMapper {
 
     CommonUser selectByPhone(Long phone);
 
-    CommonUser selectByOpenId(Long phone);
+    CommonUser selectByOpenId(String openId);
 
     int updateByPrimaryKeySelective(CommonUser record);
 

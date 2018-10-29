@@ -8,6 +8,6 @@ import com.jiaxiaohudong.util.R;
  */
 public interface CommonUserService {
     R insert(CommonUser record);
-    R selectByOpenId(String openid);
-    R selectByPhone(long phone);
+    CommonUser selectByOpenId(String openid);
+    CommonUser selectByPhone(long phone);
 }

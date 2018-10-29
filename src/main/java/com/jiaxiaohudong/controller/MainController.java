@@ -24,7 +24,8 @@ public class MainController {
     }
 
     @RequestMapping(value="/register.do", method = RequestMethod.GET)
-    public String register() {
+    public String register(String msg) {
+        msg = "error";
         return "register";
     }
 

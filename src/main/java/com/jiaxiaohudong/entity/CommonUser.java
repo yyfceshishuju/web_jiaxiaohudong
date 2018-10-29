@@ -25,7 +25,7 @@ public class CommonUser {
 
     }
 
-    public CommonUser(String name, String icon, Long phone, String openid, String password, Integer addtime, Byte status, Byte type) {
+    public CommonUser(String name, String icon, Long phone, String openid, String password, Long addtime, Byte status, Byte type) {
 
         this.name = name;
         this.icon = icon;
@@ -41,9 +41,19 @@ public class CommonUser {
 
     private Integer rid;
 
-    private Integer addtime;
+    private Long addtime;
 
     private Byte status;
+
+    public CommonUser(String name, String icon, Long phone, String password, Long addtime, Byte status, Byte type) {
+        this.name = name;
+        this.icon = icon;
+        this.phone = phone;
+        this.password = password;
+        this.addtime = addtime;
+        this.status = status;
+        this.type = type;
+    }
 
     private Byte type;
 
@@ -103,11 +113,11 @@ public class CommonUser {
         this.rid = rid;
     }
 
-    public Integer getAddtime() {
+    public Long getAddtime() {
         return addtime;
     }
 
-    public void setAddtime(Integer addtime) {
+    public void setAddtime(Long addtime) {
         this.addtime = addtime;
     }
 

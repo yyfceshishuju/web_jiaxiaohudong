@@ -6,7 +6,7 @@
     <result column="openid" property="openid" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="icon" property="icon" jdbcType="VARCHAR" />
-    <result column="grade" property="grade" jdbcType="VARCHAR" />
+    <!--<result column="grade" property="grade" jdbcType="VARCHAR" />-->
     <result column="phone" property="phone" jdbcType="BIGINT" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="rid" property="rid" jdbcType="INTEGER" />
@@ -15,7 +15,7 @@
     <result column="type" property="type" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, icon, grade, phone, password, rid, addtime, status, type
+    id, name, icon, phone, password, rid, addtime, status, type
   </sql>
   <select id="selectByPrimaryKey" resultMap="userResult" parameterType="java.lang.Integer" >
     select 
@@ -23,13 +23,13 @@
     from common_user
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectByPhone" resultMap="userResult" parameterType="java.lang.Integer" >
+  <select id="selectByPhone" resultMap="userResult" parameterType="java.lang.Long" >
     select
     <include refid="Base_Column_List" />
     from common_user
     where phone = #{phone,jdbcType=BIGINT}
   </select>
-  <select id="selectByOpenId" resultMap="userResult" parameterType="java.lang.Integer" >
+  <select id="selectByOpenId" resultMap="userResult" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />
     from common_user
@@ -42,7 +42,7 @@
   <insert id="insert" parameterType="com.jiaxiaohudong.entity.CommonUser" >
     insert into common_user (id, name, icon, 
       grade, phone, password, 
-      rid, addtime, status, 
+      rid, addtime, status, type
       type)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
       #{grade,jdbcType=VARCHAR}, #{phone,jdbcType=BIGINT}, #{password,jdbcType=VARCHAR}, 
@@ -54,6 +54,9 @@
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="openid != null" >
+        openid,
       </if>
       <if test="name != null" >
         name,
@@ -86,6 +89,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
