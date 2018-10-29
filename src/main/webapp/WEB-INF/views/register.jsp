@@ -152,7 +152,7 @@
             }
         });
         $icon.on("click", function(){
-            $galleryImg.attr("style", this.getAttribute("background-image:url(" + $icon.attr("src")+")"));
+            $galleryImg.attr("style", "background-image:url(" + $icon.attr("src")+")");
             $gallery.fadeIn(100);
         });
         $gallery.on("click", function(){
