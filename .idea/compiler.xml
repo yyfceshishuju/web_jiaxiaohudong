@@ -9,5 +9,8 @@
         <module name="hellobeijing" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hellobeijing" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
