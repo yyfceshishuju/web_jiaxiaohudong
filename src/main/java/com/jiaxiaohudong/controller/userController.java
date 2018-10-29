@@ -122,6 +122,6 @@ public class userController {
 
         CommonUser cu = new CommonUser(name, icon, phone, password, addtime, status, type);
         R result = cuService.insert(cu);
-        return R.ok("登录成功");
+        return R.ok("注册成功");
     }
 }

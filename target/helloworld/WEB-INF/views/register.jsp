@@ -35,15 +35,7 @@
         </a>
     </div>
 </div>
-<div class="js_dialog" id="dialog" hidden>
-    <div class="weui-mask"></div>
-    <div class="weui-dialog">
-        <div class="weui-dialog__bd">两次密码不一致</div>
-        <div class="weui-dialog__ft">
-            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
-        </div>
-    </div>
-</div>
+
 
 <form id="form"  enctype="multipart/form-data" method="post">
 
@@ -53,10 +45,9 @@
             <div class="weui-cell__hd"><label class="weui-label">上传头像</label></div>
             <div class="weui-uploader">
                 <div class="weui-uploader__bd">
-                    <ul class="weui-uploader__files" id="uploaderFiles">
-                        <li class="weui-uploader__file"></li></ul>
-                    <div class="weui-uploader__input-box">
-                        <input id="uploaderInput" name="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                    <img class="weui-uploader__file" alt="头像" hidden>
+                    <div class="weui-uploader__input-box" id="uploadbox">
+                        <input id="uploaderInput" name="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="" >
                     </div>
                 </div>
             </div>
@@ -117,21 +108,32 @@
             $phone = $("#phone"),
             $submit = $("#submit"),
             $form = $("#form"),
-            $countdown = 60
+            $countdown = 60,
+
+            registerUrl = "/user/register",
+            sendUrl = "/wechat/send",
+            loginUrl = "/login.do"
 
         ;
         $submit.on("click", function () {
             var form = new FormData(document.getElementById('form'));
             $.ajax({
-                url:"/user/register",
+                url:registerUrl,
                 type:"post",
                 data:form,
                 processData:false,
                 contentType:false,
                 success:function(data){
-                    console.log(111);
+                    if (data.code != 0){
+                        alert(data.msg);
+                    } else {
+                        alert(data.msg);
+                        window.location.href(loginUrl);
+                    }
+
                 },
                 error:function(e){
+                    alert("未知错误");
                 }
             });
         });
@@ -161,16 +163,13 @@
             if ($pw.val() != $password.val()){
                 $('#password').val('');
                 $('#pw').val('');
-                $dialog.fadeIn(200);
+                alert("两次密码输入不一致");
             }
-        });
-        $dialog.on("click", function () {
-            $dialog.fadeOut(100);
         });
         $codeButton.on("click", function () {
            var phone = $phone.val();
             $.ajax({
-                url: '/wechat/send',
+                url: sendUrl,
                 method: 'get',
                 data: {"phone": phone},
                 success: function () {
