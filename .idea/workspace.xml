@@ -6,9 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e57b902b-953b-476a-a179-e76d7addb961" name="Default Changelist" comment="">
+    <list default="true" id="e57b902b-953b-476a-a179-e76d7addb961" name="Default Changelist" comment="注册页">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/helloworld/WEB-INF/views/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/helloworld/WEB-INF/views/register.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -99,7 +98,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="1274" />
-          <entry key="jsp" value="1667" />
+          <entry key="jsp" value="1702" />
           <entry key="properties" value="22" />
           <entry key="txt" value="3" />
           <entry key="xml" value="45" />
@@ -108,7 +107,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="1274" />
-          <entry key="JSP" value="1667" />
+          <entry key="JSP" value="1702" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Properties" value="22" />
           <entry key="SQL" value="2" />
@@ -147,8 +146,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1440">
-              <caret line="30" column="59" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
+            <state relative-caret-position="165">
+              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -361,7 +360,7 @@
     <property name="SearchEverywhereHistoryKey" value="pom&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/pom.xml&#10;commonUser&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/resources/sqlmap/CommonUserMapper.xml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540821231372" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540861493350" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -474,7 +473,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540776575242</updated>
-      <workItem from="1540776577122" duration="27899000" />
+      <workItem from="1540776577122" duration="29082000" />
     </task>
     <task id="LOCAL-00001" summary="注册页">
       <created>1540805380001</created>
@@ -490,11 +489,25 @@
       <option name="project" value="LOCAL" />
       <updated>1540808741065</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="注册页">
+      <created>1540821258225</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1540821258225</updated>
+    </task>
+    <task id="LOCAL-00004" summary="注册页">
+      <created>1540821576611</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1540821576611</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27899000" />
+    <option name="totallyTimeSpent" value="29082000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
@@ -506,7 +519,7 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
       <window_info id="Web" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13127413" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24655268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Application Servers" weight="0.3298647" />
       <window_info anchor="bottom" id="Spring" />
@@ -515,11 +528,11 @@
       <window_info anchor="bottom" id="Messages" weight="0.2580645" />
       <window_info anchor="bottom" id="Java Enterprise" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" visible="true" weight="0.3298647" />
+      <window_info anchor="bottom" id="Version Control" weight="0.3298647" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.36940688" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39958376" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.21331947" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -780,8 +793,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1440">
-          <caret line="30" column="59" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
+        <state relative-caret-position="165">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
         </state>
       </provider>
     </entry>
