@@ -1,5 +1,6 @@
 package com.jiaxiaohudong.interceptor;
 
+import com.jiaxiaohudong.entity.CommonUser;
 import com.jiaxiaohudong.entity.Userinfo;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -15,7 +16,7 @@ public class SysInterceptor extends HandlerInterceptorAdapter {
 
         HttpSession session = request.getSession();
 
-        Userinfo user = (Userinfo) session.getAttribute("userinfo");
+        CommonUser user = (CommonUser) session.getAttribute("userinfo");
         if (null == user) {
 
             response.sendRedirect("/login.do");

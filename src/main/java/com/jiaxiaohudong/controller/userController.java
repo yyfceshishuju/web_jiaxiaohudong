@@ -1,16 +1,9 @@
 package com.jiaxiaohudong.controller;
 
-import com.jiaxiaohudong.baidu_service.Sample;
 import com.jiaxiaohudong.entity.CommonUser;
-import com.jiaxiaohudong.entity.Userinfo;
 import com.jiaxiaohudong.service.CommonUserService;
-import com.jiaxiaohudong.service.UserinfoService;
-import com.jiaxiaohudong.util.Encryption;
 import com.jiaxiaohudong.util.R;
-import com.jiaxiaohudong.util.SendMessage;
 import com.jiaxiaohudong.util.Translate;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-import org.apache.ibatis.annotations.Param;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.math.BigInteger;
 import java.util.*;
 
 /**

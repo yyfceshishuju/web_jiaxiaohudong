@@ -52,7 +52,7 @@
     <div class="page__hd"  style="background:#778899;">
         <div class="weui-flex" style="width: 170px">
             <div class="weui-flex__item">
-                <img class="circleImg" src="/img/logo.png"  id="icon" />
+                <img class="circleImg" alt="头像"  id="icon" />
             </div>
             <div class="weui-flex__item">
                 <h1 class="page__title" style="color: #FFFFFF;text-align: left" id="name">小明同学</h1>
@@ -62,7 +62,7 @@
     </div>
     <ul>
         <li>
-            <div id="teacher">
+            <div id="teacher" hidden>
                 <div class="weui-cells__title">家校社区-教师版</div>
                 <div class="weui-grids">
                     <a href="/class.do" class="weui-grid">
@@ -123,7 +123,7 @@
             </div>
         </li>
         <li>
-            <div id="parent">
+            <div id="parent" hidden>
                 <div class="weui-cells__title">家校社区-家长版</div>
                 <div class="weui-grids">
                     <a href="/student/detail.do" class="weui-grid">
@@ -166,7 +166,7 @@
             </div>
         </li>
         <li>
-            <div id="other">
+            <div id="other" hidden>
                 <div class="weui-cells__title">第三方服务</div>
                 <div class="weui-grids">
                     <a href="javascript:;" class="weui-grid">
@@ -201,6 +201,9 @@
             $icon = $("#icon"),
             $name = $("#name"),
             $type = $("#type"),
+            $parent = $("#parent"),
+            $teacher = $("#teacher"),
+            $other = $("#other"),
             $userUrl = "/user/info",
             $loginUrl = "/login.do"
         ;
@@ -211,6 +214,11 @@
                 $icon.attr("src", data.icon);
                 $name.text(data.name);
                 $type.text(data.type);
+                if (data.type == "教师"){
+                    $teacher.show();
+                } else if (data.type == "家长"){
+                    $parent.show();
+                }
 
             },
             error: function () {
