@@ -36,6 +36,23 @@
     </div>
 </div>
 
+<div id="toast" style="display: none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content"></p>
+    </div>
+</div>
+
+<div class="js_dialog" id="dialog" style="display: none;">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd" id="dialogContent"></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+        </div>
+    </div>
+</div>
 
 <form id="form"  enctype="multipart/form-data" method="post">
 
@@ -111,6 +128,10 @@
             $codeButton = $("#codeButton"),
             $phone = $("#phone"),
             $submit = $("#submit"),
+            $toast = $("#toast"),
+            $content = $(".weui-toast__content"),
+            $dialog = $("#dialog"),
+            $dialogContent = $("#dialogContent"),
             $countdown = 60,
 
             registerUrl = "/user/register",
@@ -130,8 +151,8 @@
                     if (data.code != 0){
                         alert(data.msg);
                     } else {
-                        alert(data.msg);
-                        window.location.href(loginUrl);
+                        hint(data.msg);
+                        window.location.href = loginUrl;
                     }
 
                 },
@@ -181,13 +202,16 @@
                 method: 'get',
                 data: {"phone": phone},
                 success: function () {
-                    alert("发送成功");
+                    hint("发送成功");
                     settime();
                 },
                 error: function () {
                     alert("发送失败")
                 }
             })
+        });
+        $dialog.on('click', '.weui-dialog__btn', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
         });
         function settime() {
             if ($countdown == 0) {
@@ -204,6 +228,18 @@
             setTimeout(function() {
                 settime();
             },1000);
+        }
+        function hint(msg) {
+            if ($toast.css('display') != 'none') return;
+            $content.text(msg);
+            $toast.fadeIn(100);
+            setTimeout(function () {
+                $toast.fadeOut(100);
+            }, 2000);
+        }
+        function alert(msg) {
+            $dialogContent.text(msg);
+            $dialog.fadeIn(100);
         }
     });
 

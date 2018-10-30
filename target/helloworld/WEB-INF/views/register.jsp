@@ -31,11 +31,28 @@
     <span class="weui-gallery__img" id="galleryImg"></span>
     <div class="weui-gallery__opr">
         <a href="javascript:" class="weui-gallery__del">
-            <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+            <i class="weui-icon-delete weui-icon_gallery-delete delete"></i>
         </a>
     </div>
 </div>
 
+<div id="toast" style="display: none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content"></p>
+    </div>
+</div>
+
+<div class="js_dialog" id="dialog" style="display: none;">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd" id="dialogContent"></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+        </div>
+    </div>
+</div>
 
 <form id="form"  enctype="multipart/form-data" method="post">
 
@@ -45,7 +62,10 @@
             <div class="weui-cell__hd"><label class="weui-label">上传头像</label></div>
             <div class="weui-uploader">
                 <div class="weui-uploader__bd">
-                    <img id="icon" class="weui-uploader__file" alt="头像" hidden>
+                    <div id="icondiv" class="weui-cell__hd" style="position: relative;margin-right: 10px;" hidden>
+                        <img  id="icon" class="weui-uploader__file" alt="头像"  style="width: 50px;display: block">
+                        <span class="weui-badge delete" style="position: absolute;top: -.4em;right: -.4em;">x</span>
+                    </div>
                     <div class="weui-uploader__input-box" id="uploadbox">
                         <input id="uploaderInput" name="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="" >
                     </div>
@@ -100,13 +120,18 @@
         var $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
             $uploaderInput = $("#uploaderInput"),
             $icon = $("#icon"),
-            $icondelete = $(".weui-icon_gallery-delete"),
+            $icondiv = $("#icondiv"),
+            $icondelete = $(".delete"),
             $uploadbox = $("#uploadbox"),
             $pw = $("#pw"),
             $password = $("#password"),
             $codeButton = $("#codeButton"),
             $phone = $("#phone"),
             $submit = $("#submit"),
+            $toast = $("#toast"),
+            $content = $(".weui-toast__content"),
+            $dialog = $("#dialog"),
+            $dialogContent = $("#dialogContent"),
             $countdown = 60,
 
             registerUrl = "/user/register",
@@ -126,8 +151,8 @@
                     if (data.code != 0){
                         alert(data.msg);
                     } else {
-                        alert(data.msg);
-                        window.location.href(loginUrl);
+                        hint(data.msg);
+                        window.location.href = loginUrl;
                     }
 
                 },
@@ -147,9 +172,14 @@
                     src = e.target.result;
                 }
                 $icon.attr('src', src);
-                $icon.show();
+                $icondiv.show();
                 $uploadbox.hide();
             }
+        });
+        $icondelete.on("click", function () {
+           $icon.attr('src', "");
+           $icondiv.hide();
+           $uploadbox.show();
         });
         $icon.on("click", function(){
             $galleryImg.attr("style", "background-image:url(" + $icon.attr("src")+")");
@@ -172,13 +202,16 @@
                 method: 'get',
                 data: {"phone": phone},
                 success: function () {
-                    alert("发送成功");
+                    hint("发送成功");
                     settime();
                 },
                 error: function () {
                     alert("发送失败")
                 }
             })
+        });
+        $dialog.on('click', '.weui-dialog__btn', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
         });
         function settime() {
             if ($countdown == 0) {
@@ -195,6 +228,18 @@
             setTimeout(function() {
                 settime();
             },1000);
+        }
+        function hint(msg) {
+            if ($toast.css('display') != 'none') return;
+            $content.text(msg);
+            $toast.fadeIn(100);
+            setTimeout(function () {
+                $toast.fadeOut(100);
+            }, 2000);
+        }
+        function alert(msg) {
+            $dialogContent.text(msg);
+            $dialog.fadeIn(100);
         }
     });
 

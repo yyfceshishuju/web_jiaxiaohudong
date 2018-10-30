@@ -1,7 +1,9 @@
 package com.jiaxiaohudong.controller;
 
+import com.jiaxiaohudong.entity.CommonUser;
 import com.jiaxiaohudong.entity.Userinfo;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -44,7 +46,7 @@ public class MainController {
         return "class";
     }
     @RequestMapping(value="/home.do", method = RequestMethod.GET)
-    public String home() {
+    public String home(Model model, HttpSession session) {
         return "home";
     }
 
