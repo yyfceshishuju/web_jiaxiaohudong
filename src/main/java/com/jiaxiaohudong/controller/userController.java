@@ -89,7 +89,7 @@ public class userController {
             orignName = "/img/logo.png";
         }else{
             // 获取文件名
-            String path = "/home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/upload";
+            String path = Translate.getPath(request);
             orignName = uploaderInput.getOriginalFilename();
             fileName = time + "." + orignName.substring(orignName.lastIndexOf(".") + 1);
             orignName = "/upload/" + fileName;

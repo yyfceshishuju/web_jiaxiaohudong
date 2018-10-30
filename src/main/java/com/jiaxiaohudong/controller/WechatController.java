@@ -26,11 +26,13 @@ import java.net.URLEncoder;
 @RequestMapping("/wechat")
 public class WechatController {
 
+    private static final String APPID = "wxcf5e5cc1055dd608";
+    private static final String SECRET = "bc00eedf0ff44bab004911579881347d";
 
     @RequestMapping(value = "/login")
     public void login(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         String url = "https://open.weixin.qq.com/connect/qrconnect?";
-        url += "appid=你的appid";
+        url += "appid=" + APPID;
 
 
         url += "&redirect_uri=" + URLEncoder.encode("http://jiaxiao.com/wechat/callBackLogin", "UTF-8");
@@ -56,8 +58,8 @@ public class WechatController {
 
 
         String url = "https://api.weixin.qq.com/sns/oauth2/access_token?";
-        url += "appid=你的appid";
-        url += "&secret=你的secret";
+        url += "appid=" + APPID;
+        url += "&secret=" + SECRET;
 
 
         url += "&code=" + code + "&grant_type=authorization_code";

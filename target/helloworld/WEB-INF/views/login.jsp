@@ -57,7 +57,7 @@
         </a>
         <div class="weui-loadmore weui-loadmore_line">
             <span class="weui-loadmore__tips">使用其他方式登录</span><br>
-            <a>
+            <a href="/wechat/login">
                 <img src="/img/wechat.png" class="circleImg" alt="微信登录" align="center" width="50" height="50">
             </a>
         </div>

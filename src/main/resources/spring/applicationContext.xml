@@ -119,13 +119,13 @@
     <!-- 定义无Controller的path<->view直接映射 -->
     <!-- <mvc:view-controller path="/" view-name="redirect:/" /> -->
     <!-- 配置拦截器 -->
-    <!--<mvc:interceptors>-->
-        <!--<mvc:interceptor>-->
-            <!--&lt;!&ndash; /**表示所有url包括子url路径 &ndash;&gt;-->
-            <!--<mvc:mapping path="/**.do"/>-->
-            <!--<mvc:exclude-mapping path="/login.do"/>-->
-            <!--<mvc:exclude-mapping path="/register.do"/>-->
-            <!--<bean class="com.jiaxiaohudong.interceptor.SysInterceptor"/>-->
-        <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- /**表示所有url包括子url路径 -->
+            <mvc:mapping path="/**.do"/>
+            <mvc:exclude-mapping path="/login.do"/>
+            <mvc:exclude-mapping path="/register.do"/>
+            <bean class="com.jiaxiaohudong.interceptor.SysInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

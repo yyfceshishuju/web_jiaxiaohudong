@@ -98,13 +98,13 @@
     <div class="weui-cell">
         <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
         <div class="weui-cell__bd">
-            <input  id="password" name="password" class="weui-input" type="tel" placeholder="请输入密码">
+            <input  id="password" name="password" class="weui-input" type="password" placeholder="请输入密码">
         </div>
     </div>
     <div class="weui-cell">
         <div class="weui-cell__hd"><label class="weui-label">确认密码</label></div>
         <div class="weui-cell__bd">
-            <input id="pw" name="pw" class="weui-input" type="tel" placeholder="请再次输入密码" >
+            <input id="pw" name="pw" class="weui-input" type="password" placeholder="请再次输入密码" >
         </div>
     </div>
 

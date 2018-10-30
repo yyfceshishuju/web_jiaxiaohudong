@@ -3,7 +3,6 @@ package com.jiaxiaohudong.controller;
 import com.jiaxiaohudong.entity.CommonUser;
 import com.jiaxiaohudong.dao.CommonStudentMapper;
 import com.jiaxiaohudong.entity.CommonStudent;
-import com.jiaxiaohudong.entity.Userinfo;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -182,7 +181,7 @@ public class MainController {
 
     @RequestMapping("/index.do")
     public String checkLogin(HttpSession session) {
-        Userinfo user = (Userinfo) session.getAttribute("userinfo");
+        CommonUser user = (CommonUser) session.getAttribute("userinfo");
         if(user == null){
             return "redirect:/login.do";
         }  else{
