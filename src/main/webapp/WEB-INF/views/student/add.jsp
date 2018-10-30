@@ -23,6 +23,7 @@
     </div>
 </div>
 
+<form action="/student/add" method="post" enctype="multipart/form-data">
 <div class="weui-cells weui-cells_form">
     <div class="weui-cells__title">学生详细信息</div>
     <div class="weui-cells weui-cells_form">
@@ -33,14 +34,18 @@
                     <ul class="weui-uploader__files" id="uploaderFiles">
                         <li class="weui-uploader__file"></li></ul>
                     <div class="weui-uploader__input-box">
-                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="" name="pictureFile">
                     </div>
                 </div>
             </div>
         </div>
         <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
-            <div class="weui-cell__bd weui-cell_primary"><input class="weui-input" type="text" placeholder="请输入姓名"></div>
+            <div class="weui-cell__bd weui-cell_primary"><input class="weui-input" type="text" placeholder="请输入姓名" name="username"></div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">学号</label></div>
+            <div class="weui-cell__bd weui-cell_primary"><input class="weui-input" type="text" placeholder="请输入学号" name="studentId"></div>
         </div>
         <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">性别</label></div>
@@ -50,7 +55,7 @@
                         <p>男</p>
                     </div>
                     <div class="weui-cell__ft">
-                        <input type="radio" class="weui-check" name="radio1" id="x11"/>
+                        <input type="radio" class="weui-check" name="radio1" value="男" id="x11"/>
                         <span class="weui-icon-checked"></span>
                     </div>
                 </label>
@@ -60,7 +65,7 @@
                         <p>女</p>
                     </div>
                     <div class="weui-cell__ft">
-                        <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked"/>
+                        <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked" value="女"/>
                         <span class="weui-icon-checked"></span>
                     </div>
                 </label>
@@ -71,7 +76,7 @@
                 <label class="weui-label">手机号</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="tel" placeholder="请输入手机号"/>
+                <input class="weui-input" type="tel" placeholder="请输入手机号" name="phoneNum"/>
             </div>
         </div>
         <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -91,8 +96,10 @@
 
 </div>
 <br>
-<a href="javascript:;" class="weui-btn weui-btn_plain-primary">确认上传</a>
+<%--<a href="javascript:;" class="weui-btn weui-btn_plain-primary">确认上传</a>--%>
+    <input type = "submit" value = "确认上传" class="weui-btn weui-btn_plain-primary">
 </div>
+</form>
 
 
 <script type="text/html" id="tpl_gallery">

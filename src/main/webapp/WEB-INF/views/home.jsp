@@ -12,6 +12,38 @@
 <head lang="en">
     <title>家校社区</title>
     <%@include file="common/header.jsp"%>
+    <style>
+        #div_grad1{cursor: pointer;}
+        #div_grad1:hover{
+            -webkit-box-shadow: #ccc 0px 10px 10px;
+            -moz-box-shadow: #ccc 0px 10px 10px;
+            box-shadow: #ccc 0px 10px 10px; }
+        #div_grad2{cursor: pointer;}
+        #div_grad2:hover{
+            -webkit-box-shadow: #ccc 0px 10px 10px;
+            -moz-box-shadow: #ccc 0px 10px 10px;
+            box-shadow: #ccc 0px 10px 10px; }
+        #div_grad3{cursor: pointer;}
+        #div_grad3:hover{
+            -webkit-box-shadow: #ccc 0px 10px 10px;
+            -moz-box-shadow: #ccc 0px 10px 10px;
+            box-shadow: #ccc 0px 10px 10px; }
+        #div_grad4{cursor: pointer;}
+        #div_grad4:hover{
+            -webkit-box-shadow: #ccc 0px 10px 10px;
+            -moz-box-shadow: #ccc 0px 10px 10px;
+            box-shadow: #ccc 0px 10px 10px; }
+        #div_grad5{cursor: pointer;}
+        #div_grad5:hover{
+            -webkit-box-shadow: #ccc 0px 10px 10px;
+            -moz-box-shadow: #ccc 0px 10px 10px;
+            box-shadow: #ccc 0px 10px 10px; }
+        #div_grad6{cursor: pointer;}
+        #div_grad6:hover{
+            -webkit-box-shadow: #ccc 0px 10px 10px;
+            -moz-box-shadow: #ccc 0px 10px 10px;
+            box-shadow: #ccc 0px 10px 10px; }
+    </style>
 </head>
 <body>
 
@@ -152,12 +184,12 @@
         <div class="weui-mask"></div>
         <div class="weui-actionsheet">
             <div class="weui-actionsheet__menu">
-                <div class="weui-actionsheet__cell">一年级</div>
-                <div class="weui-actionsheet__cell">二年级</div>
-                <div class="weui-actionsheet__cell">三年级</div>
-                <div class="weui-actionsheet__cell">四年级</div>
-                <div class="weui-actionsheet__cell">五年级</div>
-                <div class="weui-actionsheet__cell">六年级</div>
+                <div class="weui-actionsheet__cell" id="div_grad1">一年级</div>
+                <div class="weui-actionsheet__cell" id="div_grad2">二年级</div>
+                <div class="weui-actionsheet__cell" id="div_grad3">三年级</div>
+                <div class="weui-actionsheet__cell" id="div_grad4">四年级</div>
+                <div class="weui-actionsheet__cell" id="div_grad5">五年级</div>
+                <div class="weui-actionsheet__cell" id="div_grad6">六年级</div>
             </div>
         </div>
     </div>
@@ -191,6 +223,157 @@
             $androidActionSheet.fadeIn(200);
             $androidMask.on('click',function () {
                 $androidActionSheet.fadeOut(200);
+            });
+        });
+
+        $('#div_grad1').click(function () {
+            $.ajax({
+                //提交数据的类型 POST GET
+                type:"POST",
+                //提交的网址
+                url:"/home",
+                //提交的数据
+                data:{
+                    grad:$("#div_grad1").text()
+                },
+                //返回数据的格式
+                dataType: "json",
+                //成功返回之后调用的函数
+                success:function (data){
+                    console.log(data['result']);
+                },
+                complete:function(){
+                    $androidActionSheet.fadeOut(200);
+                },
+                //调用出错执行的函数
+                error: function(error){
+                    console.log("ajax error : "+error);
+                }
+            });
+        });
+        $('#div_grad2').click(function () {
+            $.ajax({
+                //提交数据的类型 POST GET
+                type:"POST",
+                //提交的网址
+                url:"/home",
+                //提交的数据
+                data:{
+                    grad:$("#div_grad2").text()
+                },
+                //返回数据的格式
+                dataType: "json",
+                //成功返回之后调用的函数
+                success:function (data){
+                    console.log(data['result']);
+                },
+                complete:function(){
+                    $androidActionSheet.fadeOut(200);
+                },
+                //调用出错执行的函数
+                error: function(error){
+                    console.log("ajax error : "+error);
+                }
+            });
+        });
+        $('#div_grad3').click(function () {
+            $.ajax({
+                //提交数据的类型 POST GET
+                type:"POST",
+                //提交的网址
+                url:"/home",
+                //提交的数据
+                data:{
+                    grad:$("#div_grad3").text()
+                },
+                //返回数据的格式
+                dataType: "json",
+                //成功返回之后调用的函数
+                success:function (data){
+                    console.log(data['result']);
+                },
+                complete:function(){
+                    $androidActionSheet.fadeOut(200);
+                },
+                //调用出错执行的函数
+                error: function(error){
+                    console.log("ajax error : "+error);
+                }
+            });
+        });
+        $('#div_grad4').click(function () {
+            $.ajax({
+                //提交数据的类型 POST GET
+                type:"POST",
+                //提交的网址
+                url:"/home",
+                //提交的数据
+                data:{
+                    grad:$("#div_grad4").text()
+                },
+                //返回数据的格式
+                dataType: "json",
+                //成功返回之后调用的函数
+                success:function (data){
+                    console.log(data['result']);
+                },
+                complete:function(){
+                    $androidActionSheet.fadeOut(200);
+                },
+                //调用出错执行的函数
+                error: function(error){
+                    console.log("ajax error : "+error);
+                }
+            });
+        });
+        $('#div_grad5').click(function () {
+            $.ajax({
+                //提交数据的类型 POST GET
+                type:"POST",
+                //提交的网址
+                url:"/home",
+                //提交的数据
+                data:{
+                    grad:$("#div_grad5").text()
+                },
+                //返回数据的格式
+                dataType: "json",
+                //成功返回之后调用的函数
+                success:function (data){
+                    console.log(data['result']);
+                },
+                complete:function(){
+                    $androidActionSheet.fadeOut(200);
+                },
+                //调用出错执行的函数
+                error: function(error){
+                    console.log("ajax error : "+error);
+                }
+            });
+        });
+        $('#div_grad6').click(function () {
+            $.ajax({
+                //提交数据的类型 POST GET
+                type:"POST",
+                //提交的网址
+                url:"/home",
+                //提交的数据
+                data:{
+                    grad:$("#div_grad6").text()
+                },
+                //返回数据的格式
+                dataType: "json",
+                //成功返回之后调用的函数
+                success:function (data){
+                    console.log(data['result']);
+                },
+                complete:function(){
+                    $androidActionSheet.fadeOut(200);
+                },
+                //调用出错执行的函数
+                error: function(error){
+                    console.log("ajax error : "+error);
+                }
             });
         });
     });
