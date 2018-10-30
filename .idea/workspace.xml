@@ -8,14 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="564837ab-6f3e-4e62-8cc5-5955029a5218" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/WechatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/WechatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/userController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/userController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jiaxiaohudong/controller/userController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jiaxiaohudong/controller/userController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/com/jiaxiaohudong/controller/userController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/com/jiaxiaohudong/controller/userController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/helloworld/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/helloworld/WEB-INF/views/login.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,31 +27,35 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="3" />
-          <entry key="jsp" value="1" />
+          <entry key="java" value="4" />
+          <entry key="jsp" value="2" />
           <entry key="properties" value="1" />
+          <entry key="sql" value="2" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="3" />
-          <entry key="JSP" value="1" />
+          <entry key="JAVA" value="4" />
+          <entry key="JSP" value="2" />
           <entry key="Properties" value="1" />
+          <entry key="SQL" value="2" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="167" />
-          <entry key="jsp" value="5" />
+          <entry key="java" value="232" />
+          <entry key="jsp" value="14" />
+          <entry key="txt" value="5" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="167" />
-          <entry key="JSP" value="5" />
+          <entry key="JAVA" value="232" />
+          <entry key="JSP" value="14" />
+          <entry key="PLAIN_TEXT" value="5" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -82,8 +79,27 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+            <state relative-caret-position="377">
+              <caret line="55" column="54" lean-forward="true" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sql.sql">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/home_school.sql">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="106" column="70" selection-start-line="106" selection-start-column="70" selection-end-line="106" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -97,23 +113,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/userController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="103" selection-start-line="103" selection-end-line="103" />
+            <state relative-caret-position="896">
+              <caret line="94" column="46" lean-forward="true" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="127" column="31" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -127,9 +134,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/WechatController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/util/Translate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/userController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
       </list>
     </option>
   </component>
@@ -184,6 +193,30 @@
               <item name="web_jiaxiaohudong" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hellobeijing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web_jiaxiaohudong" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jiaxiaohudong" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hellobeijing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web_jiaxiaohudong" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jiaxiaohudong" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hellobeijing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web_jiaxiaohudong" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -196,7 +229,7 @@
     <property name="SearchEverywhereHistoryKey" value="regi&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/register.jsp&#10;contex&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/resources/spring/applicationContext.xml&#10;login.&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/login.jsp&#10;send&#9;PSI&#9;JAVA://com.jiaxiaohudong.util.SendMessage&#10;wec&#9;PSI&#9;JAVA://com.jiaxiaohudong.controller.WechatController&#10;user&#9;PSI&#9;JAVA://com.jiaxiaohudong.controller.userController&#10;pom.&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/pom.xml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540891151920" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540891788960" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -299,7 +332,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540886141965</updated>
-      <workItem from="1540886143329" duration="4894000" />
+      <workItem from="1540886143329" duration="5531000" />
     </task>
     <task id="LOCAL-00001" summary="Merge remote-tracking branch 'origin/dev-stu'&#10;&#10;# Conflicts:&#10;#&#9;.idea/compiler.xml&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/jiaxiaohudong/controller/MainController.java&#10;#&#9;target/classes/com/jiaxiaohudong/baidu_service/Sample.class&#10;#&#9;target/classes/com/jiaxiaohudong/controller/userController.class&#10;#&#9;target/helloworld/META-INF/MANIFEST.MF&#10;#&#9;target/helloworld/WEB-INF/classes/com/jiaxiaohudong/baidu_service/Sample.class&#10;#&#9;target/helloworld/WEB-INF/classes/com/jiaxiaohudong/controller/userController.class&#10;#&#9;target/helloworld/WEB-INF/views/login.jsp&#10;#&#9;target/helloworld/WEB-INF/views/register.jsp">
       <created>1540886747221</created>
@@ -308,11 +341,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540886747221</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="login">
+      <created>1540891395915</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1540891395915</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4894000" />
+    <option name="totallyTimeSpent" value="5531000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
@@ -324,7 +364,7 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
       <window_info id="Web" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2498621" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2498621" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Application Servers" weight="0.3298647" />
       <window_info anchor="bottom" id="Spring" />
@@ -337,7 +377,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.6961498" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39958376" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39958376" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -360,7 +400,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge remote-tracking branch 'origin/dev-stu'&#10;&#10;# Conflicts:&#10;#&#9;.idea/compiler.xml&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/jiaxiaohudong/controller/MainController.java&#10;#&#9;target/classes/com/jiaxiaohudong/baidu_service/Sample.class&#10;#&#9;target/classes/com/jiaxiaohudong/controller/userController.class&#10;#&#9;target/helloworld/META-INF/MANIFEST.MF&#10;#&#9;target/helloworld/WEB-INF/classes/com/jiaxiaohudong/baidu_service/Sample.class&#10;#&#9;target/helloworld/WEB-INF/classes/com/jiaxiaohudong/controller/userController.class&#10;#&#9;target/helloworld/WEB-INF/views/login.jsp&#10;#&#9;target/helloworld/WEB-INF/views/register.jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/dev-stu'&#10;&#10;# Conflicts:&#10;#&#9;.idea/compiler.xml&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/jiaxiaohudong/controller/MainController.java&#10;#&#9;target/classes/com/jiaxiaohudong/baidu_service/Sample.class&#10;#&#9;target/classes/com/jiaxiaohudong/controller/userController.class&#10;#&#9;target/helloworld/META-INF/MANIFEST.MF&#10;#&#9;target/helloworld/WEB-INF/classes/com/jiaxiaohudong/baidu_service/Sample.class&#10;#&#9;target/helloworld/WEB-INF/classes/com/jiaxiaohudong/controller/userController.class&#10;#&#9;target/helloworld/WEB-INF/views/login.jsp&#10;#&#9;target/helloworld/WEB-INF/views/register.jsp" />
+    <MESSAGE value="login" />
+    <option name="LAST_COMMIT_MESSAGE" value="login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -485,10 +526,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/WechatController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+        <state relative-caret-position="390">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
@@ -499,22 +540,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/WechatController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/util/Translate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/userController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        <state relative-caret-position="896">
+          <caret line="94" column="46" lean-forward="true" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="106" column="70" selection-start-line="106" selection-start-column="70" selection-end-line="106" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="55" column="54" lean-forward="true" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home_school.sql">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
