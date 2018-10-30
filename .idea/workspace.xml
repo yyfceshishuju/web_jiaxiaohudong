@@ -267,7 +267,7 @@
     <property name="SearchEverywhereHistoryKey" value="user.js&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/user.jsp&#10;main&#9;PSI&#9;JAVA://com.jiaxiaohudong.controller.MainController&#10;home&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/home.jsp&#10;commonser&#9;PSI&#9;JAVA://com.jiaxiaohudong.service.impl.CommonUserServiceImpl&#10;user&#9;PSI&#9;JAVA://com.jiaxiaohudong.controller.userController&#10;login.&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/login.jsp&#10;regis&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/register.jsp" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540884176018" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540884293361" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>

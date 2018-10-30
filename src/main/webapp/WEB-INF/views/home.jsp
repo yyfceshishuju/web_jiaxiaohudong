@@ -169,7 +169,8 @@
             $icon = $("#icon"),
             $name = $("#name"),
             $type = $("#type"),
-            $userUrl = "/user/info"
+            $userUrl = "/user/info",
+            $loginUrl = "/login.do"
         ;
         $.ajax({
             url: $userUrl,
@@ -182,7 +183,7 @@
             },
             error: function () {
                 alert("请重新登录");
-                window.location.href = "/login.do"
+                window.location.href = $loginUrl
             }
 
         });

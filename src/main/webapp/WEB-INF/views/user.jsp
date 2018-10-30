@@ -76,7 +76,7 @@
             },
             error: function () {
                 alert("请重新登录");
-                window.location.href = "/login.do"
+                window.location.href = $loginUrl
             }
 
         });
