@@ -31,7 +31,7 @@
     <span class="weui-gallery__img" id="galleryImg"></span>
     <div class="weui-gallery__opr">
         <a href="javascript:" class="weui-gallery__del">
-            <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+            <i class="weui-icon-delete weui-icon_gallery-delete delete"></i>
         </a>
     </div>
 </div>
@@ -45,7 +45,10 @@
             <div class="weui-cell__hd"><label class="weui-label">上传头像</label></div>
             <div class="weui-uploader">
                 <div class="weui-uploader__bd">
-                    <img id="icon" class="weui-uploader__file" alt="头像" hidden>
+                    <div id="icondiv" class="weui-cell__hd" style="position: relative;margin-right: 10px;" hidden>
+                        <img  id="icon" class="weui-uploader__file" alt="头像"  style="width: 50px;display: block">
+                        <span class="weui-badge delete" style="position: absolute;top: -.4em;right: -.4em;">x</span>
+                    </div>
                     <div class="weui-uploader__input-box" id="uploadbox">
                         <input id="uploaderInput" name="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="" >
                     </div>
@@ -100,7 +103,8 @@
         var $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
             $uploaderInput = $("#uploaderInput"),
             $icon = $("#icon"),
-            $icondelete = $(".weui-icon_gallery-delete"),
+            $icondiv = $("#icondiv"),
+            $icondelete = $(".delete"),
             $uploadbox = $("#uploadbox"),
             $pw = $("#pw"),
             $password = $("#password"),
@@ -147,9 +151,14 @@
                     src = e.target.result;
                 }
                 $icon.attr('src', src);
-                $icon.show();
+                $icondiv.show();
                 $uploadbox.hide();
             }
+        });
+        $icondelete.on("click", function () {
+           $icon.attr('src', "");
+           $icondiv.hide();
+           $uploadbox.show();
         });
         $icon.on("click", function(){
             $galleryImg.attr("style", "background-image:url(" + $icon.attr("src")+")");
