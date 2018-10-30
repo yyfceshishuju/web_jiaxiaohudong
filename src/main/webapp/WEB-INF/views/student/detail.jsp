@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lcf12307
@@ -27,44 +28,54 @@
         </div>
         <div class="weui-cell__ft">
             <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*"  multiple="">
-            <img class="circleImg" src="/img/logo.png"  />
+            <%--<img class="circleImg" src="/img/logo.png"  />--%>
+            <img class="circleImg" src="http://localhost:8080/${stu.icon}"/>
         </div>
     </a>
     <a class="weui-cell weui-cell_access" href="javascript:;">
         <div class="weui-cell__bd">
             <p>名字</p>
         </div>
-        <div class="weui-cell__ft">小明同学</div>
+        <div class="weui-cell__ft">${stu.name}</div>
     </a>
     <a class="weui-cell weui-cell_access" href="javascript:;">
         <div class="weui-cell__bd">
             <p>性别</p>
         </div>
-        <div class="weui-cell__ft">男</div>
+        <div class="weui-cell__ft">
+            <c:choose>
+                <c:when test="${stu.sex == 0}">
+                    男
+                </c:when>
+                <c:otherwise>
+                    女
+                </c:otherwise>
+            </c:choose>
+        </div>
     </a>
     <a class="weui-cell weui-cell_access" href="javascript:;">
         <div class="weui-cell__bd">
             <p>手机号</p>
         </div>
-        <div class="weui-cell__ft">13121152878</div>
+        <div class="weui-cell__ft">${stu.phone}</div>
     </a>
     <a class="weui-cell weui-cell_access" href="javascript:;">
         <div class="weui-cell__bd">
             <p>老师</p>
         </div>
-        <div class="weui-cell__ft">小名的老师</div>
+        <div class="weui-cell__ft">${stu.tid}</div>
     </a>
     <a class="weui-cell weui-cell_access" href="javascript:;">
         <div class="weui-cell__bd">
             <p>学号</p>
         </div>
-        <div class="weui-cell__ft">1</div>
+        <div class="weui-cell__ft">${stu.studentid}</div>
     </a>
     <a class="weui-cell weui-cell_access" href="javascript:;">
         <div class="weui-cell__bd">
             <p>年级</p>
         </div>
-        <div class="weui-cell__ft">4</div>
+        <div class="weui-cell__ft">${stu.grad}</div>
     </a>
 </div>
 
