@@ -62,7 +62,8 @@
         var $icon = $("#icon"),
             $name = $("#name"),
             $type = $("#type"),
-            $userUrl = "/user/info"
+            $userUrl = "/user/info",
+            $loginUrl = "/login.do"
         ;
         $.ajax({
             url: $userUrl,
