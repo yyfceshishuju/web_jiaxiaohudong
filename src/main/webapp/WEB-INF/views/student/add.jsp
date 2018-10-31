@@ -23,7 +23,7 @@
     </div>
 </div>
 
-<form action="/student/add" method="post" enctype="multipart/form-data">
+<form action="/student/add" method="post" enctype="multipart/form-data" onsubmit="return checkNull()" id="formadd">
 <div class="weui-cells weui-cells_form">
     <div class="weui-cells__title">学生详细信息</div>
     <div class="weui-cells weui-cells_form">
@@ -119,4 +119,26 @@
     </div>
 </script>
 </body>
+
+<script type="application/javascript">
+    checkNull = function () {
+        // console.log($("input[name='username']").val());
+        if(!$("input[name='username']").val()){
+            alert("请填写姓名");
+            return false;
+        }
+        if(!$("input[name='studentId']").val()){
+            alert("请填写学号");
+            return false;
+        }
+
+        var phNum = $("input[name='phoneNum']").val();
+        if(!(/^1[34578]\d{9}$/.test(phNum))){
+            alert("电话填写有误");
+            return false;
+        }
+
+        return true;
+    }
+</script>
 </html>
