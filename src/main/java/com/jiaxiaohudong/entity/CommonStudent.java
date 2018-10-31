@@ -51,6 +51,9 @@ public class CommonStudent {
         this.name = name;
     }
 
+    public CommonStudent() {
+    }
+
     public String getStudentid() {
         return studentid;
     }
