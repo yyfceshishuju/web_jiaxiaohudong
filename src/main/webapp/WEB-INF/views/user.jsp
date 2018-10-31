@@ -26,36 +26,61 @@
             <p>头像</p>
         </div>
         <div class="weui-cell__ft">
-            <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*"  multiple="">
-            <img class="circleImg" src="/img/logo.png"  />
+            <%--<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*"  multiple="">--%>
+            <img id="icon" class="circleImg" src="/img/logo.png"  />
         </div>
     </a>
     <a class="weui-cell weui-cell_access" href="javascript:;">
         <div class="weui-cell__bd">
             <p>名字</p>
         </div>
-        <div class="weui-cell__ft">小明的爸爸</div>
+        <div class="weui-cell__ft" id="name">小明的爸爸</div>
     </a>
 
-    <a class="weui-cell weui-cell_access" href="javascript:;">
-        <div class="weui-cell__bd">
-            <p>老师</p>
-        </div>
-        <div class="weui-cell__ft">小名的老师</div>
-    </a>
+    <%--<a class="weui-cell weui-cell_access" href="javascript:;">--%>
+        <%--<div class="weui-cell__bd">--%>
+            <%--<p>老师</p>--%>
+        <%--</div>--%>
+        <%--<div class="weui-cell__ft">小名的老师</div>--%>
+    <%--</a>--%>
 
     <a class="weui-cell weui-cell_access" href="javascript:;">
         <div class="weui-cell__bd">
             <p>身份</p>
         </div>
-        <div class="weui-cell__ft">家长</div>
+        <div class="weui-cell__ft" id="type">家长</div>
     </a>
-    <a class="weui-cell weui-cell_access" href="javascript:;">
-        <div class="weui-cell__bd">
-            <p>修改密码</p>
-        </div>
-    </a>
+    <%--<a class="weui-cell weui-cell_access" href="javascript:;">--%>
+        <%--<div class="weui-cell__bd">--%>
+            <%--<p>修改密码</p>--%>
+        <%--</div>--%>
+    <%--</a>--%>
 </div>
-<a href="javascript:;" class="weui-btn weui-btn_plain-primary">退出登录</a>
+<a href="/user/logout" class="weui-btn weui-btn_plain-primary">退出登录</a>
+<script type="application/javascript">
+    $(function () {
+        var $icon = $("#icon"),
+            $name = $("#name"),
+            $type = $("#type"),
+            $userUrl = "/user/info",
+            $loginUrl = "/login.do"
+        ;
+        $.ajax({
+            url: $userUrl,
+            method: "get",
+            success: function (data) {
+                $icon.attr("src", data.icon);
+                $name.text(data.name);
+                $type.text(data.type);
+
+            },
+            error: function () {
+                alert("请重新登录");
+                window.location.href = $loginUrl
+            }
+
+        });
+    })
+</script>
 </body>
 </html>

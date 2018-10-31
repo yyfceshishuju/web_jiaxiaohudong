@@ -13,6 +13,8 @@ public interface CommonStudentMapper {
 
     CommonStudent selectByPrimaryKey(Integer id);
 
+    CommonStudent selectByStudentId(String stuId);
+
     int updateByPrimaryKeySelective(CommonStudent record);
 
     int updateByPrimaryKey(CommonStudent record);

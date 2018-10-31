@@ -1,14 +1,9 @@
 package com.jiaxiaohudong.controller;
 
-import com.jiaxiaohudong.baidu_service.Sample;
 import com.jiaxiaohudong.entity.CommonUser;
-import com.jiaxiaohudong.entity.Userinfo;
 import com.jiaxiaohudong.service.CommonUserService;
-import com.jiaxiaohudong.service.UserinfoService;
-import com.jiaxiaohudong.util.Encryption;
 import com.jiaxiaohudong.util.R;
-import com.jiaxiaohudong.util.SendMessage;
-import org.apache.ibatis.annotations.Param;
+import com.jiaxiaohudong.util.Translate;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,10 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by yyf on 2018/10/17.
@@ -31,35 +23,21 @@ import java.util.List;
 @RequestMapping("/user")
 public class userController {
     @Autowired
-    private UserinfoService userService;
-    @Autowired
     private CommonUserService cuService;
 
-    @RequestMapping(value="/login.do", method = RequestMethod.GET)
-    public String login() {
-        return "login";
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginValidate(HttpSession session, Model model, @ModelAttribute Userinfo user) {
-        List<Userinfo> list = new ArrayList<Userinfo>();
-        Userinfo record  = new Userinfo();
-        record.setName(user.getName());
-        list = userService.selectSelective(record);
-        if (list.size() == 0) {
-            model.addAttribute("status", 1);
-        } else {
-            record.setPw(Encryption.MD5(user.getPw()));
-            list = userService.selectSelective(record);
-            if (list.size() == 0) {
-                model.addAttribute("status", 2);
-            }
-            record = list.get(0);
-            session.setAttribute("userinfo", record);
-            model.addAttribute("status", 0);
+    @ResponseBody
+    public R loginValidate(HttpSession session, Model model, long phone, String password) {
+        CommonUser user =  cuService.selectByPhone(phone);
+        if ( null == user){
+            return R.error(-1, "该用户不存在");
         }
+        if (! user.getPassword().equals(password)){
+            return R.error(-2, "密码输入错误");
+        }
+        session.setAttribute("userinfo", user);
 
-        return "login";
+        return R.ok("登录成功");
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -69,14 +47,20 @@ public class userController {
         return "login";
     }
 
-    @RequestMapping(value="/userInfo", method = RequestMethod.GET)
-    public String userInfo(Model model, HttpSession session) {
-        Userinfo user = (Userinfo) session.getAttribute("userinfo");
+    @RequestMapping(value="/info", method = RequestMethod.GET)
+    @ResponseBody
+    public R userInfo(HttpSession session) {
+        CommonUser user = (CommonUser) session.getAttribute("userinfo");
         if(user != null){
-            model.addAttribute("user", user);
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("name", user.getName());
+            map.put("icon", user.getIcon());
+            map.put("phone", user.getPhone());
+            map.put("type", Translate.getType(user.getType()));
+            return R.ok(map);
         }
 
-        return "userInfo";
+        return R.error(-4, "用户未登录");
     }
 
 
@@ -97,7 +81,7 @@ public class userController {
             orignName = "/img/logo.png";
         }else{
             // 获取文件名
-            String path = "/home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/upload";
+            String path = Translate.getPath(request);
             orignName = uploaderInput.getOriginalFilename();
             fileName = time + "." + orignName.substring(orignName.lastIndexOf(".") + 1);
             orignName = "/upload/" + fileName;

@@ -5,6 +5,8 @@ public class CommonStudent {
 
     private String name;
 
+    private String studentid;
+
     private String icon;
 
     private Long phone;
@@ -41,6 +43,14 @@ public class CommonStudent {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getStudentid() {
+        return studentid;
+    }
+
+    public void setStudentid(String studentid) {
+        this.studentid = studentid;
     }
 
     public String getIcon() {

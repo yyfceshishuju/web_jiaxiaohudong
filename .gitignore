@@ -1,7 +1,8 @@
-/target/*
-/.git/*
-/.idea/*
-/hellobeijing.iml
-/META-INF
+target/*
+.git/*
+.idea/*
+*.iml
 !.gitignore
-/*.stackdump
+src/main/resources/jdbc.properties
+src/main/resources/generator.properties
+*.stackdump

@@ -4,6 +4,7 @@
   <resultMap id="studentResult" type="com.jiaxiaohudong.entity.CommonStudent" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="studentId" property="studentid" jdbcType="VARCHAR" />
     <result column="icon" property="icon" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="BIGINT" />
     <result column="birthday" property="birthday" jdbcType="INTEGER" />
@@ -17,8 +18,8 @@
     <result column="grad" property="grad" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, icon, phone, birthday, sex, pid, tid, question, answer, addtime, status, 
-    grad
+    id, name, studentId, icon, phone, birthday, sex, pid, tid, question, answer, addtime, 
+    status, grad
   </sql>
   <select id="selectByPrimaryKey" resultMap="studentResult" parameterType="java.lang.Integer" >
     select 
@@ -26,19 +27,25 @@
     from common_student
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByStudentId" resultMap="studentResult" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from common_student
+    where studentId = #{studentId,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from common_student
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.jiaxiaohudong.entity.CommonStudent" >
-    insert into common_student (id, name, icon, 
-      phone, birthday, sex, 
-      pid, tid, question, 
+    insert into common_student (id, name, studentId, 
+      icon, phone, birthday, 
+      sex, pid, tid, question, 
       answer, addtime, status, 
       grad)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=BIGINT}, #{birthday,jdbcType=INTEGER}, #{sex,jdbcType=TINYINT}, 
-      #{pid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{question,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{studentid,jdbcType=VARCHAR}, 
+      #{icon,jdbcType=VARCHAR}, #{phone,jdbcType=BIGINT}, #{birthday,jdbcType=INTEGER}, 
+      #{sex,jdbcType=TINYINT}, #{pid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{question,jdbcType=INTEGER}, 
       #{answer,jdbcType=INTEGER}, #{addtime,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, 
       #{grad,jdbcType=TINYINT})
   </insert>
@@ -50,6 +57,9 @@
       </if>
       <if test="name != null" >
         name,
+      </if>
+      <if test="studentid != null" >
+        studentId,
       </if>
       <if test="icon != null" >
         icon,
@@ -92,6 +102,9 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
+      <if test="studentid != null" >
+        #{studentid,jdbcType=VARCHAR},
+      </if>
       <if test="icon != null" >
         #{icon,jdbcType=VARCHAR},
       </if>
@@ -133,6 +146,9 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
+      <if test="studentid != null" >
+        studentId = #{studentid,jdbcType=VARCHAR},
+      </if>
       <if test="icon != null" >
         icon = #{icon,jdbcType=VARCHAR},
       </if>
@@ -172,6 +188,7 @@
   <update id="updateByPrimaryKey" parameterType="com.jiaxiaohudong.entity.CommonStudent" >
     update common_student
     set name = #{name,jdbcType=VARCHAR},
+      studentId = #{studentid,jdbcType=VARCHAR},
       icon = #{icon,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=BIGINT},
       birthday = #{birthday,jdbcType=INTEGER},
