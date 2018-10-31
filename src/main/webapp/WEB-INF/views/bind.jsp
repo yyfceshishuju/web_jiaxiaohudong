@@ -22,7 +22,15 @@
     </div>
 </div>
 
-<form action="/bind" method="post" enctype="multipart/form-data">
+<div id="toast" style="display: none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content"></p>
+    </div>
+</div>
+
+<form action="/bind" method="post" enctype="multipart/form-data" onsubmit="return checkNull()">
 <div class="weui-cells weui-cells_form">
     <div class="weui-cells__title">开始绑定</div>
     <div class="weui-cells weui-cells_form">
@@ -50,6 +58,42 @@
     <c:if test="$(info != null)">${info}</c:if>
 </form>
 
+<script type="text/javascript">
+    $(function () {
+        var $toast = $("#toast"),
+            $content = $(".weui-toast__content");
 
+        var info = "${info}";
+        if(info == "success"){
+            hint("绑定成功");
+        }
+        else if(info == "failed"){
+            alert("绑定失败");
+        }
+
+        checkNull = function () {
+            if(!$("input[name='studentId']").val()){
+                alert("请填写学号");
+                return false;
+            }
+            var phNum = $("input[name='phoneNum']").val();
+            if(!(/^1[34578]\d{9}$/.test(phNum))){
+                alert("电话填写有误");
+                return false;
+            }
+            return true;
+        };
+
+        function hint(msg) {
+            if ($toast.css('display') != 'none') return;
+            $content.text(msg);
+            $toast.fadeIn(100);
+            setTimeout(function () {
+                $toast.fadeOut(100);
+            }, 1000);
+        }
+    });
+
+</script>
 </body>
 </html>
