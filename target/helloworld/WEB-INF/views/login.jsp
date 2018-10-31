@@ -53,7 +53,7 @@
             </div>
         </form>
         <a href="/register.do">
-            <div class="weui-cells__tips">注册新账号</div>
+            <div class="weui-cells__tips">注册家长账号</div>
         </a>
         <div class="weui-loadmore weui-loadmore_line">
             <span class="weui-loadmore__tips">使用其他方式登录</span><br>

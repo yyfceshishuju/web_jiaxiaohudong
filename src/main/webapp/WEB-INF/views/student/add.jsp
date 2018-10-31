@@ -79,19 +79,19 @@
                 <input class="weui-input" type="tel" placeholder="请输入手机号" name="phoneNum"/>
             </div>
         </div>
-        <div class="weui-cell weui-cell_select weui-cell_select-after">
-            <div class="weui-cell__hd"><label class="weui-label">年级</label></div>
-            <div class="weui-cell__bd">
-                <select class="weui-select" name="select2">
-                    <option value="1">一年级</option>
-                    <option value="2">二年级</option>
-                    <option value="3">三年级</option>
-                    <option value="4">四年级</option>
-                    <option value="5">五年级</option>
-                    <option value="6">六年级</option>
-                </select>
-            </div>
-        </div>
+        <%--<div class="weui-cell weui-cell_select weui-cell_select-after">--%>
+            <%--<div class="weui-cell__hd"><label class="weui-label">年级</label></div>--%>
+            <%--<div class="weui-cell__bd">--%>
+                <%--<select class="weui-select" name="select2">--%>
+                    <%--<option value="1">一年级</option>--%>
+                    <%--<option value="2">二年级</option>--%>
+                    <%--<option value="3">三年级</option>--%>
+                    <%--<option value="4">四年级</option>--%>
+                    <%--<option value="5">五年级</option>--%>
+                    <%--<option value="6">六年级</option>--%>
+                <%--</select>--%>
+            <%--</div>--%>
+        <%--</div>--%>
     </div>
 
 </div>

@@ -47,6 +47,7 @@
 <%--<a href="javascript:;" class="weui-btn weui-btn_plain-primary">开始绑定</a>--%>
     <input type = "submit" value = "开始绑定" class="weui-btn weui-btn_plain-primary">
 </div>
+    <c:if test="$(info != null)">${info}</c:if>
 </form>
 
 

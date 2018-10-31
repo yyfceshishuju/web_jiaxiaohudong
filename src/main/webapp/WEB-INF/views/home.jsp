@@ -239,7 +239,7 @@
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad1").text()
@@ -264,7 +264,7 @@
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad2").text()
@@ -289,7 +289,7 @@
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad3").text()
@@ -314,7 +314,7 @@
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad4").text()
@@ -339,7 +339,7 @@
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad5").text()
@@ -364,7 +364,7 @@
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad6").text()
