@@ -101,6 +101,13 @@
                         </div>
                         <p class="weui-grid__label">学生错题库</p>
                     </a>
+                    <a href="/report/score.do" class="weui-grid">
+                        <div class="weui-grid__icon">
+                            <img src="/img/score.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">每周评价</p>
+                    </a>
+
                     <a href="/student/add.do" class="weui-grid">
                         <div class="weui-grid__icon">
                             <img src="/img/add_student.png" alt="">
@@ -156,6 +163,7 @@
                         </div>
                         <p class="weui-grid__label">绑定学生</p>
                     </a>
+
                     <a href="/user.do" class="weui-grid">
                         <div class="weui-grid__icon">
                             <img src="/img/student.png" alt="">

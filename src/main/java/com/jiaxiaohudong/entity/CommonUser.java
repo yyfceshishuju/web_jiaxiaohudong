@@ -25,6 +25,15 @@ public class CommonUser {
 
     }
 
+    public CommonUser(String name, String icon, String openid, Long addtime, Byte status, Byte type) {
+        this.name = name;
+        this.icon = icon;
+        this.openid = openid;
+        this.addtime = addtime;
+        this.status = status;
+        this.type = type;
+    }
+
     public CommonUser(String name, String icon, Long phone, String openid, String password, Long addtime, Byte status, Byte type) {
 
         this.name = name;
