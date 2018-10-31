@@ -49,7 +49,7 @@ public class ImageController {
         String result = "";
         for (Object o: list){
             HashMap jo = (HashMap)o;
-            result = result + jo.get("words").toString() + "\n\t";
+            result = result + jo.get("words").toString() + "\n";
 
         }
         map.put("result.size",result.getBytes().length);

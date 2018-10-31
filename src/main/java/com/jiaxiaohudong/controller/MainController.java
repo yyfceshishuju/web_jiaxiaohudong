@@ -100,64 +100,6 @@ public class MainController {
         return "student/add";
     }
 
-    @RequestMapping(value = "/student/add", method = RequestMethod.POST)
-    public String addStu(HttpServletRequest request, CommonStudent student, MultipartFile pictureFile) throws Exception {
-        //使用UUID给图片重命名，并去掉四个“-”
-        String name = UUID.randomUUID().toString().replaceAll("-", "");
-        //获取文件的扩展名
-        String ext = FilenameUtils.getExtension(pictureFile.getOriginalFilename());
-        //设置图片上传路径
-        String url = "E:\\projects\\upload";
-        System.out.println(url);
-        //以绝对路径保存重名命后的图片
-        pictureFile.transferTo(new File(url+"/"+name + "." + ext));
-        //把图片存储路径保存到数据库
-        student.setIcon("upload/"+name+"."+ext);
-        student.setName(request.getParameter("username"));
-        student.setStudentid(request.getParameter("studentId"));
-        System.out.println("sex: " + request.getParameter("radio1"));
-        if(request.getParameter("radio1").equals("男")){
-            student.setSex((byte)0);
-        }
-        else{
-            student.setSex((byte)1);
-        }
-        student.setPhone(Long.parseLong(request.getParameter("phoneNum"), 10));
-        String grad = request.getParameter("select2");
-        System.out.println("grade: " + grad);
-        if(grad.equals("1")){
-            student.setGrad((byte)1);
-        }
-        else if(grad.equals("2")){
-            student.setGrad((byte)2);
-        }
-        else if(grad.equals("3")){
-            student.setGrad((byte)3);
-        }
-        else if(grad.equals("4")){
-            student.setGrad((byte)4);
-        }
-        else if(grad.equals("5")){
-            student.setGrad((byte)5);
-        }
-        else if(grad.equals("6")){
-            student.setGrad((byte)6);
-        }
-        else{
-            student.setGrad((byte)0);
-        }
-        student.setBirthday(19950420);
-        student.setPid(1);
-        student.setTid(1);
-        student.setQuestion(0);
-        student.setAnswer(0);
-        student.setAddtime(new Long(new Date().getTime()).intValue());
-        student.setStatus((byte)0);
-
-        commonStudentMapper.insert(student);
-
-        return "redirect: detail.do";
-    }
 
     @RequestMapping(value="/note.do", method = RequestMethod.GET)
     public String note() {
@@ -177,6 +119,11 @@ public class MainController {
     @RequestMapping(value="/report/detail.do", method = RequestMethod.GET)
     public String reportDetail() {
         return "report/detail";
+    }
+
+    @RequestMapping(value="/report/score.do", method = RequestMethod.GET)
+    public String reportScore() {
+        return "report/score";
     }
 
     @RequestMapping("/index.do")
