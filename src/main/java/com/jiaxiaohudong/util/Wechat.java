@@ -1,5 +1,14 @@
 package com.jiaxiaohudong.util;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+
+import java.io.IOException;
 import java.net.URLEncoder;
 
 public class Wechat {
@@ -37,6 +46,25 @@ public class Wechat {
         String url = ACCESS_TOKEN_URL;
         url = url.replaceFirst(RPLC, APPID).replaceFirst(RPLC, SECRET).replaceFirst(RPLC, code);
         return url;
+    }
+
+    public static JSONObject httpGet(String url) {
+        JSONObject jsonResult = null;
+        try {
+            DefaultHttpClient client = new DefaultHttpClient();
+            HttpGet request = new HttpGet(url);
+            HttpResponse response = client.execute(request);
+            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                String strResult = EntityUtils.toString(response.getEntity(),"UTF-8");
+                jsonResult = JSON.parseObject(strResult);
+                System.out.println("strResult=" + strResult);
+            } else {
+                System.out.println("*******************");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return jsonResult;
     }
 
 }
