@@ -15,7 +15,7 @@
 
 <body>
 
-<form action="/uploadImage" method="post" enctype="multipart/form-data">
+<form action="/image/uploadImage" method="post" enctype="multipart/form-data">
     <input type="file" name="file" id="file">
     <input type="submit" value="test">
 </form>

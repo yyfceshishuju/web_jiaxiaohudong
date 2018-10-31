@@ -83,11 +83,17 @@
             <div class="weui-cells__title">上传题目</div>
             <div class="weui-uploader">
                 <div class="weui-uploader__bd">
+                    <form id="upload" enctype="multipart/form-data" method="post">
                     <ul class="weui-uploader__files" id="uploaderFiles">
                         <li class="weui-uploader__file"></li></ul>
                     <div class="weui-uploader__input-box">
-                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+
+                            <input id="uploaderInput" name="file" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+
+
                     </div>
+                        <input type="button" value="提交" onclick="uploadPic();"/>
+                    </form>
                 </div>
             </div>
 
@@ -117,7 +123,7 @@
                         <div class="weui-cell">
                             <div class="weui-cell__bd">
                                 <textarea class="weui-textarea" placeholder="" rows="3"></textarea>
-                                <div class="weui-textarea-counter"><span>0</span>/200</div>
+                                <div class="weui-textarea-counter"><span class="showUrl"></span><span>0</span>/200</div>
                             </div>
                         </div>
                     </div>
@@ -177,6 +183,31 @@
             $searchInput.blur();
         });
     });
+    function uploadPic() {
+        var form = document.getElementById('upload'),
+            formData = new FormData(form);
+        $.ajax({
+            url:"/image/uploadImage",
+            type:"post",
+            data:formData,
+            processData:false,
+            contentType:false,
+            success:function(res){
+                if(res){
+                    alert("上传成功！");
+                }
+                console.log(res);
+                $("#pic").val("");
+                $(".showUrl").html(res);
+                $(".showPic").attr("src",res);
+            },
+            error:function(err){
+                alert("网络连接失败,稍后重试",err);
+            }
+
+        })
+
+    }
 </script>
 
 
