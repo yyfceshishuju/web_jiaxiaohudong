@@ -28,12 +28,14 @@
     <include refid="Base_Column_List" />
     from common_user
     where phone = #{phone,jdbcType=BIGINT}
+    LIMIT 1
   </select>
   <select id="selectByOpenId" resultMap="userResult" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />
     from common_user
     where openid = #{openid,jdbcType=VARCHAR}
+    LIMIT 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from common_user

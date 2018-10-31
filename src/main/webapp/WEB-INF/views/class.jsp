@@ -21,7 +21,25 @@
         </div>
     </div>
 </div>
-<div class="weui-cells" hidden>
+
+
+<div class="js_dialog" id="dialog" style="display: none;">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd" id="dialogContent"></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+        </div>
+    </div>
+</div>
+<div id="toast" style="display: none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content"></p>
+    </div>
+</div>
+<div id="students" class="weui-cells">
 
     <div class="weui-search-bar" id="searchBar">
         <form class="weui-search-bar__form">
@@ -39,95 +57,61 @@
     </div>
     <br>
     <div class="weui-cells__title">请先选择一个同学</div>
-    <a class="weui-cell weui-cell_access" href="javascript:;">
-        <div class="weui-cell__bd">
-            <p>小明同学</p>
-        </div>
-
-        <div class="weui-cell__ft">
-            <img class="circleImg" src="./img/logo.png"  />
-        </div>
-    </a>
-    <a class="weui-cell weui-cell_access" href="javascript:;">
-        <div class="weui-cell__bd">
-            <p>小华同学</p>
-        </div>
-
-        <div class="weui-cell__ft">
-            <img class="circleImg" src="./img/logo.png"  />
-        </div>
-    </a>
-    <a class="weui-cell weui-cell_access" href="javascript:;">
-        <div class="weui-cell__bd">
-            <p>小爱同学</p>
-        </div>
-
-        <div class="weui-cell__ft">
-            <img class="circleImg" src="/img/logo.png"  />
-        </div>
-    </a>
-    <a class="weui-cell weui-cell_access" href="javascript:;">
-        <div class="weui-cell__bd">
-            <p>小明同学</p>
-        </div>
-
-        <div class="weui-cell__ft">
-            <img class="circleImg" src="/img/logo.png"  />
-        </div>
-    </a>
-
+    <div id="list"></div>
 </div>
-<div class="weui-cells">
+<div id="upload" class="weui-cells" hidden>
     <ul>
         <li>
-            <div class="weui-cells__title">上传题目</div>
-            <div class="weui-uploader">
-                <div class="weui-uploader__bd">
-                    <ul class="weui-uploader__files" id="uploaderFiles">
-                        <li class="weui-uploader__file"></li></ul>
-                    <div class="weui-uploader__input-box">
-                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
-                    </div>
-                </div>
-            </div>
 
-        </li>
-        <li>
-            <div class="weui-cells__title">题目相关信息</div>
-            <div class="weui-cells weui-cells_form">
-                <div class="weui-cell">
-                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
-                    <div class="weui-cell__bd">
-                        <input class="weui-input" type="text" placeholder="请输入错题题目"/>
-                    </div>
-                </div>
-                <div class="weui-cell weui-cell_select weui-cell_select-after">
-                    <div class="weui-cell__hd"><label class="weui-label">分类</label></div>
-                    <div class="weui-cell__bd">
-                        <select class="weui-select" name="select2">
-                            <option value="1">中国</option>
-                            <option value="2">美国</option>
-                            <option value="3">英国</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="weui-cell">
-                    <div class="weui-cell__hd"><label class="weui-label">题目</label></div>
-                    <div class="weui-cells weui-cells_form">
-                        <div class="weui-cell">
-                            <div class="weui-cell__bd">
-                                <textarea class="weui-textarea" placeholder="" rows="3"></textarea>
-                                <div class="weui-textarea-counter"><span>0</span>/200</div>
-                            </div>
+            <div class="weui-cells__title">
+                <button type="button" id="return" class="weui-btn weui-btn_mini weui-btn_default"> 重新选择学生</button>
+            </div>
+            <form id="uploadForm" method="post" enctype="multipart/form-data">
+                <div class="weui-cells__title">上传题目</div>
+                <div class="weui-uploader">
+                    <div class="weui-uploader__bd">
+                        <ul class="weui-uploader__files" id="uploaderFiles">
+                            <li class="weui-uploader__file"></li></ul>
+                        <div class="weui-uploader__input-box">
+                            <input id="file" name="file" class="weui-uploader__input" type="file" accept="image/*" multiple="">
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
+        </li>
+        <li>
+          <form id="questionForm" method="post" >
+              <div class="weui-cells__title">题目相关信息</div>
+              <div class="weui-cells weui-cells_form">
+                  <div class="weui-cell">
+                      <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                      <div class="weui-cell__bd">
+                          <input name="title" class="weui-input" type="text" placeholder="请输入错题题目"/>
+                      </div>
+                  </div>
+                  <div class="weui-cell weui-cell_select weui-cell_select-after">
+                      <div class="weui-cell__hd"><label class="weui-label">分类</label></div>
+                      <div class="weui-cell__bd">
+                          <select class="weui-select" name="category" id="category">
+                          </select>
+                      </div>
+                  </div>
+                  <div class="weui-cell">
+                      <div class="weui-cell__hd"><label class="weui-label">题目</label></div>
+                      <div class="weui-cell__bd">
+                          <textarea class="weui-textarea" placeholder="" rows="3" id="question" name="question" ></textarea>
+                          <div class="weui-textarea-counter"><span>0</span>/200</div>
+                      </div>
+                  </div>
+                  <input type="hidden" id="student" name="student" hidden>
+              </div>
+          </form>
 
         </li>
     </ul>
     <br>
-    <a href="javascript:;" class="weui-btn weui-btn_plain-primary">确认上传</a>
+    <button type="button" id="confirm" class="weui-btn weui-btn_plain-primary">确认上传</button>
 
 </div>
 </div>
@@ -136,22 +120,96 @@
 <script type="text/javascript">
     $(function(){
         var $searchBar = $('#searchBar'),
-            $searchResult = $('#searchResult'),
             $searchText = $('#searchText'),
             $searchInput = $('#searchInput'),
             $searchClear = $('#searchClear'),
-            $searchCancel = $('#searchCancel');
+            $searchCancel = $('#searchCancel'),
 
-        function hideSearchResult(){
-            $searchResult.hide();
-            $searchInput.val('');
-        }
-        function cancelSearch(){
-            hideSearchResult();
-            $searchBar.removeClass('weui-search-bar_focusing');
-            $searchText.show();
-        }
+            $students = $("#students"),
+            $upload = $("#upload"),
+            $question = $("#question"),
+            $file = $("#file"),
+            $category = $("#category"),
+            $confirm = $("#confirm"),
+            $student = $("#student"),
+            $return = $("#return"),
+            $toast = $("#toast"),
+            $content = $(".weui-toast__content"),
+            $dialog = $("#dialog"),
+            $dialogContent = $("#dialogContent"),
+            $list = $("#list"),
+            uploadUrl = "/image/uploadImage",
+            questionUrl = "/question/add",
+            categoryUrl = "/image/example2",
+            studentUrl = "/image/example1",
+            searchUrl = "/image/example3"
+        ;
 
+        reloadStudents(studentUrl);
+        $.ajax({
+            url: categoryUrl,
+            method: "get",
+            success: function (data) {
+                data = data.data;
+                for (var i=0;i<data.length;i++){
+                    $category.append('<option value="'+ data[i].id+'">' + data[i].name + '</option>');
+                }
+            }
+        });
+        $file.on("change", function(){
+
+            var form = new FormData(document.getElementById('uploadForm'));
+            $.ajax({
+                url:uploadUrl,
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                success:function(data){
+                    $question.text(data.msg);
+                },
+                error:function(){
+                    alert(e);
+                }
+            });
+        });
+
+        $list.on("click", ".weui-cell_access", function () {
+
+            $student.val($(this).find(".id").val());
+            $students.hide();
+            $upload.show();
+        });
+        $return.on("click", function(){
+            $student.val('');
+            $students.show();
+            $upload.hide();
+        });
+        $confirm.on("click", function () {
+
+            var form = new FormData(document.getElementById('questionForm'));
+            $.ajax({
+                url:questionUrl,
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                success:function(data){
+                    if (data.code != 0){
+                        alert(data.msg);
+                    } else {
+                        hint(data.msg);
+                        $student.val('');
+                        $students.show();
+                        $upload.hide();
+                    }
+                },
+                error:function(){
+                    alert(e);
+                }
+
+            })
+        });
         $searchText.on('click', function(){
             $searchBar.addClass('weui-search-bar_focusing');
             $searchInput.focus();
@@ -162,20 +220,66 @@
             })
             .on('input', function(){
                 if(this.value.length) {
-                    $searchResult.show();
+                    //展示搜索结果
+                    reloadStudents(searchUrl)
                 } else {
-                    $searchResult.hide();
+                    //展示默认结果
+                    reloadStudents(studentUrl)
                 }
             })
         ;
         $searchClear.on('click', function(){
-            hideSearchResult();
+            //展示默认结果
+            reloadStudents(studentUrl);
+            $searchInput.val('');
             $searchInput.focus();
         });
         $searchCancel.on('click', function(){
             cancelSearch();
             $searchInput.blur();
         });
+        function reloadStudents(url) {
+            $.ajax({
+                url: url,
+                method: "get",
+                success: function (data) {
+                    data = data.data;
+                    $list.empty();
+                    for (var i=0; i<data.length; i++){
+                        $list.append('<a class="weui-cell weui-cell_access" href="javascript:;">' +
+                            '        <div class="weui-cell__bd">' +
+                            '            <p>'+data[i].name+'</p>' +
+                            '        </div>' +
+                            '        <input class="id" hidden value="' +data[i].id+ '">' +
+                            '        <div class="weui-cell__ft">' +
+                            '            <img class="circleImg" src="'+ data[i].icon +'"  />' +
+                            '        </div>' +
+                            '    </a>');
+                    }
+
+                }
+            });
+
+        }
+        function cancelSearch(){
+            //展示默认结果
+            reloadStudents(studentUrl);
+            $searchBar.removeClass('weui-search-bar_focusing');
+            $searchText.show();
+        }
+
+        function hint(msg) {
+            if ($toast.css('display') != 'none') return;
+            $content.text(msg);
+            $toast.fadeIn(100);
+            setTimeout(function () {
+                $toast.fadeOut(100);
+            }, 2000);
+        }
+        function alert(msg) {
+            $dialogContent.text(msg);
+            $dialog.fadeIn(100);
+        }
     });
 </script>
 
