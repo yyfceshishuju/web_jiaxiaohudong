@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Date;
 
 /**
@@ -63,7 +62,9 @@ public class WechatController {
         JSONObject jsonObject = Wechat.httpGet(url);
         String at = jsonObject.getString("access_token");//获取微信开放平台票据号
         String openId = jsonObject.getString("openid");
-
+        if (at == null || openId == null){
+            return "home";
+        }
         url=Wechat.getUserInfoUrl(at, openId);
 
         jsonObject = Wechat.httpGet(url);
