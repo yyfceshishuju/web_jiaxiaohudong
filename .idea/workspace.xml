@@ -7,21 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61eb25a5-ec81-43b2-910d-dc0969c320c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/StudentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/service/QuestionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/service/StudentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/service/impl/StudentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/util/JsonUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/jiaxiaohudong/controller/ImageController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/helloworld/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/com/jiaxiaohudong/controller/ImageController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/helloworld/testUploadImage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/dao/CommonStudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/dao/CommonStudentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/entity/CommonStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/entity/CommonStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonStudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonStudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/testUploadImage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/testUploadImage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/StudentController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,7 +30,7 @@
           <entry key="gitignore" value="1" />
           <entry key="java" value="17" />
           <entry key="jsp" value="5" />
-          <entry key="sql" value="2" />
+          <entry key="sql" value="3" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
@@ -52,13 +39,13 @@
           <entry key="JAVA" value="17" />
           <entry key="JSP" value="5" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="SQL" value="2" />
+          <entry key="SQL" value="3" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="957" />
+          <entry key="java" value="1040" />
           <entry key="jsp" value="1879" />
           <entry key="txt" value="17" />
           <entry key="xml" value="28" />
@@ -66,7 +53,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="957" />
+          <entry key="JAVA" value="1040" />
           <entry key="JSP" value="1879" />
           <entry key="PLAIN_TEXT" value="17" />
           <entry key="SQL" value="2" />
@@ -93,8 +80,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/StudentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="175">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+              <folding>
+                <element signature="e#1329#1345#0" expanded="true" />
+                <element signature="e#2110#2126#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,15 +104,6 @@
                 <element signature="e#3308#3324#0" expanded="true" />
                 <element signature="e#3385#3400#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/entity/CommonStudent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -253,7 +235,7 @@
     <property name="SearchEverywhereHistoryKey" value="user&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/java/com/jiaxiaohudong/controller/userController.java&#10;home.j&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/home.jsp&#10;add.&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/student/add.jsp&#10;regi&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/register.jsp&#10;class.&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/class.jsp&#10;imageCon&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/java/com/jiaxiaohudong/controller/ImageController.java&#10;Main&#9;PSI&#9;JAVA://com.jiaxiaohudong.controller.MainController&#10;commonU&#9;PSI&#9;JAVA://com.jiaxiaohudong.entity.CommonUser&#10;commonuser&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/resources/sqlmap/CommonUserMapper.xml&#10;wech&#9;PSI&#9;JAVA://com.jiaxiaohudong.controller.WechatController&#10;login&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/login.jsp" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540989885344" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540990585967" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -355,7 +337,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540947992663</updated>
-      <workItem from="1540947994013" duration="27199000" />
+      <workItem from="1540947994013" duration="27848000" />
     </task>
     <task id="LOCAL-00001" summary="wechat&#10;login">
       <created>1540955015351</created>
@@ -371,14 +353,29 @@
       <option name="project" value="LOCAL" />
       <updated>1540985811354</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Merge branch 'master' of https://github.com/yyfceshishuju/web_jiaxiaohudong&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/jiaxiaohudong/controller/ImageController.java&#10;#&#9;src/main/webapp/WEB-INF/views/class.jsp&#10;#&#9;target/helloworld/META-INF/MANIFEST.MF">
+      <created>1540989880027</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1540989880027</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Merge branch 'master' of https://github.com/yyfceshishuju/web_jiaxiaohudong&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/jiaxiaohudong/controller/ImageController.java&#10;#&#9;src/main/webapp/WEB-INF/views/class.jsp&#10;#&#9;target/helloworld/META-INF/MANIFEST.MF">
+      <created>1540989974961</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1540989974961</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27199000" />
+    <option name="totallyTimeSpent" value="27848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -433,7 +430,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="wechat&#10;login" />
     <MESSAGE value="错题上传" />
-    <option name="LAST_COMMIT_MESSAGE" value="错题上传" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/yyfceshishuju/web_jiaxiaohudong&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/jiaxiaohudong/controller/ImageController.java&#10;#&#9;src/main/webapp/WEB-INF/views/class.jsp&#10;#&#9;target/helloworld/META-INF/MANIFEST.MF" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/yyfceshishuju/web_jiaxiaohudong&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/jiaxiaohudong/controller/ImageController.java&#10;#&#9;src/main/webapp/WEB-INF/views/class.jsp&#10;#&#9;target/helloworld/META-INF/MANIFEST.MF" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -530,12 +528,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/ImageController.java</url>
-          <line>25</line>
-          <properties />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/ImageController.java</url>
           <line>27</line>
           <properties />
           <option name="timeStamp" value="25" />
@@ -584,15 +576,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/StudentController.java</url>
-          <line>48</line>
+          <line>54</line>
           <properties />
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/StudentController.java</url>
-          <line>30</line>
+          <line>32</line>
           <properties />
           <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/StudentController.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/StudentController.java</url>
+          <line>37</line>
+          <properties />
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -627,13 +631,6 @@
             <element signature="e#1201#1202#0" expanded="true" />
             <element signature="e#1231#1232#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home_school.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="21" column="58" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -694,17 +691,24 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/entity/CommonStudent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/messageController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/userController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="57" column="46" lean-forward="true" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home_school.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="41" column="51" lean-forward="true" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -719,10 +723,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/userController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/entity/CommonStudent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="57" column="46" lean-forward="true" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
+        <state relative-caret-position="294">
+          <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -744,8 +748,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/StudentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="175">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#1329#1345#0" expanded="true" />
+            <element signature="e#2110#2126#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
