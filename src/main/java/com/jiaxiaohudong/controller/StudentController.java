@@ -31,14 +31,7 @@ public class StudentController {
 
         CommonUser user = (CommonUser) session.getAttribute("userinfo");
         List<CommonStudent> students = studentService.getStudents(user.getId());
-        Map<String, Object> result = new HashMap<String, Object>();
-        if (students !=null){
-            result.put("data", students);
-            result.put("code", 0);
-            return R.ok(result);
-        }else{
-            return R.error("没有查询结果");
-        }
+        return handles(students);
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
@@ -50,6 +43,11 @@ public class StudentController {
         commonStudent.setTid(user.getId());
         commonStudent.setName(name);
         List<CommonStudent> students = studentService.searchStudents(commonStudent);
+        return handles(students);
+
+    }
+
+    private R handles(List<CommonStudent> students){
         Map<String, Object> result = new HashMap<String, Object>();
         if (students !=null){
             result.put("data", students);
@@ -58,7 +56,6 @@ public class StudentController {
         }else{
             return R.error("没有查询结果");
         }
-
     }
 
 

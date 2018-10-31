@@ -20,6 +20,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     public List<CommonStudent> searchStudents(CommonStudent stu) {
+        stu.setName("%"+stu.getName()+"%");
         List<CommonStudent> commonStudents = commonStudentMapper.selectByTidAndName(stu);
         return commonStudents;
     }

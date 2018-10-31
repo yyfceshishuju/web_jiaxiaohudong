@@ -141,8 +141,8 @@
             uploadUrl = "/image/uploadImage",
             questionUrl = "/question/add",
             categoryUrl = "/image/example2",
-            studentUrl = "/image/example1",
-            searchUrl = "/image/example3"
+            studentUrl = "/student/list",
+            searchUrl = "/student/search"
         ;
 
         reloadStudents(studentUrl);
@@ -221,7 +221,8 @@
             .on('input', function(){
                 if(this.value.length) {
                     //展示搜索结果
-                    reloadStudents(searchUrl)
+                    var url = searchUrl + '?name='+this.value;
+                    reloadStudents(url)
                 } else {
                     //展示默认结果
                     reloadStudents(studentUrl)
