@@ -7,10 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61eb25a5-ec81-43b2-910d-dc0969c320c0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonStudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/CommonStudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/class.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/class.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/report/score.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/report/score.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jiaxiaohudong/controller/ImageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/helloworld/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/helloworld/WEB-INF/classes/com/jiaxiaohudong/controller/ImageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/helloworld/testUploadImage.jsp" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,7 +49,7 @@
         <counts>
           <entry key="java" value="1180" />
           <entry key="jsp" value="2306" />
-          <entry key="txt" value="32" />
+          <entry key="txt" value="53" />
           <entry key="xml" value="112" />
         </counts>
       </usages-collector>
@@ -57,7 +57,7 @@
         <counts>
           <entry key="JAVA" value="1180" />
           <entry key="JSP" value="2306" />
-          <entry key="PLAIN_TEXT" value="32" />
+          <entry key="PLAIN_TEXT" value="53" />
           <entry key="SQL" value="2" />
           <entry key="XML" value="110" />
         </counts>
@@ -109,25 +109,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/report/score.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="211" column="54" lean-forward="true" selection-start-line="211" selection-start-column="54" selection-end-line="212" selection-end-column="134" />
+            <state relative-caret-position="330">
+              <caret line="220" column="46" selection-start-line="220" selection-start-column="46" selection-end-line="220" selection-end-column="46" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/class.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="249" column="136" selection-start-line="249" selection-start-column="136" selection-end-line="249" selection-end-column="136" />
+            <state relative-caret-position="350">
+              <caret line="255" column="67" selection-start-line="255" selection-start-column="67" selection-end-line="256" selection-end-column="95" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -183,8 +182,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/jiaxiaohudong/controller/ImageController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/sqlmap/CommonStudentMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/report/score.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/class.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/report/score.jsp" />
       </list>
     </option>
   </component>
@@ -329,7 +328,7 @@
     <property name="SearchEverywhereHistoryKey" value="common&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/resources/sqlmap/CommonStudentMapper.xml&#10;home&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/home.jsp&#10;commonstudent&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/resources/sqlmap/CommonStudentMapper.xml&#10;user&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/java/com/jiaxiaohudong/controller/userController.java&#10;home.j&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/home.jsp&#10;add.&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/student/add.jsp&#10;regi&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/register.jsp&#10;class.&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/class.jsp&#10;imageCon&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/java/com/jiaxiaohudong/controller/ImageController.java&#10;Main&#9;PSI&#9;JAVA://com.jiaxiaohudong.controller.MainController&#10;commonU&#9;PSI&#9;JAVA://com.jiaxiaohudong.entity.CommonUser&#10;commonuser&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/resources/sqlmap/CommonUserMapper.xml&#10;wech&#9;PSI&#9;JAVA://com.jiaxiaohudong.controller.WechatController&#10;login&#9;FILE&#9;file:///home/cf/jxsq/web_for_jiaxiaoshequ/jxsq/web_jiaxiaohudong/src/main/webapp/WEB-INF/views/login.jsp" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541036773523" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541036807716" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -436,7 +435,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540947992663</updated>
-      <workItem from="1540947994013" duration="34933000" />
+      <workItem from="1540947994013" duration="35202000" />
     </task>
     <task id="LOCAL-00001" summary="wechat&#10;login">
       <created>1540955015351</created>
@@ -487,11 +486,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540994801289</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="student列表页增加展示学号和状态">
+      <created>1541036844653</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1541036844653</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34933000" />
+    <option name="totallyTimeSpent" value="35202000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
@@ -502,7 +508,7 @@
       <window_info id="Capture Tool" order="3" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.13127413" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.13127413" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Spring" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -515,7 +521,7 @@
       <window_info anchor="bottom" id="Message" order="8" />
       <window_info anchor="bottom" id="Find" order="9" />
       <window_info anchor="bottom" id="Run" order="10" />
-      <window_info active="true" anchor="bottom" id="Debug" order="11" visible="true" weight="0.39958376" />
+      <window_info anchor="bottom" id="Debug" order="11" visible="true" weight="0.39958376" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="14" />
@@ -551,7 +557,8 @@
     <MESSAGE value="错题上传" />
     <MESSAGE value="Merge branch 'master' of https://github.com/yyfceshishuju/web_jiaxiaohudong&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/jiaxiaohudong/controller/ImageController.java&#10;#&#9;src/main/webapp/WEB-INF/views/class.jsp&#10;#&#9;target/helloworld/META-INF/MANIFEST.MF" />
     <MESSAGE value="student列表完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="student列表完成" />
+    <MESSAGE value="student列表页增加展示学号和状态" />
+    <option name="LAST_COMMIT_MESSAGE" value="student列表页增加展示学号和状态" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -831,28 +838,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/report/score.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="211" column="54" lean-forward="true" selection-start-line="211" selection-start-column="54" selection-end-line="212" selection-end-column="134" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/class.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="249" column="136" selection-start-line="249" selection-start-column="136" selection-end-line="249" selection-end-column="136" />
+        <state relative-caret-position="350">
+          <caret line="255" column="67" selection-start-line="255" selection-start-column="67" selection-end-line="256" selection-end-column="95" />
           <folding>
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#div#1;n#a#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/report/score.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="220" column="46" selection-start-line="220" selection-start-column="46" selection-end-line="220" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
