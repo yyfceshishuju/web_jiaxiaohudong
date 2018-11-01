@@ -22,4 +22,9 @@ public interface CommonStudentMapper {
     int updateByPrimaryKeySelective(CommonStudent record);
 
     int updateByPrimaryKey(CommonStudent record);
+
+    List<CommonStudent> selectByTid(Integer tid);
+
+    List<CommonStudent> selectByTidAndName(CommonStudent stu);
+
 }

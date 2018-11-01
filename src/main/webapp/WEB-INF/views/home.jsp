@@ -60,6 +60,15 @@
             </div>
         </div>
     </div>
+
+    <div id="toast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+            <p class="weui-toast__content"></p>
+        </div>
+    </div>
+
     <ul>
         <li>
             <div id="teacher" hidden>
@@ -101,6 +110,13 @@
                         </div>
                         <p class="weui-grid__label">学生错题库</p>
                     </a>
+                    <a href="/report/score.do" class="weui-grid">
+                        <div class="weui-grid__icon">
+                            <img src="/img/score.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">每周评价</p>
+                    </a>
+
                     <a href="/student/add.do" class="weui-grid">
                         <div class="weui-grid__icon">
                             <img src="/img/add_student.png" alt="">
@@ -156,6 +172,7 @@
                         </div>
                         <p class="weui-grid__label">绑定学生</p>
                     </a>
+
                     <a href="/user.do" class="weui-grid">
                         <div class="weui-grid__icon">
                             <img src="/img/student.png" alt="">
@@ -203,6 +220,8 @@
             $type = $("#type"),
             $parent = $("#parent"),
             $teacher = $("#teacher"),
+            $toast = $("#toast"),
+            $content = $(".weui-toast__content"),
             $other = $("#other"),
             $userUrl = "/user/info",
             $loginUrl = "/login.do"
@@ -234,6 +253,15 @@
             });
         });
 
+        function hint(msg) {
+            if ($toast.css('display') != 'none') return;
+            $content.text(msg);
+            $toast.fadeIn(100);
+            setTimeout(function () {
+                $toast.fadeOut(100);
+            }, 1500);
+        }
+
         $('#div_grad1').click(function () {
             $.ajax({
                 //提交数据的类型 POST GET
@@ -248,7 +276,7 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -273,7 +301,7 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -298,7 +326,7 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -323,7 +351,7 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -348,7 +376,7 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -373,7 +401,7 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);

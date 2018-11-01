@@ -7,6 +7,16 @@ public class CommonCategory {
 
     private Byte type;
 
+    public CommonCategory(String name, Byte type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    public CommonCategory(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }

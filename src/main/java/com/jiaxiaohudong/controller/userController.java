@@ -84,6 +84,7 @@ public class userController {
             String path = Translate.getPath(request);
             orignName = uploaderInput.getOriginalFilename();
             fileName = time + "." + orignName.substring(orignName.lastIndexOf(".") + 1);
+            System.out.println(fileName);
             orignName = "/upload/" + fileName;
             try {
                 File f2 = new File(path, fileName);
@@ -91,7 +92,6 @@ public class userController {
             }catch (Exception e){
                 e.printStackTrace();
             }
-
         }
         String icon = orignName;
         Long addtime = time;

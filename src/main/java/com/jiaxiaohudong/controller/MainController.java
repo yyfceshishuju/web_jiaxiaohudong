@@ -99,6 +99,11 @@ public class MainController {
         return "report/detail";
     }
 
+    @RequestMapping(value="/report/score.do", method = RequestMethod.GET)
+    public String reportScore() {
+        return "report/score";
+    }
+
     @RequestMapping("/index.do")
     public String checkLogin(HttpSession session) {
         CommonUser user = (CommonUser) session.getAttribute("userinfo");
