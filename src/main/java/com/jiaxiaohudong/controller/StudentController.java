@@ -4,12 +4,12 @@ import com.jiaxiaohudong.dao.CommonStudentMapper;
 import com.jiaxiaohudong.entity.CommonStudent;
 import com.jiaxiaohudong.entity.CommonUser;
 import com.jiaxiaohudong.service.StudentService;
-import com.jiaxiaohudong.util.JsonUtil;
 import com.jiaxiaohudong.util.R;
 import com.jiaxiaohudong.util.Translate;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.io.PrintWriter;
 import java.util.*;
 
 @Controller
@@ -53,18 +52,36 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addStu(HttpServletRequest request, CommonStudent student, MultipartFile pictureFile) throws Exception {
-        //使用UUID给图片重命名，并去掉四个“-”
-        String name = UUID.randomUUID().toString().replaceAll("-", "");
-        //获取文件的扩展名
-        String ext = FilenameUtils.getExtension(pictureFile.getOriginalFilename());
-        //设置图片上传路径
-        String url = "E:\\projects\\upload";
-        System.out.println(url);
-        //以绝对路径保存重名命后的图片
-        pictureFile.transferTo(new File(url+"/"+name + "." + ext));
+    public void addStu(HttpServletRequest request, CommonStudent student, MultipartFile pictureFile,
+                         HttpSession session, Model model) {
+        CommonUser user = (CommonUser) session.getAttribute("userinfo");
+        String grad = user.getGrade();
+        System.out.println("grade: " + grad);
+        if(grad == null){
+            grad = "0";
+        }
+        String fileName = "";
+        String orignName = "";
+        long time = new Date().getTime() / 1000;
+        if (pictureFile == null || pictureFile.isEmpty()) {
+            orignName = "/img/logo.png";
+        }else{
+            // 获取文件名
+            String path = Translate.getPath(request);
+            orignName = pictureFile.getOriginalFilename();
+            fileName = time + "." + orignName.substring(orignName.lastIndexOf(".") + 1);
+            System.out.println(fileName);
+            orignName = "/upload/" + fileName;
+            try {
+                File f2 = new File(path, fileName);
+                pictureFile.transferTo(f2);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
         //把图片存储路径保存到数据库
-        student.setIcon("upload/"+name+"."+ext);
+        student.setIcon(orignName);
         student.setName(request.getParameter("username"));
         student.setStudentid(request.getParameter("studentId"));
         System.out.println("sex: " + request.getParameter("radio1"));
@@ -75,7 +92,6 @@ public class StudentController {
             student.setSex((byte)1);
         }
         student.setPhone(Long.parseLong(request.getParameter("phoneNum"), 10));
-        String grad = request.getParameter("select2");
         System.out.println("grade: " + grad);
         if(grad.equals("1")){
             student.setGrad((byte)1);
@@ -100,15 +116,16 @@ public class StudentController {
         }
         student.setBirthday(19950420);
         student.setPid(1);
-        student.setTid(1);
+        student.setTid(user.getId());
         student.setQuestion(0);
         student.setAnswer(0);
-        student.setAddtime(new Long(new Date().getTime()).intValue());
+        Long addTime = time;
+        student.setAddtime(addTime.intValue());
         student.setStatus((byte)0);
 
         commonStudentMapper.insert(student);
 
-        return "redirect: detail.do";
+        model.addAttribute("info", "success");
     }
 
     private R handles(List<CommonStudent> students){
@@ -121,6 +138,4 @@ public class StudentController {
             return R.error("没有查询结果");
         }
     }
-
-
 }

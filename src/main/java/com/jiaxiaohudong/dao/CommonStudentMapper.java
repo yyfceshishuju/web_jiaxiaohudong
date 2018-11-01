@@ -15,6 +15,10 @@ public interface CommonStudentMapper {
 
     CommonStudent selectByStudentId(String stuId);
 
+    CommonStudent selectByStudentIdAPhNum(String stuId, Long phNum);
+
+    List<CommonStudent> selectByPid(Integer pid);
+
     int updateByPrimaryKeySelective(CommonStudent record);
 
     int updateByPrimaryKey(CommonStudent record);
