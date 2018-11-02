@@ -1,12 +1,10 @@
 package com.jiaxiaohudong.controller;
 
-import com.jiaxiaohudong.dao.CommonStudentMapper;
 import com.jiaxiaohudong.entity.CommonStudent;
 import com.jiaxiaohudong.entity.CommonUser;
 import com.jiaxiaohudong.service.StudentService;
 import com.jiaxiaohudong.util.R;
 import com.jiaxiaohudong.util.Translate;
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,8 +25,6 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @Autowired
-    private CommonStudentMapper commonStudentMapper;
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public R getStudents(HttpSession session ) throws RuntimeException {
@@ -123,7 +119,7 @@ public class StudentController {
         student.setAddtime(addTime.intValue());
         student.setStatus((byte)0);
 
-        commonStudentMapper.insert(student);
+        studentService.insert(student);
 
         model.addAttribute("info", "success");
     }

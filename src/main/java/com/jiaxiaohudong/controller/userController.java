@@ -57,6 +57,7 @@ public class userController {
             map.put("icon", user.getIcon());
             map.put("phone", user.getPhone());
             map.put("type", Translate.getType(user.getType()));
+            map.put("grade", Translate.getGrade(user.getGrade()));
             return R.ok(map);
         }
 

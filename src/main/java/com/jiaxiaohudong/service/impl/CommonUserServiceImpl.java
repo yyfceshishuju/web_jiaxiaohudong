@@ -21,6 +21,12 @@ public class CommonUserServiceImpl implements CommonUserService {
         return result;
     }
 
+    public R update(CommonUser record){
+        R result = new R();
+        result.put("msg", mapper.updateByPrimaryKey(record));
+        return result;
+    }
+
     public CommonUser selectByOpenId(String openid) {
        return mapper.selectByOpenId(openid);
     }
