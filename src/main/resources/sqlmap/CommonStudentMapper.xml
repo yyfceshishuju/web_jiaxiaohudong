@@ -215,9 +215,9 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByTid" resultType="com.jiaxiaohudong.entity.CommonStudent" parameterType="Integer">
-    select id, name,icon from common_student where tid = #{tid}
+    select id, name,icon, tid, studentId from common_student where tid = #{tid}
   </select>
   <select id="selectByTidAndName" resultType="com.jiaxiaohudong.entity.CommonStudent" parameterType="com.jiaxiaohudong.entity.CommonStudent">
-    select id, name,icon from common_student where tid = #{tid} and name like #{name}
+    select id, name,icon, tid, studentId from common_student where tid = #{tid} and name like #{name}
   </select>
 </mapper>

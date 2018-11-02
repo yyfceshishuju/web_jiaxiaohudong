@@ -226,32 +226,37 @@
             $userUrl = "/user/info",
             $loginUrl = "/login.do"
         ;
-        $.ajax({
-            url: $userUrl,
-            method: "get",
-            success: function (data) {
-                $icon.attr("src", data.icon);
-                $name.text(data.name);
-                $type.text(data.type);
-                if (data.type == "教师"){
-                    $teacher.show();
-                } else if (data.type == "家长"){
-                    $parent.show();
-                }
 
-            },
-            error: function () {
-                alert("请重新登录");
-                window.location.href = $loginUrl
-            }
+        showTitle();
 
-        });
         $("#showAndroidActionSheet").on('click', function(){
             $androidActionSheet.fadeIn(200);
             $androidMask.on('click',function () {
                 $androidActionSheet.fadeOut(200);
             });
         });
+
+        function showTitle() {
+            $.ajax({
+                url: $userUrl,
+                method: "get",
+                success: function (data) {
+                    $icon.attr("src", data.icon);
+                    $name.text(data.name);
+                    $type.text(data.type + " " + data.grade);
+                    if (data.type == "教师"){
+                        $teacher.show();
+                    } else if (data.type == "家长"){
+                        $parent.show();
+                    }
+
+                },
+                error: function () {
+                    alert("请重新登录");
+                    window.location.href = $loginUrl
+                }
+            });
+        }
 
         function hint(msg) {
             if ($toast.css('display') != 'none') return;
@@ -277,6 +282,7 @@
                 //成功返回之后调用的函数
                 success:function (data){
                     hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -302,6 +308,7 @@
                 //成功返回之后调用的函数
                 success:function (data){
                     hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -327,6 +334,7 @@
                 //成功返回之后调用的函数
                 success:function (data){
                     hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -352,6 +360,7 @@
                 //成功返回之后调用的函数
                 success:function (data){
                     hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -377,6 +386,7 @@
                 //成功返回之后调用的函数
                 success:function (data){
                     hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -402,6 +412,7 @@
                 //成功返回之后调用的函数
                 success:function (data){
                     hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);

@@ -17,6 +17,10 @@ public class CommonCategory {
         this.name = name;
     }
 
+    public CommonCategory(){
+
+    }
+
     public Integer getId() {
         return id;
     }

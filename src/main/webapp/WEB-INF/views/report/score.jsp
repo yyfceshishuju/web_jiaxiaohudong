@@ -69,7 +69,7 @@
 
         </li>
         <li>
-            <form id="questionForm" method="post" >
+            <form id="questionForm" method="post">
                 <div class="weui-cells__title">学生评价</div>
                 <div class="weui-cells weui-cells_form">
                     <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -118,8 +118,8 @@
             $dialogContent = $("#dialogContent"),
             $list = $("#list"),
 
-            questionUrl = "/question/add",
-            categoryUrl = "/image/example2",
+            questionUrl = "/teacher/addScore",
+            categoryUrl = "/teacher/scoreCategory",
             studentUrl = "/student/list",
             searchUrl = "/student/search"
         ;
@@ -130,8 +130,13 @@
             method: "get",
             success: function (data) {
                 data = data.data;
-                for (var i=0;i<data.length;i++){
-                    $category.append('<option value="'+ data[i].id+'">' + data[i].name + '</option>');
+                console.log(data);
+                for (var i=0;i<data.name.length;i+=2){
+                    if(data.name[i+1] == data.name[i]){
+                        $category.append('<option value="'+ data.name[i]+'">' + data.name[i] + '</option>');
+                    }
+                    else
+                        $category.append('<option value="'+ data.name[i] + data.name[i+1] +'">' + data.name[i] + data.name[i+1] + '</option>');
                 }
             }
         });
@@ -149,6 +154,10 @@
             $upload.hide();
         });
         $confirm.on("click", function () {
+            if(!$("textarea[name='assess']").val()){
+                alert("请填写评价");
+                return;
+            }
 
             var form = new FormData(document.getElementById('questionForm'));
             $.ajax({
@@ -170,7 +179,6 @@
                 error:function(){
                     alert(e);
                 }
-
             })
         });
         $searchText.on('click', function(){
@@ -210,13 +218,18 @@
                     data = data.data;
                     $list.empty();
                     for (var i=0; i<data.length; i++){
+                        var status = data[i].pid==null || data[i].pid==0?"<p style='color: #FF0000'>未绑定家长</p>":"<p style='color: #00CD00'>已绑定家长</p>";
                         $list.append('<a class="weui-cell weui-cell_access" href="javascript:;">' +
+                            '        <div class="weui-cell__hd">' +
+                            '            <img class="circleImg" src="'+ data[i].icon +'"  />' +
+                            '        </div>' +
                             '        <div class="weui-cell__bd">' +
                             '            <p>'+data[i].name+'</p>' +
+                            '            <p style="color: #999999">'+data[i].studentid+'</p>' +
                             '        </div>' +
                             '        <input class="id" hidden value="' +data[i].id+ '">' +
                             '        <div class="weui-cell__ft">' +
-                            '            <img class="circleImg" src="'+ data[i].icon +'"  />' +
+                                        status +
                             '        </div>' +
                             '    </a>');
                     }

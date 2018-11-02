@@ -247,13 +247,18 @@
                     data = data.data;
                     $list.empty();
                     for (var i=0; i<data.length; i++){
+                        var status = data[i].pid==null || data[i].pid==0?"<p style='color: #FF0000'>未绑定家长</p>":"<p style='color: #00CD00'>已绑定家长</p>";
                         $list.append('<a class="weui-cell weui-cell_access" href="javascript:;">' +
+                            '        <div class="weui-cell__hd">' +
+                            '            <img class="circleImg" src="'+ data[i].icon +'"  />' +
+                            '        </div>' +
                             '        <div class="weui-cell__bd">' +
                             '            <p>'+data[i].name+'</p>' +
+                            '            <p style="color: #999999">'+data[i].studentid+'</p>' +
                             '        </div>' +
                             '        <input class="id" hidden value="' +data[i].id+ '">' +
                             '        <div class="weui-cell__ft">' +
-                            '            <img class="circleImg" src="'+ data[i].icon +'"  />' +
+                            status +
                             '        </div>' +
                             '    </a>');
                     }

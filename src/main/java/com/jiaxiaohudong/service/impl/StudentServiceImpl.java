@@ -3,6 +3,7 @@ package com.jiaxiaohudong.service.impl;
 import com.jiaxiaohudong.dao.CommonStudentMapper;
 import com.jiaxiaohudong.entity.CommonStudent;
 import com.jiaxiaohudong.service.StudentService;
+import com.jiaxiaohudong.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,13 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
     @Autowired
     private CommonStudentMapper commonStudentMapper;
+
+    public R insert(CommonStudent record){
+        R result = new R();
+        result.put("msg", commonStudentMapper.insert(record));
+        return result;
+    }
+
     public List<CommonStudent> getStudents(int tearcherID) {
 
         List<CommonStudent> commonStudents = commonStudentMapper.selectByTid(tearcherID);

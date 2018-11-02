@@ -181,7 +181,7 @@
                 return false;
             }
             return true;
-        }
+        };
 
         function hint(msg) {
             if ($toast.css('display') != 'none') return;
