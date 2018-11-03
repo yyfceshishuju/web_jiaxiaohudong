@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.jiaxiaohudong.entity.CommonUser;
 import com.jiaxiaohudong.service.CommonUserService;
+import com.jiaxiaohudong.util.R;
 import com.jiaxiaohudong.util.SendMessage;
 import com.jiaxiaohudong.util.Wechat;
 import org.apache.http.HttpResponse;
@@ -49,7 +50,7 @@ public class WechatController {
 
 
     @RequestMapping(value = "/callBackLogin")
-    public String callBackLogin(HttpSession session, HttpServletRequest request, HttpServletResponse response, Model model) {
+    public String callBackLogin(HttpSession session, HttpServletRequest request) {
         System.out.println("callBackLogin....");
         String code = request.getParameter("code");
         String state = request.getParameter("state");
@@ -59,17 +60,15 @@ public class WechatController {
 
         String url = Wechat.getTokenUrl(code);
 
-        JSONObject jsonObject = this.httpGet(url);
+        JSONObject jsonObject = Wechat.httpGet(url);
         String at = jsonObject.getString("access_token");//获取微信开放平台票据号
         String openId = jsonObject.getString("openid");
         if (at == null || openId == null){
             return "home";
         }
         url=Wechat.getUserInfoUrl(at, openId);
-
-        jsonObject = this.httpGet(url);
+        jsonObject = Wechat.httpGet(url);
         System.out.println("==============>"+jsonObject);
-        model.addAttribute("weixin", jsonObject);
 //  把用户微信信息保存到数据库（判断这个信息是否存在，如果不存在，新增到数据库表（自动创建一个用户），如果已存在，直接登录成功）
         CommonUser user ;
         if (jsonObject.getString("openid") != null){
@@ -85,6 +84,8 @@ public class WechatController {
                 cuService.insert(user);
             }
             session.setAttribute("userinfo", user);
+        }else {
+            R result = R.error(jsonObject.getIntValue("errcode"), jsonObject.getString("errmsg"));
         }
         return "home";
     }
@@ -113,24 +114,7 @@ public class WechatController {
 
     }
 
-    private JSONObject httpGet(String url) {
-        JSONObject jsonResult = null;
-        try {
-            DefaultHttpClient client = new DefaultHttpClient();
-            HttpGet request = new HttpGet(url);
-            HttpResponse response = client.execute(request);
-            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                String strResult = EntityUtils.toString(response.getEntity(),"UTF-8");
-                jsonResult = JSON.parseObject(strResult);
-                System.out.println("strResult=" + strResult);
-            } else {
-                System.out.println("*******************");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return jsonResult;
-    }
+
 
 
 }

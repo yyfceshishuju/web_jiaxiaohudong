@@ -60,6 +60,15 @@
             </div>
         </div>
     </div>
+
+    <div id="toast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+            <p class="weui-toast__content"></p>
+        </div>
+    </div>
+
     <ul>
         <li>
             <div id="teacher" hidden>
@@ -101,6 +110,13 @@
                         </div>
                         <p class="weui-grid__label">学生错题库</p>
                     </a>
+                    <a href="/report/score.do" class="weui-grid">
+                        <div class="weui-grid__icon">
+                            <img src="/img/score.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">每周评价</p>
+                    </a>
+
                     <a href="/student/add.do" class="weui-grid">
                         <div class="weui-grid__icon">
                             <img src="/img/add_student.png" alt="">
@@ -156,6 +172,7 @@
                         </div>
                         <p class="weui-grid__label">绑定学生</p>
                     </a>
+
                     <a href="/user.do" class="weui-grid">
                         <div class="weui-grid__icon">
                             <img src="/img/student.png" alt="">
@@ -203,30 +220,15 @@
             $type = $("#type"),
             $parent = $("#parent"),
             $teacher = $("#teacher"),
+            $toast = $("#toast"),
+            $content = $(".weui-toast__content"),
             $other = $("#other"),
             $userUrl = "/user/info",
             $loginUrl = "/login.do"
         ;
-        $.ajax({
-            url: $userUrl,
-            method: "get",
-            success: function (data) {
-                $icon.attr("src", data.icon);
-                $name.text(data.name);
-                $type.text(data.type);
-                if (data.type == "教师"){
-                    $teacher.show();
-                } else if (data.type == "家长"){
-                    $parent.show();
-                }
 
-            },
-            error: function () {
-                alert("请重新登录");
-                window.location.href = $loginUrl
-            }
+        showTitle();
 
-        });
         $("#showAndroidActionSheet").on('click', function(){
             $androidActionSheet.fadeIn(200);
             $androidMask.on('click',function () {
@@ -234,12 +236,43 @@
             });
         });
 
+        function showTitle() {
+            $.ajax({
+                url: $userUrl,
+                method: "get",
+                success: function (data) {
+                    $icon.attr("src", data.icon);
+                    $name.text(data.name);
+                    $type.text(data.type + " " + data.grade);
+                    if (data.type == "教师"){
+                        $teacher.show();
+                    } else if (data.type == "家长"){
+                        $parent.show();
+                    }
+
+                },
+                error: function () {
+                    alert("请重新登录");
+                    window.location.href = $loginUrl
+                }
+            });
+        }
+
+        function hint(msg) {
+            if ($toast.css('display') != 'none') return;
+            $content.text(msg);
+            $toast.fadeIn(100);
+            setTimeout(function () {
+                $toast.fadeOut(100);
+            }, 1500);
+        }
+
         $('#div_grad1').click(function () {
             $.ajax({
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad1").text()
@@ -248,7 +281,8 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -264,7 +298,7 @@
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad2").text()
@@ -273,7 +307,8 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -289,7 +324,7 @@
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad3").text()
@@ -298,7 +333,8 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -314,7 +350,7 @@
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad4").text()
@@ -323,7 +359,8 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -339,7 +376,7 @@
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad5").text()
@@ -348,7 +385,8 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);
@@ -364,7 +402,7 @@
                 //提交数据的类型 POST GET
                 type:"POST",
                 //提交的网址
-                url:"/home",
+                url:"/teacher/grade",
                 //提交的数据
                 data:{
                     grad:$("#div_grad6").text()
@@ -373,7 +411,8 @@
                 dataType: "json",
                 //成功返回之后调用的函数
                 success:function (data){
-                    console.log(data['result']);
+                    hint(data['result']);
+                    showTitle();
                 },
                 complete:function(){
                     $androidActionSheet.fadeOut(200);

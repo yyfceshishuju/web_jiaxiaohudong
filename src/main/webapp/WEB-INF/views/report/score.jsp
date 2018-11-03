@@ -10,14 +10,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head lang="en">
-    <title>错题上传</title>
-    <%@include file="common/header.jsp"%>
+    <title>学生评价</title>
+    <%@include file="../common/header.jsp"%>
 </head>
 <body>
 <div class="page__hd"  style="background:#778899;">
     <div class="weui-flex">
         <div class="weui-flex__item">
-            <h1 class="page__title" style="color: #FFFFFF;text-align: center">错题上传</h1>
+            <h1 class="page__title" style="color: #FFFFFF;text-align: center">学生评价</h1>
         </div>
     </div>
 </div>
@@ -66,47 +66,29 @@
             <div class="weui-cells__title">
                 <button type="button" id="return" class="weui-btn weui-btn_mini weui-btn_default"> 重新选择学生</button>
             </div>
-            <form id="uploadForm" method="post" enctype="multipart/form-data">
-                <div class="weui-cells__title">上传题目</div>
-                <div class="weui-uploader">
-                    <div class="weui-uploader__bd">
-                        <ul class="weui-uploader__files" id="uploaderFiles">
-                            <li class="weui-uploader__file"></li></ul>
-                        <div class="weui-uploader__input-box">
-                            <input id="file" name="file" class="weui-uploader__input" type="file" accept="image/*" multiple="">
-                        </div>
-                    </div>
-                </div>
-            </form>
 
         </li>
         <li>
-          <form id="questionForm" method="post" >
-              <div class="weui-cells__title">题目相关信息</div>
-              <div class="weui-cells weui-cells_form">
-                  <div class="weui-cell">
-                      <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
-                      <div class="weui-cell__bd">
-                          <input name="title" class="weui-input" type="text" placeholder="请输入错题题目"/>
-                      </div>
-                  </div>
-                  <div class="weui-cell weui-cell_select weui-cell_select-after">
-                      <div class="weui-cell__hd"><label class="weui-label">分类</label></div>
-                      <div class="weui-cell__bd">
-                          <select class="weui-select" name="category" id="category">
-                          </select>
-                      </div>
-                  </div>
-                  <div class="weui-cell">
-                      <div class="weui-cell__hd"><label class="weui-label">题目</label></div>
-                      <div class="weui-cell__bd">
-                          <textarea class="weui-textarea" placeholder="" rows="3" id="question" name="question" ></textarea>
-                          <div class="weui-textarea-counter"><span>0</span>/200</div>
-                      </div>
-                  </div>
-                  <input type="hidden" id="student" name="student" hidden>
-              </div>
-          </form>
+            <form id="questionForm" method="post">
+                <div class="weui-cells__title">学生评价</div>
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell weui-cell_select weui-cell_select-after">
+                        <div class="weui-cell__hd"><label class="weui-label">分类</label></div>
+                        <div class="weui-cell__bd">
+                            <select class="weui-select" name="category" id="category">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">评价</label></div>
+                        <div class="weui-cell__bd">
+                            <textarea class="weui-textarea" placeholder="" rows="3" id="assess" name="assess" ></textarea>
+                            <div class="weui-textarea-counter"><span>0</span>/200</div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="student" name="student" hidden>
+                </div>
+            </form>
 
         </li>
     </ul>
@@ -124,11 +106,8 @@
             $searchInput = $('#searchInput'),
             $searchClear = $('#searchClear'),
             $searchCancel = $('#searchCancel'),
-
-            $students = $("#students"),
             $upload = $("#upload"),
-            $question = $("#question"),
-            $file = $("#file"),
+            $students = $("#students"),
             $category = $("#category"),
             $confirm = $("#confirm"),
             $student = $("#student"),
@@ -138,9 +117,9 @@
             $dialog = $("#dialog"),
             $dialogContent = $("#dialogContent"),
             $list = $("#list"),
-            uploadUrl = "/image/uploadImage",
-            questionUrl = "/question/add",
-            categoryUrl = "/image/example2",
+
+            questionUrl = "/teacher/addScore",
+            categoryUrl = "/teacher/scoreCategory",
             studentUrl = "/student/list",
             searchUrl = "/student/search"
         ;
@@ -151,28 +130,17 @@
             method: "get",
             success: function (data) {
                 data = data.data;
-                for (var i=0;i<data.length;i++){
-                    $category.append('<option value="'+ data[i].id+'">' + data[i].name + '</option>');
+                console.log(data);
+                for (var i=0;i<data.name.length;i+=2){
+                    if(data.name[i+1] == data.name[i]){
+                        $category.append('<option value="'+ data.name[i]+'">' + data.name[i] + '</option>');
+                    }
+                    else
+                        $category.append('<option value="'+ data.name[i] + data.name[i+1] +'">' + data.name[i] + data.name[i+1] + '</option>');
                 }
             }
         });
-        $file.on("change", function(){
 
-            var form = new FormData(document.getElementById('uploadForm'));
-            $.ajax({
-                url:uploadUrl,
-                type:"post",
-                data:form,
-                processData:false,
-                contentType:false,
-                success:function(data){
-                    $question.text(data.msg);
-                },
-                error:function(){
-                    alert(e);
-                }
-            });
-        });
 
         $list.on("click", ".weui-cell_access", function () {
 
@@ -186,6 +154,10 @@
             $upload.hide();
         });
         $confirm.on("click", function () {
+            if(!$("textarea[name='assess']").val()){
+                alert("请填写评价");
+                return;
+            }
 
             var form = new FormData(document.getElementById('questionForm'));
             $.ajax({
@@ -204,10 +176,9 @@
                         $upload.hide();
                     }
                 },
-                error:function(){
+                error:function(e){
                     alert(e);
                 }
-
             })
         });
         $searchText.on('click', function(){
@@ -258,7 +229,7 @@
                             '        </div>' +
                             '        <input class="id" hidden value="' +data[i].id+ '">' +
                             '        <div class="weui-cell__ft">' +
-                            status +
+                                        status +
                             '        </div>' +
                             '    </a>');
                     }

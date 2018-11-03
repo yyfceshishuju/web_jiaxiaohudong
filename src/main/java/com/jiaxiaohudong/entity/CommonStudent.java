@@ -29,6 +29,12 @@ public class CommonStudent {
 
     private Byte grad;
 
+    public CommonStudent(String name, Integer id, String icon) {
+        this.name = name;
+        this.id = id;
+        this.icon = icon;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -43,6 +49,22 @@ public class CommonStudent {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public CommonStudent() {
+        this.name = "";
+        this.studentid = "";
+        this.icon = "";
+        this.phone = 0L;
+        this.birthday = 0;
+        this.sex = 0;
+        this.pid = 0;
+        this.tid = 0;
+        this.question = 0;
+        this.answer = 0;
+        this.addtime = 0;
+        this.status = 0;
+        this.grad = 0;
     }
 
     public String getStudentid() {

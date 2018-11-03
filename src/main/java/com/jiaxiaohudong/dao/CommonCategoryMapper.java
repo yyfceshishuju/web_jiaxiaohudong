@@ -11,6 +11,8 @@ public interface CommonCategoryMapper {
 
     CommonCategory selectByPrimaryKey(Integer id);
 
+    CommonCategory selectByType(Byte type);
+
     int updateByPrimaryKeySelective(CommonCategory record);
 
     int updateByPrimaryKey(CommonCategory record);

@@ -169,6 +169,9 @@ CREATE TABLE `common_comment` (
 UNIQUE KEY `id` ( `id` )
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '评论表';
 
+DROP TABLE
+IF
+	EXISTS `common_report`;
 CREATE TABLE `common_report` (
  `id` INT ( 12 ) NOT NULL auto_increment,
  `title` VARCHAR ( 500 ) NOT NULL DEFAULT '' COMMENT '题目',
@@ -178,6 +181,7 @@ CREATE TABLE `common_report` (
  `judge` VARCHAR ( 500 ) NOT NULL DEFAULT '' COMMENT '教师评价',
  `stage` INT ( 12 ) NOT NULL DEFAULT 0 COMMENT '时间段',
  `uid` INT ( 12 ) NOT NULL DEFAULT 0 COMMENT '用户',
+ `stuid` INT ( 12 ) NOT NULL DEFAULT  0 COMMENT '学生id',
  `addtime` INT ( 12 ) NOT NULL DEFAULT 0 COMMENT '添加时间',
  `type` TINYINT ( 4 ) NOT NULL DEFAULT 0 COMMENT '分类 0是家长版 1是教师版',
  PRIMARY KEY ( `id` ),
