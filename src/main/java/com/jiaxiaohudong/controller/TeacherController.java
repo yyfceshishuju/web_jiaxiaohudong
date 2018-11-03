@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Controller
 @RequestMapping("/teacher")
@@ -74,26 +73,72 @@ public class TeacherController {
     @RequestMapping(value = "/addScore", method = RequestMethod.POST)
     @ResponseBody
     public R addScore(HttpServletRequest request, HttpSession session){
-        CommonReport commonReport = new CommonReport();
         Map<String, Object> result = new HashMap<String, Object>();
         CommonUser commonUser = (CommonUser) session.getAttribute("userinfo");
         String score = request.getParameter("category");
-        System.out.println(score);
+//        System.out.println(score);
         String judge = request.getParameter("assess");
-        System.out.println(judge);
+//        System.out.println(judge);
         int stuId = Integer.parseInt(request.getParameter("student"));
-        System.out.println(stuId);
+//        System.out.println(stuId);
 
-        Long addtime = new Date().getTime() / 1000;
+        Calendar calendar2 = Calendar.getInstance();
+        int day = calendar2.get(Calendar.DAY_OF_WEEK) - 1;
+        if (day == 0) day = 7;
+        int year = calendar2.get(Calendar.YEAR);
+        CommonReport commonReport = new CommonReport();
+        long time = new Date().getTime() / 1000;
+        Long timeL = time;
+        int addTime = timeL.intValue();
+        System.out.println(addTime);
         commonReport.setUid(commonUser.getId());
-        commonReport.setAddtime(addtime.intValue());
+        commonReport.setAddtime(addTime);
         commonReport.setScore(score);
         commonReport.setJudge(judge);
         commonReport.setStuid(stuId);
+        commonReport.setStage(year);
 
-        crMap.insert(commonReport);
-        result.put("code", 0);
-        result.put("msg", "提交成功");
+        List<CommonReport> commonReports = crMap.selectByUidAStuidAYear(commonUser.getId(), stuId, year);
+        if(commonReports == null || commonReports.isEmpty()){//none before
+            System.out.println("empty");
+            crMap.insert(commonReport);
+            result.put("code", 0);
+            result.put("msg", "提交成功");
+        }
+        else{//already have one
+            Collections.sort(commonReports,new Comparator<CommonReport>(){
+                public int compare(CommonReport arg0, CommonReport arg1) {
+                    return arg1.getStage().compareTo(arg0.getStage());
+                }
+            });//降序排
+            CommonReport last = commonReports.get(0);
+            long lastt = last.getAddtime();
+            calendar2.setTimeInMillis(lastt*1000);
+            int day1 = calendar2.get(Calendar.DAY_OF_WEEK) - 1, day2 = day,
+            sec1 = (int)lastt, sec2 = addTime;
+            if (day1 == 0) day1 = 7;
+            int dayPlus = (sec2- sec1) / 60 / 60 / 24;
+            System.out.println("dayPlus " + dayPlus);
+            if ((dayPlus >= 7) || (dayPlus < 7 && day2 < day1)){
+                System.out.println("just add, a new week");
+                crMap.insert(commonReport);
+                result.put("code", 0);
+                result.put("msg", "提交成功");
+            }
+            else{
+                //just update
+                System.out.println("update");
+                last.setJudge(judge);
+                last.setScore(score);
+                last.setStage(year);
+                last.setAddtime(addTime);
+                crMap.updateByPrimaryKeySelective(last);
+                result.put("code", 0);
+                result.put("msg", "提交成功");
+            }
+        }
+
         return R.ok(result);
     }
+
 }

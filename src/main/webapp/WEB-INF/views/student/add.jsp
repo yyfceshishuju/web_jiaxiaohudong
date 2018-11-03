@@ -23,6 +23,16 @@
     </div>
 </div>
 
+<div class="js_dialog" id="dialog" style="display: none;">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd" id="dialogContent"></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+        </div>
+    </div>
+</div>
+
 <div class="weui-gallery" id="gallery">
     <span class="weui-gallery__img" id="galleryImg"></span>
     <div class="weui-gallery__opr">
@@ -131,7 +141,9 @@
             $icondelete = $(".delete"),
             $uploadbox = $("#uploadbox"),
             $toast = $("#toast"),
-            $content = $(".weui-toast__content")
+            $content = $(".weui-toast__content"),
+            $dialog = $("#dialog"),
+            $dialogContent = $("#dialogContent")
         ;
 
         $uploaderInput.on("change", function(e){
@@ -195,6 +207,14 @@
         var info = "${info}";
         if(info == "success"){
             hint("添加成功");
+        }
+        else if(info == 'exist'){
+            alert("已经存在");
+        }
+
+        function alert(msg) {
+            $dialogContent.text(msg);
+            $dialog.fadeIn(100);
         }
     });
 

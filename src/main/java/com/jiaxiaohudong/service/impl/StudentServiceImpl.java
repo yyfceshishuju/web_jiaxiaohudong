@@ -32,4 +32,8 @@ public class StudentServiceImpl implements StudentService {
         List<CommonStudent> commonStudents = commonStudentMapper.selectByTidAndName(stu);
         return commonStudents;
     }
+
+    public List<CommonStudent> searchStudentsByNameAPhone(CommonStudent stu) {
+        return commonStudentMapper.selectByTidAndNameAndPhone(stu);
+    }
 }

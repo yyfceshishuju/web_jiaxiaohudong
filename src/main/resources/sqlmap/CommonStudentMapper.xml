@@ -220,4 +220,7 @@
   <select id="selectByTidAndName" resultType="com.jiaxiaohudong.entity.CommonStudent" parameterType="com.jiaxiaohudong.entity.CommonStudent">
     select id, name,icon, tid, studentId from common_student where tid = #{tid} and name like #{name}
   </select>
+  <select id="selectByTidAndNameAndPhone" resultType="com.jiaxiaohudong.entity.CommonStudent" parameterType="com.jiaxiaohudong.entity.CommonStudent">
+    select id, name,icon, tid, studentId from common_student where tid = #{tid} and name = #{name} and phone = #{phone}
+  </select>
 </mapper>

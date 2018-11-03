@@ -27,4 +27,5 @@ public interface CommonStudentMapper {
 
     List<CommonStudent> selectByTidAndName(CommonStudent stu);
 
+    List<CommonStudent> selectByTidAndNameAndPhone(CommonStudent stu);
 }

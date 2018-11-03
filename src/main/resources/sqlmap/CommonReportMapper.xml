@@ -23,6 +23,18 @@
     from common_report
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByUidAStuid" resultMap="reportResult">
+    select
+    <include refid="Base_Column_List" />
+    from common_report
+    where uid = #{0} and stuid = #{1}
+  </select>
+  <select id="selectByUidAStuidAYear" resultMap="reportResult">
+    select
+    <include refid="Base_Column_List" />
+    from common_report
+    where uid = #{0} and stuid = #{1} and stage = #{2}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from common_report
     where id = #{id,jdbcType=INTEGER}

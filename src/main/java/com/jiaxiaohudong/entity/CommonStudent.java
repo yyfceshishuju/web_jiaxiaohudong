@@ -52,6 +52,19 @@ public class CommonStudent {
     }
 
     public CommonStudent() {
+        this.name = "";
+        this.studentid = "";
+        this.icon = "";
+        this.phone = 0L;
+        this.birthday = 0;
+        this.sex = 0;
+        this.pid = 0;
+        this.tid = 0;
+        this.question = 0;
+        this.answer = 0;
+        this.addtime = 0;
+        this.status = 0;
+        this.grad = 0;
     }
 
     public String getStudentid() {

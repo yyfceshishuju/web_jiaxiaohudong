@@ -43,14 +43,18 @@ public class StudentController {
         commonStudent.setTid(user.getId());
         commonStudent.setName(name);
         List<CommonStudent> students = studentService.searchStudents(commonStudent);
+        System.out.println(students);
         return handles(students);
 
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public void addStu(HttpServletRequest request, CommonStudent student, MultipartFile pictureFile,
+    public void addStu(HttpServletRequest request, MultipartFile pictureFile,
                          HttpSession session, Model model) {
         CommonUser user = (CommonUser) session.getAttribute("userinfo");
+        CommonStudent student = new CommonStudent();
+
+
         String grad = user.getGrade();
         System.out.println("grade: " + grad);
         if(grad == null){
@@ -58,26 +62,18 @@ public class StudentController {
         }
         String fileName = "";
         String orignName = "";
+        String path = Translate.getPath(request);
         long time = new Date().getTime() / 1000;
         if (pictureFile == null || pictureFile.isEmpty()) {
             orignName = "/img/logo.png";
         }else{
             // 获取文件名
-            String path = Translate.getPath(request);
             orignName = pictureFile.getOriginalFilename();
             fileName = time + "." + orignName.substring(orignName.lastIndexOf(".") + 1);
             System.out.println(fileName);
             orignName = "/upload/" + fileName;
-            try {
-                File f2 = new File(path, fileName);
-                pictureFile.transferTo(f2);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
         }
 
-        //把图片存储路径保存到数据库
-        student.setIcon(orignName);
         student.setName(request.getParameter("username"));
         student.setStudentid(request.getParameter("studentId"));
         System.out.println("sex: " + request.getParameter("radio1"));
@@ -110,18 +106,28 @@ public class StudentController {
         else{
             student.setGrad((byte)0);
         }
-        student.setBirthday(19950420);
-        student.setPid(1);
         student.setTid(user.getId());
-        student.setQuestion(0);
-        student.setAnswer(0);
         Long addTime = time;
         student.setAddtime(addTime.intValue());
-        student.setStatus((byte)0);
 
-        studentService.insert(student);
+        List<CommonStudent> cStus = studentService.searchStudentsByNameAPhone(student);
 
-        model.addAttribute("info", "success");
+        if(cStus == null || cStus.isEmpty()){
+            //把图片存储路径保存到数据库
+            student.setIcon(orignName);
+            try {
+                File f2 = new File(path, fileName);
+                pictureFile.transferTo(f2);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            studentService.insert(student);
+            model.addAttribute("info", "success");
+        }
+        else{
+            model.addAttribute("info", "exist");
+        }
+
     }
 
     private R handles(List<CommonStudent> students){

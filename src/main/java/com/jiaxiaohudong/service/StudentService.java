@@ -11,4 +11,6 @@ public interface StudentService {
     List<CommonStudent> getStudents(int tearcherID);
 
     List<CommonStudent> searchStudents(CommonStudent stu);
+
+    List<CommonStudent> searchStudentsByNameAPhone(CommonStudent stu);
 }

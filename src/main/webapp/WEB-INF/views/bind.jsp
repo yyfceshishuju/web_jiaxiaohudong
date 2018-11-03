@@ -22,6 +22,15 @@
     </div>
 </div>
 
+<div class="js_dialog" id="dialog" style="display: none;">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd" id="dialogContent"></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+        </div>
+    </div>
+</div>
 <div id="toast" style="display: none;">
     <div class="weui-mask_transparent"></div>
     <div class="weui-toast">
@@ -61,7 +70,10 @@
 <script type="text/javascript">
     $(function () {
         var $toast = $("#toast"),
-            $content = $(".weui-toast__content");
+            $content = $(".weui-toast__content"),
+            $dialog = $("#dialog"),
+            $dialogContent = $("#dialogContent")
+        ;
 
         var info = "${info}";
         if(info == "success"){
@@ -91,6 +103,11 @@
             setTimeout(function () {
                 $toast.fadeOut(100);
             }, 1000);
+        }
+
+        function alert(msg) {
+            $dialogContent.text(msg);
+            $dialog.fadeIn(100);
         }
     });
 

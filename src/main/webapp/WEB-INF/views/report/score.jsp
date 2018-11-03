@@ -176,7 +176,7 @@
                         $upload.hide();
                     }
                 },
-                error:function(){
+                error:function(e){
                     alert(e);
                 }
             })
