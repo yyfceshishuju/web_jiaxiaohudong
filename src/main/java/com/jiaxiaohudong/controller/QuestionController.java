@@ -47,11 +47,27 @@ public class QuestionController {
         }
 
         CommonQuestion question = new CommonQuestion();
-        question.setId(Integer.parseInt(sid));
+        question.setSid(Integer.parseInt(sid));
         question.setAddtime(date.getTime());
         List<CommonQuestion> commonQuestions = questionService.searchByCommonQuestion(question);
         if (commonQuestions !=null){
             map.put("question", commonQuestions);
+            return  R.ok(map);
+        }else {
+            return  R.error("该学生本周没有错题");
+        }
+
+    }
+
+    @RequestMapping("/getquestion")//提供错题id，返回错题详情
+    public R getRequest(@RequestParam(value = "id") String id, Map<String, Object> map){
+
+
+        CommonQuestion question = new CommonQuestion();
+        question.setId(Integer.parseInt(id));
+        List<CommonQuestion> commonQuestions = questionService.searchByCommonQuestion(question);
+        if (commonQuestions !=null){
+            map.put("question", commonQuestions.get(0));
             return  R.ok(map);
         }else {
             return  R.error("该学生本周没有错题");
