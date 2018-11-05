@@ -18,4 +18,6 @@ public interface CommonQuestionMapper {
     int updateByPrimaryKey(CommonQuestion record);
 
     List<CommonQuestion> selectByCommonQuestion(CommonQuestion que);
+
+    List<CommonQuestion> selectByPage(Integer sid, Integer start, Integer pageSize);
 }

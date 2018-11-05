@@ -197,4 +197,8 @@
       AND status = #{status,jdbcType=TINYINT},
     </if>
   </select>
+
+    <select id="selectByPage" parameterType="Integer" resultMap="questionResult">
+        select * from common_question where sid = #{sid} limit (#{start}, #{pageSize})
+    </select>
 </mapper>

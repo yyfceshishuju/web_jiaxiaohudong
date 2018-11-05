@@ -51,7 +51,7 @@ public class QuestionController {
         question.setAddtime(date.getTime());
         List<CommonQuestion> commonQuestions = questionService.searchByCommonQuestion(question);
         if (commonQuestions !=null){
-            map.put("question", commonQuestions);
+            map.put("questions", commonQuestions);
             return  R.ok(map);
         }else {
             return  R.error("该学生本周没有错题");
@@ -60,7 +60,7 @@ public class QuestionController {
     }
 
     @RequestMapping("/getquestion")//提供错题id，返回错题详情
-    public R getRequest(@RequestParam(value = "id") String id, Map<String, Object> map){
+    public R getQuestion(@RequestParam(value = "id") String id, Map<String, Object> map){
 
 
         CommonQuestion question = new CommonQuestion();
@@ -75,6 +75,16 @@ public class QuestionController {
 
     }
 
+    @RequestMapping("getquestion")//根据学生id获取5个学生，用于下拉递增
+    public R getQuestion(@RequestParam(value = "sid") String sid, @RequestParam(value = "thispage") String thisPage, @RequestParam(value = "pagesize") String pageSize, Map<String, Object> map){
+        List<CommonQuestion> commonQuestions = questionService.searchByPage(Integer.parseInt(sid), Integer.parseInt(thisPage) * Integer.parseInt(pageSize), Integer.parseInt(pageSize));
+        if (commonQuestions !=null){
+            map.put("questions", commonQuestions.get(0));
+            return  R.ok(map);
+        }else {
+            return  R.error("没有错题");
+        }
+    }
 
 
 

@@ -41,4 +41,8 @@ public class QuestionServiceImpl implements QuestionService {
         List<CommonQuestion> commonQuestions = commonQuestionMapper.selectByCommonQuestion(req);
         return commonQuestions;
     }
+
+    public List<CommonQuestion> searchByPage(Integer sid, Integer start, Integer pageSize) {
+        return  commonQuestionMapper.selectByPage(sid, start, pageSize);
+    }
 }

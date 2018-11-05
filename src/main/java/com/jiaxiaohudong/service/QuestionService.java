@@ -18,4 +18,6 @@ public interface QuestionService {
     int modifyByPrimaryKey(CommonQuestion record);
 
     List<CommonQuestion> searchByCommonQuestion(CommonQuestion req);
+
+    List<CommonQuestion> searchByPage(Integer sid, Integer start, Integer pageSize);
 }
