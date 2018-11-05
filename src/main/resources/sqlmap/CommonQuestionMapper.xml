@@ -8,13 +8,14 @@
     <result column="question" property="question" jdbcType="VARCHAR" />
     <result column="detail" property="detail" jdbcType="VARCHAR" />
     <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="sid" property="sid" jdbcType="INTEGER" />
     <result column="star" property="star" jdbcType="INTEGER" />
     <result column="answer" property="answer" jdbcType="INTEGER" />
-    <result column="addtime" property="addtime" jdbcType="INTEGER" />
+    <result column="addtime" property="addtime" jdbcType="BIGINT" />
     <result column="status" property="status" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, cid, name, question, detail, uid, star, answer, addtime, status
+    id, cid, name, question, detail, uid, sid, star, answer, addtime, status
   </sql>
   <select id="selectByPrimaryKey" resultMap="questionResult" parameterType="java.lang.Integer" >
     select 
@@ -28,12 +29,13 @@
   </delete>
   <insert id="insert" parameterType="com.jiaxiaohudong.entity.CommonQuestion" >
     insert into common_question (id, cid, name, 
-      question, detail, uid, 
+      question, detail, uid, sid,
       star, answer, addtime, 
       status)
     values (#{id,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{question,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, 
-      #{star,jdbcType=INTEGER}, #{answer,jdbcType=INTEGER}, #{addtime,jdbcType=INTEGER}, 
+      #{question,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER},
+      #{sid,jdbcType=INTEGER},
+      #{star,jdbcType=INTEGER}, #{answer,jdbcType=INTEGER}, #{addtime,jdbcType=BIGINT},
       #{status,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.jiaxiaohudong.entity.CommonQuestion" >
@@ -56,6 +58,9 @@
       </if>
       <if test="uid != null" >
         uid,
+      </if>
+      <if test="sid != null" >
+        sid,
       </if>
       <if test="star != null" >
         star,
@@ -89,6 +94,9 @@
       <if test="uid != null" >
         #{uid,jdbcType=INTEGER},
       </if>
+      <if test="sid != null" >
+        #{sid,jdbcType=INTEGER},
+      </if>
       <if test="star != null" >
         #{star,jdbcType=INTEGER},
       </if>
@@ -96,7 +104,7 @@
         #{answer,jdbcType=INTEGER},
       </if>
       <if test="addtime != null" >
-        #{addtime,jdbcType=INTEGER},
+        #{addtime,jdbcType=BIGINT},
       </if>
       <if test="status != null" >
         #{status,jdbcType=TINYINT},
@@ -121,6 +129,9 @@
       <if test="uid != null" >
         uid = #{uid,jdbcType=INTEGER},
       </if>
+      <if test="sid != null" >
+        uid = #{sid,jdbcType=INTEGER},
+      </if>
       <if test="star != null" >
         star = #{star,jdbcType=INTEGER},
       </if>
@@ -128,7 +139,7 @@
         answer = #{answer,jdbcType=INTEGER},
       </if>
       <if test="addtime != null" >
-        addtime = #{addtime,jdbcType=INTEGER},
+        addtime = #{addtime,jdbcType=BIGINT},
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=TINYINT},
@@ -143,10 +154,47 @@
       question = #{question,jdbcType=VARCHAR},
       detail = #{detail,jdbcType=VARCHAR},
       uid = #{uid,jdbcType=INTEGER},
+      sid = #{sid,jdbcType=INTEGER},
       star = #{star,jdbcType=INTEGER},
       answer = #{answer,jdbcType=INTEGER},
-      addtime = #{addtime,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=BIGINT},
       status = #{status,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByCommonQuestion" parameterType="com.jiaxiaohudong.entity.CommonQuestion" resultType="com.jiaxiaohudong.entity.CommonQuestion">
+    SELECT * FROM common_question
+    WHERE 1=1
+
+    <if test="cid != null" >
+      AND cid = #{cid,jdbcType=INTEGER},
+    </if>
+    <if test="name != null" >
+      AND name = #{name,jdbcType=VARCHAR},
+    </if>
+    <if test="question != null" >
+      AND question = #{question,jdbcType=VARCHAR},
+    </if>
+    <if test="detail != null" >
+      AND detail = #{detail,jdbcType=VARCHAR},
+    </if>
+    <if test="uid != null" >
+      AND uid = #{uid,jdbcType=INTEGER},
+    </if>
+    <if test="sid != null" >
+      AND sid = #{uid,jdbcType=INTEGER},
+    </if>
+    <if test="star != null" >
+      AND star = #{star,jdbcType=INTEGER},
+    </if>
+    <if test="answer != null" >
+      AND answer = #{answer,jdbcType=INTEGER},
+    </if>
+    <if test="addtime != null" >
+      <![CDATA[  AND addtime >= #{addtime,jdbcType=BIGINT},
+      AND addtime < #{addtime,jdbcType=BIGINT} + 604800 ]]>
+    </if>
+    <if test="status != null" >
+      AND status = #{status,jdbcType=TINYINT},
+    </if>
+  </select>
 </mapper>

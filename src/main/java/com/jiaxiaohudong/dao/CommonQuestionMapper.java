@@ -2,6 +2,8 @@ package com.jiaxiaohudong.dao;
 
 import com.jiaxiaohudong.entity.CommonQuestion;
 
+import java.util.List;
+
 public interface CommonQuestionMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface CommonQuestionMapper {
     int updateByPrimaryKeySelective(CommonQuestion record);
 
     int updateByPrimaryKey(CommonQuestion record);
+
+    List<CommonQuestion> selectByCommonQuestion(CommonQuestion que);
 }

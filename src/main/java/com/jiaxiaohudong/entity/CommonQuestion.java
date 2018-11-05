@@ -13,11 +13,21 @@ public class CommonQuestion {
 
     private Integer uid;
 
+    private  Integer sid;
+
+    public Integer getSid() {
+        return sid;
+    }
+
+    public void setSid(Integer sid) {
+        this.sid = sid;
+    }
+
     private Integer star;
 
     private Integer answer;
 
-    private Integer addtime;
+    private Long addtime;
 
     private Byte status;
 
@@ -85,11 +95,11 @@ public class CommonQuestion {
         this.answer = answer;
     }
 
-    public Integer getAddtime() {
+    public Long getAddtime() {
         return addtime;
     }
 
-    public void setAddtime(Integer addtime) {
+    public void setAddtime(Long addtime) {
         this.addtime = addtime;
     }
 

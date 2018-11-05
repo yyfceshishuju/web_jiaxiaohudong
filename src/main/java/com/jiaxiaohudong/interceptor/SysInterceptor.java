@@ -1,7 +1,6 @@
 package com.jiaxiaohudong.interceptor;
 
 import com.jiaxiaohudong.entity.CommonUser;
-import com.jiaxiaohudong.entity.Userinfo;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;

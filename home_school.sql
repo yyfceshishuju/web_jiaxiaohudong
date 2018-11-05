@@ -101,7 +101,7 @@ CREATE TABLE `common_question` (
  `grad` TINYINT ( 4 ) NOT NULL DEFAULT 0 COMMENT '年级',
  `star` INT ( 12 ) NOT NULL DEFAULT 0 COMMENT '收藏数',
  `answer` INT ( 12 ) NOT NULL DEFAULT 0 COMMENT '答案数',
- `addtime` INT ( 12 ) NOT NULL DEFAULT 0 COMMENT '添加时间',
+ `addtime` BIGINT ( 12 ) NOT NULL DEFAULT 0 COMMENT '添加时间',
  `status` TINYINT ( 4 ) NOT NULL DEFAULT 0 COMMENT '状态',
  PRIMARY KEY ( `id` ),
  UNIQUE KEY `id` ( `id` )
