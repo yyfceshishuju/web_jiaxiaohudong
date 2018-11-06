@@ -1,19 +1,19 @@
 package com.jiaxiaohudong.entity;
 
 public class CommonQuestion {
-    private Integer id;
+    private Integer id = 0;
 
-    private Integer cid;
+    private Integer cid = 0;
 
-    private String name;
+    private String name = "";
 
-    private String question;
+    private String question = "";
 
-    private String detail;
+    private String detail = "";
 
-    private Integer uid;
+    private Integer uid = 1;
 
-    private  Integer sid;
+    private  Integer sid = 1;
 
     public Integer getSid() {
         return sid;
@@ -23,13 +23,13 @@ public class CommonQuestion {
         this.sid = sid;
     }
 
-    private Integer star;
+    private Integer star = 1;
 
-    private Integer answer;
+    private Integer answer = 1;
 
-    private Long addtime;
+    private Long addtime = 1000000000L;
 
-    private Byte status;
+    private Byte status = '1';
 
     public Integer getId() {
         return id;

@@ -25,10 +25,10 @@ import java.util.Map;
 public class QuestionController {
     @Autowired
     private QuestionService questionService;
-    @RequestMapping(value = "/addquestion", method = RequestMethod.POST)
-    public R addQuestion(@RequestParam(value = "question") CommonQuestion question ) throws RuntimeException {
-        question.setAddtime(new Date().getTime());
-        int i = questionService.add(question);
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public R addQuestion(CommonQuestion common_question ) throws RuntimeException {
+        common_question.setAddtime(new Date().getTime());
+        int i = questionService.add(common_question);
         if (i == 0){
             return R.ok("ok");
         }else{
@@ -75,7 +75,7 @@ public class QuestionController {
 
     }
 
-    @RequestMapping("getquestion")//根据学生id获取5个学生，用于下拉递增
+    @RequestMapping("getquestion_five")//根据学生id获取5个学生，用于下拉递增
     public R getQuestion(@RequestParam(value = "sid") String sid, @RequestParam(value = "thispage") String thisPage, @RequestParam(value = "pagesize") String pageSize, Map<String, Object> map){
         List<CommonQuestion> commonQuestions = questionService.searchByPage(Integer.parseInt(sid), Integer.parseInt(thisPage) * Integer.parseInt(pageSize), Integer.parseInt(pageSize));
         if (commonQuestions !=null){
