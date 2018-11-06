@@ -81,33 +81,30 @@
 
         </li>
         <li>
-          <form id="questionForm" modelAttribute="common_question" method="post" >
+          <form id="questionForm" modelAttribute="commonQuestion" method="post" >
               <div class="weui-cells__title">题目相关信息</div>
               <div class="weui-cells weui-cells_form">
                   <div class="weui-cell">
                       <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
                       <div class="weui-cell__bd">
-                          <input name="common_question.name" class="weui-input" type="text" placeholder="请输入错题题目"/>
+                          <input name="name" class="weui-input" type="text" placeholder="请输入错题题目"/>
                       </div>
                   </div>
                   <div class="weui-cell weui-cell_select weui-cell_select-after">
                       <div class="weui-cell__hd"><label class="weui-label">分类</label></div>
                       <div class="weui-cell__bd">
-                          <select class="weui-select" name="common_question.category" id="category">
+                          <select class="weui-select" name="cid" id="category">
                           </select>
                       </div>
                   </div>
                   <div class="weui-cell">
                       <div class="weui-cell__hd"><label class="weui-label">题目</label></div>
                       <div class="weui-cell__bd">
-                          <textarea class="weui-textarea" placeholder="" rows="3" id="question" name="common_question.question" ></textarea>
+                          <textarea class="weui-textarea" placeholder="" rows="3" id="question" name="question" ></textarea>
                           <div class="weui-textarea-counter"><span>0</span>/200</div>
                       </div>
                   </div>
-                  <input type="hidden" id="student" name="common_question.sid" value="1" hidden>
-                  <input type="hidden" id="cid" name="common_question.cid" value="1" hidden>
-                  <input type="hidden" id="uid" name="common_question.uid" value="1" hidden>
-                  <input type="hidden" id="detail" name="common_question.detail" value="null" hidden>
+                  <input type="hidden" id="student" name="sid" value="2" ／>
               </div>
           </form>
 

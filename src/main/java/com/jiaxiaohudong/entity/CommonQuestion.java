@@ -110,4 +110,21 @@ public class CommonQuestion {
     public void setStatus(Byte status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "CommonQuestion{" +
+                "id=" + id +
+                ", cid=" + cid +
+                ", name='" + name + '\'' +
+                ", question='" + question + '\'' +
+                ", detail='" + detail + '\'' +
+                ", uid=" + uid +
+                ", sid=" + sid +
+                ", star=" + star +
+                ", answer=" + answer +
+                ", addtime=" + addtime +
+                ", status=" + status +
+                '}';
+    }
 }

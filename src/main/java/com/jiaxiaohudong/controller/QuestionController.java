@@ -2,6 +2,7 @@ package com.jiaxiaohudong.controller;
 
 import com.jiaxiaohudong.entity.CommonQuestion;
 import com.jiaxiaohudong.entity.CommonStudent;
+import com.jiaxiaohudong.entity.CommonUser;
 import com.jiaxiaohudong.service.QuestionService;
 import com.jiaxiaohudong.service.StudentService;
 import com.jiaxiaohudong.util.JsonUtil;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -26,9 +28,14 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public R addQuestion(CommonQuestion common_question ) throws RuntimeException {
-        common_question.setAddtime(new Date().getTime());
-        int i = questionService.add(common_question);
+    public R addQuestion(CommonQuestion commonQuestion, HttpSession session) throws RuntimeException {
+        System.out.println(commonQuestion);
+        CommonUser userinfo = (CommonUser) session.getAttribute("userinfo");
+        Integer uid = userinfo.getId();
+        commonQuestion.setUid(uid);
+        commonQuestion.setDetail(commonQuestion.getQuestion());
+        commonQuestion.setAddtime(new Date().getTime());
+        int i = questionService.add(commonQuestion);
         if (i == 0){
             return R.ok("ok");
         }else{
