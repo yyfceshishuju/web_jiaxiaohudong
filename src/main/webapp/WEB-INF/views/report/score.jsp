@@ -119,7 +119,7 @@
             $list = $("#list"),
 
             questionUrl = "/teacher/addScore",
-            categoryUrl = "/teacher/scoreCategory",
+            categoryUrl = "/teacher/scoreCategory?type=2",
             studentUrl = "/student/list",
             searchUrl = "/student/search"
         ;
@@ -131,12 +131,8 @@
             success: function (data) {
                 data = data.data;
                 console.log(data);
-                for (var i=0;i<data.name.length;i+=2){
-                    if(data.name[i+1] == data.name[i]){
-                        $category.append('<option value="'+ data.name[i]+'">' + data.name[i] + '</option>');
-                    }
-                    else
-                        $category.append('<option value="'+ data.name[i] + data.name[i+1] +'">' + data.name[i] + data.name[i+1] + '</option>');
+                for (var i=0;i<data.length;i++) {
+                    $category.append('<option value="' + data[i].name + '">' + data[i].name + '</option>');
                 }
             }
         });
