@@ -62,11 +62,12 @@ public class TeacherController {
 
     @RequestMapping(value = "/scoreCategory", method = RequestMethod.GET)
     @ResponseBody
-    public R getScoreCategory(){
+    public R getScoreCategory(@RequestParam(value = "type") byte type){
+        System.out.println(type);
         Map<String, Object> result = new HashMap<String, Object>();
-        CommonCategory category = ccMap.selectByType((byte)2);
+        List<CommonCategory> categorys = ccMap.selectByType(type);
         result.put("code", 0);
-        result.put("data", category);
+        result.put("data", categorys);
         return R.ok(result);
     }
 

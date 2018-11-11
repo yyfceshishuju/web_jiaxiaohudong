@@ -2,6 +2,8 @@ package com.jiaxiaohudong.dao;
 
 import com.jiaxiaohudong.entity.CommonCategory;
 
+import java.util.List;
+
 public interface CommonCategoryMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -11,7 +13,7 @@ public interface CommonCategoryMapper {
 
     CommonCategory selectByPrimaryKey(Integer id);
 
-    CommonCategory selectByType(Byte type);
+    List<CommonCategory> selectByType(Byte type);
 
     int updateByPrimaryKeySelective(CommonCategory record);
 
