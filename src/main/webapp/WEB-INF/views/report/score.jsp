@@ -41,7 +41,7 @@
 </div>
 <div id="students" class="weui-cells">
 
-    <div class="weui-search-bar" id="searchBar">
+    <div class="weui-search-bar" id="searchBar"  style="height: 46px">
         <form class="weui-search-bar__form">
             <div class="weui-search-bar__box">
                 <i class="weui-icon-search"></i>

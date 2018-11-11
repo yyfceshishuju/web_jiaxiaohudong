@@ -41,11 +41,11 @@
 </div>
 <div id="students" class="weui-cells">
 
-    <div class="weui-search-bar" id="searchBar">
+    <div class="weui-search-bar" id="searchBar" style="height: 46px">
         <form class="weui-search-bar__form">
             <div class="weui-search-bar__box">
                 <i class="weui-icon-search"></i>
-                <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                <input type="search" class="weui-search-bar__input"  id="searchInput" placeholder="搜索" required/>
                 <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
             </div>
             <label class="weui-search-bar__label" id="searchText">
