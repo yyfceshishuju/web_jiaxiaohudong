@@ -223,6 +223,7 @@
             $toast = $("#toast"),
             $content = $(".weui-toast__content"),
             $other = $("#other"),
+            $grade = $(".weui-actionsheet__cell"),
             $userUrl = "/user/info",
             $loginUrl = "/login.do"
         ;
@@ -267,7 +268,7 @@
             }, 1500);
         }
 
-        $('#div_grad1').click(function () {
+        $grade.click(function () {
             $.ajax({
                 //提交数据的类型 POST GET
                 type:"POST",
@@ -275,7 +276,7 @@
                 url:"/teacher/grade",
                 //提交的数据
                 data:{
-                    grad:$("#div_grad1").text()
+                    grad: $(this).text()
                 },
                 //返回数据的格式
                 dataType: "json",
@@ -293,136 +294,7 @@
                 }
             });
         });
-        $('#div_grad2').click(function () {
-            $.ajax({
-                //提交数据的类型 POST GET
-                type:"POST",
-                //提交的网址
-                url:"/teacher/grade",
-                //提交的数据
-                data:{
-                    grad:$("#div_grad2").text()
-                },
-                //返回数据的格式
-                dataType: "json",
-                //成功返回之后调用的函数
-                success:function (data){
-                    hint(data['result']);
-                    showTitle();
-                },
-                complete:function(){
-                    $androidActionSheet.fadeOut(200);
-                },
-                //调用出错执行的函数
-                error: function(error){
-                    console.log("ajax error : "+error);
-                }
-            });
-        });
-        $('#div_grad3').click(function () {
-            $.ajax({
-                //提交数据的类型 POST GET
-                type:"POST",
-                //提交的网址
-                url:"/teacher/grade",
-                //提交的数据
-                data:{
-                    grad:$("#div_grad3").text()
-                },
-                //返回数据的格式
-                dataType: "json",
-                //成功返回之后调用的函数
-                success:function (data){
-                    hint(data['result']);
-                    showTitle();
-                },
-                complete:function(){
-                    $androidActionSheet.fadeOut(200);
-                },
-                //调用出错执行的函数
-                error: function(error){
-                    console.log("ajax error : "+error);
-                }
-            });
-        });
-        $('#div_grad4').click(function () {
-            $.ajax({
-                //提交数据的类型 POST GET
-                type:"POST",
-                //提交的网址
-                url:"/teacher/grade",
-                //提交的数据
-                data:{
-                    grad:$("#div_grad4").text()
-                },
-                //返回数据的格式
-                dataType: "json",
-                //成功返回之后调用的函数
-                success:function (data){
-                    hint(data['result']);
-                    showTitle();
-                },
-                complete:function(){
-                    $androidActionSheet.fadeOut(200);
-                },
-                //调用出错执行的函数
-                error: function(error){
-                    console.log("ajax error : "+error);
-                }
-            });
-        });
-        $('#div_grad5').click(function () {
-            $.ajax({
-                //提交数据的类型 POST GET
-                type:"POST",
-                //提交的网址
-                url:"/teacher/grade",
-                //提交的数据
-                data:{
-                    grad:$("#div_grad5").text()
-                },
-                //返回数据的格式
-                dataType: "json",
-                //成功返回之后调用的函数
-                success:function (data){
-                    hint(data['result']);
-                    showTitle();
-                },
-                complete:function(){
-                    $androidActionSheet.fadeOut(200);
-                },
-                //调用出错执行的函数
-                error: function(error){
-                    console.log("ajax error : "+error);
-                }
-            });
-        });
-        $('#div_grad6').click(function () {
-            $.ajax({
-                //提交数据的类型 POST GET
-                type:"POST",
-                //提交的网址
-                url:"/teacher/grade",
-                //提交的数据
-                data:{
-                    grad:$("#div_grad6").text()
-                },
-                //返回数据的格式
-                dataType: "json",
-                //成功返回之后调用的函数
-                success:function (data){
-                    hint(data['result']);
-                    showTitle();
-                },
-                complete:function(){
-                    $androidActionSheet.fadeOut(200);
-                },
-                //调用出错执行的函数
-                error: function(error){
-                    console.log("ajax error : "+error);
-                }
-            });
-        });
+
     });
 </script>
 

@@ -216,6 +216,9 @@
             $dialogContent.text(msg);
             $dialog.fadeIn(100);
         }
+        $dialog.on('click', '.weui-dialog__btn', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
+        });
     });
 
 </script>
