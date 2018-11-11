@@ -51,44 +51,47 @@
            </div>
            <div class="weui-cell__ft" id="type">家长</div>
        </a>
-       <%--<a class="weui-cell weui-cell_access password" href="javascript:;">--%>
-           <%--<div class="weui-cell__bd">--%>
-                <%--<p>修改密码</p>--%>
-           <%--</div>--%>
-       <%--</a>--%>
+       <a class="weui-cell weui-cell_access password" href="javascript:;">
+           <div class="weui-cell__bd">
+                <p>修改密码</p>
+           </div>
+       </a>
 
-       <%--<div class="js_dialog" id="passDialog" hidden>--%>
-           <%--<div class="weui-mask"></div>--%>
-           <%--<div class="weui-dialog">--%>
-               <%--<div class="weui-dialog__bd" id="passContent">--%>
-                   <%--<h3 class="page__title" style="text-align: center">修改密码</h3>--%>
-                   <%--<div class="weui-cell">--%>
+       <input  id="oldpass" name="oldpass" type="hidden">
+       <input  id="newpass1" name="newpass1" type="hidden">
+       <input  id="newpass2" name="newpass2" type="hidden">
+       <div class="js_dialog" id="passDialog" hidden>
+           <div class="weui-mask"></div>
+           <div class="weui-dialog">
+               <div class="weui-dialog__bd" id="passContent">
+                   <h3 class="page__title" style="text-align: center">修改密码</h3>
+                   <div class="weui-cell">
 
-                       <%--<div class="weui-cell__bd"><label class="weui-label">旧密码：</label></div>--%>
-                       <%--<div class="weui-cell__ft">--%>
-                           <%--<input  id="oldpass" name="oldpass" class="weui-input" type="password" placeholder="请输入旧密码">--%>
-                       <%--</div>--%>
-                   <%--</div>--%>
-                   <%--<div class="weui-cell">--%>
+                       <div class="weui-cell__bd"><label class="weui-label">旧密码：</label></div>
+                       <div class="weui-cell__ft">
+                           <input  id="old"  class="weui-input" type="password" placeholder="请输入旧密码">
+                       </div>
+                   </div>
+                   <div class="weui-cell">
 
-                       <%--<div class="weui-cell__bd"><label class="weui-label">新密码：</label></div>--%>
-                       <%--<div class="weui-cell__ft">--%>
-                           <%--<input id="newpass1" name="newpass1" class="weui-input" type="password" placeholder="请输入新密码">--%>
-                       <%--</div>--%>
-                   <%--</div>--%>
-                   <%--<div class="weui-cell">--%>
+                       <div class="weui-cell__bd"><label class="weui-label">新密码：</label></div>
+                       <div class="weui-cell__ft">
+                           <input id="new1"  class="weui-input" type="password" placeholder="请输入新密码">
+                       </div>
+                   </div>
+                   <div class="weui-cell">
 
-                       <%--<div class="weui-cell__bd"><label class="weui-label">新密码：</label></div>--%>
-                       <%--<div class="weui-cell__ft">--%>
-                           <%--<input  id="newpass2" name="newpass2" class="weui-input" type="password" placeholder="请再次输入新密码">--%>
-                       <%--</div>--%>
-                   <%--</div>--%>
-               <%--</div>--%>
-               <%--<div class="weui-dialog__ft">--%>
-                   <%--<button id="confirm" type="button" class="weui-dialog__btn weui-dialog__btn_primary">确定</button>--%>
-               <%--</div>--%>
-           <%--</div>--%>
-       <%--</div>--%>
+                       <div class="weui-cell__bd"><label class="weui-label">新密码：</label></div>
+                       <div class="weui-cell__ft">
+                           <input  id="new2" class="weui-input" type="password" placeholder="请再次输入新密码">
+                       </div>
+                   </div>
+               </div>
+               <div class="weui-dialog__ft">
+                   <button id="confirm" type="button" class="weui-dialog__btn weui-dialog__btn_primary">确定</button>
+               </div>
+           </div>
+       </div>
    </form>
 </div>
 
@@ -113,6 +116,8 @@
             $password = $("#confirm"),
             $passDialog = $("#passDialog"),
             $passLabel = $(".password"),
+
+
             $userUrl = "/user/info",
             $loginUrl = "/login.do",
             $thisUrl = "/user.do",
@@ -133,8 +138,14 @@
             }
 
         });
-        $upload.on('change', update(1));
-        // $password.on('click', update(2));
+        $upload.on('click', update(1));
+        $password.on('click', function () {
+            $passDialog.fadeOut(100);
+            $("#newpass1").val($("#new1").val());
+            $("#newpass2").val($("#new2").val());
+            $("#oldpass").val($("#old").val());
+            update(2);
+        });
         $passLabel.on('click', function () {
             $passDialog.fadeIn(200);
         });

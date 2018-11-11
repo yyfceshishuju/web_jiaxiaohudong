@@ -84,10 +84,10 @@ public class userController {
                 case 2:
 
                     if (!newpass1.equals(newpass2)){
-                        R.error(-2, "两次密码不一致");
+                        return R.error(-2, "两次密码不一致");
                     }
                     if (!user.getPassword().equals(oldpass)){
-                        R.error(-3, "旧密码输入有误");
+                        return R.error(-3, "旧密码输入有误");
                     }
                     user.setPassword(newpass1);
                     break;
