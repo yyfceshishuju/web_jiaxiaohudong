@@ -81,7 +81,7 @@
 
         </li>
         <li>
-          <form id="questionForm" modelAttribute="commonQuestion" method="post" >
+          <form id="questionForm"  method="post" >
               <div class="weui-cells__title">题目相关信息</div>
               <div class="weui-cells weui-cells_form">
                   <div class="weui-cell">

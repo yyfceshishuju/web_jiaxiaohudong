@@ -1,9 +1,12 @@
 package com.jiaxiaohudong.controller;
 
 import com.jiaxiaohudong.entity.CommonUser;
+import com.jiaxiaohudong.entity.Userinfo;
 import com.jiaxiaohudong.service.CommonUserService;
 import com.jiaxiaohudong.util.R;
 import com.jiaxiaohudong.util.Translate;
+import com.jiaxiaohudong.util.Upload;
+import org.apache.http.HttpRequest;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,6 +68,39 @@ public class userController {
     }
 
 
+    @RequestMapping(value="/update", method = RequestMethod.POST)
+    @ResponseBody
+    public R Update(HttpSession session, int key, String oldpass, String newpass1, String newpass2, @RequestParam(value="uploaderInput",required = false) MultipartFile uploaderInput,
+                    HttpServletRequest request) {
+        CommonUser user = (CommonUser) session.getAttribute("userinfo");
+        if(user != null){
+            switch (key){
+                case 1:
+                    long time = new Date().getTime() / 1000;
+                    String orignName = Upload.upload(time, uploaderInput, request);
+                    String icon = orignName;
+                    user.setIcon(icon);
+                    break;
+                case 2:
+
+                    if (!newpass1.equals(newpass2)){
+                        R.error(-2, "两次密码不一致");
+                    }
+                    if (!user.getPassword().equals(oldpass)){
+                        R.error(-3, "旧密码输入有误");
+                    }
+                    user.setPassword(newpass1);
+                    break;
+            }
+            R result = cuService.update(user);
+            session.setAttribute("userinfo", user);
+            return result;
+        }
+
+        return R.error(-4, "用户未登录");
+    }
+
+
     @RequestMapping(value="/register", method = RequestMethod.POST)
     @ResponseBody
     public R addUser(@RequestParam(value="uploaderInput",required = false) MultipartFile uploaderInput, String name, long phone,String code, String password,
@@ -75,25 +111,8 @@ public class userController {
             return  R.error(-1, "该用户已经注册");
         }
         JSONObject json = null;
-        String fileName = "";
-        String orignName = "";
         long time = new Date().getTime() / 1000;
-        if (uploaderInput == null || uploaderInput.isEmpty()) {
-            orignName = "/img/logo.png";
-        }else{
-            // 获取文件名
-            String path = Translate.getPath(request);
-            orignName = uploaderInput.getOriginalFilename();
-            fileName = time + "." + orignName.substring(orignName.lastIndexOf(".") + 1);
-            System.out.println(fileName);
-            orignName = "/upload/" + fileName;
-            try {
-                File f2 = new File(path, fileName);
-                uploaderInput.transferTo(f2);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
+        String orignName = Upload.upload(time, uploaderInput, request);
         String icon = orignName;
         Long addtime = time;
         Byte status = 1;
@@ -109,4 +128,6 @@ public class userController {
         R result = cuService.insert(cu);
         return R.ok("注册成功");
     }
+
+
 }
