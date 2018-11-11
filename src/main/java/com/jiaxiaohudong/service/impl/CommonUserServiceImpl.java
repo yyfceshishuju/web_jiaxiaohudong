@@ -23,7 +23,7 @@ public class CommonUserServiceImpl implements CommonUserService {
 
     public R update(CommonUser record){
         R result = new R();
-        result.put("msg", mapper.updateByPrimaryKey(record));
+        result.put("msg", mapper.updateByPrimaryKeySelective(record));
         return result;
     }
 
