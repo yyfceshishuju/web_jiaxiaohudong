@@ -138,7 +138,7 @@
             }
 
         });
-        $upload.on('click', update(1));
+        $upload.on('change', update(1));
         $password.on('click', function () {
             $passDialog.fadeOut(100);
             $("#newpass1").val($("#new1").val());
