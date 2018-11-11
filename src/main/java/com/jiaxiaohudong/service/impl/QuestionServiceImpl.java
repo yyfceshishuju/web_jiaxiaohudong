@@ -26,7 +26,7 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     public CommonQuestion searchByPrimaryKey(Integer id) {
-        return null;
+        return commonQuestionMapper.selectByPrimaryKey(id);
     }
 
     public int modifyByPrimaryKeySelective(CommonQuestion record) {

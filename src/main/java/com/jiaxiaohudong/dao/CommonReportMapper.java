@@ -20,4 +20,6 @@ public interface CommonReportMapper {
     int updateByPrimaryKeySelective(CommonReport record);
 
     int updateByPrimaryKey(CommonReport record);
+
+    List<CommonReport> selectAll();
 }

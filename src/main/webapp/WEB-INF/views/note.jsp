@@ -5,7 +5,7 @@
   Time: 20:51
   To change this template use File | Settings | File Templates.
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head lang="en">
@@ -26,7 +26,22 @@
     <div class="weui-panel">
         <div class="weui-panel__hd">我的错题本</div>
         <div class="weui-panel__bd">
+            <c:forEach items="${questions}" var="question">
 
+            <a class="weui-cell weui-cell_access" href="/question.do">
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title"><c:out value="${question.name}"/></h4>
+                    <p class="weui-media-box__desc"><c:out value="${question.question}"/></p>
+                    <ul class="weui-media-box__info">
+                        <li class="weui-media-box__info__meta">小明同学</li>
+                        <li class="weui-media-box__info__meta">2018-10-26 11:11:11</li>
+                        <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">地理</li>
+                    </ul>
+                </div>
+
+                <div class="weui-cell__ft"></div>
+            </a>
+    </c:forEach>
             <a class="weui-cell weui-cell_access" href="/question.do">
                 <div class="weui-media-box weui-media-box_text">
                     <h4 class="weui-media-box__title">错题题目</h4>

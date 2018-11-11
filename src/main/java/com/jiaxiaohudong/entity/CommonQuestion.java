@@ -5,15 +5,15 @@ public class CommonQuestion {
 
     private Integer cid = 0;
 
-    private String name = "";
+    private String name = null;
 
-    private String question = "";
+    private String question = null;
 
-    private String detail = "";
+    private String detail = null;
 
-    private Integer uid = 1;
+    private Integer uid = 0;
 
-    private  Integer sid = 1;
+    private  Integer sid = 0;
 
     public Integer getSid() {
         return sid;
@@ -23,13 +23,13 @@ public class CommonQuestion {
         this.sid = sid;
     }
 
-    private Integer star = 1;
+    private Integer star = 0;
 
-    private Integer answer = 1;
+    private Integer answer = 0;
 
-    private Long addtime = 1000000000L;
+    private Long addtime = 0L;
 
-    private Byte status = '1';
+    private Byte status = 0;
 
     public Integer getId() {
         return id;

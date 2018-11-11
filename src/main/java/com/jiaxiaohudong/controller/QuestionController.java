@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -28,6 +29,7 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
     @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @ResponseBody
     public R addQuestion(CommonQuestion commonQuestion, HttpSession session) throws RuntimeException {
         System.out.println(commonQuestion);
         CommonUser userinfo = (CommonUser) session.getAttribute("userinfo");
@@ -36,7 +38,8 @@ public class QuestionController {
         commonQuestion.setDetail(commonQuestion.getQuestion());
         commonQuestion.setAddtime(new Date().getTime());
         int i = questionService.add(commonQuestion);
-        if (i == 0){
+        System.out.println(i);
+        if (i != 0){
             return R.ok("ok");
         }else{
             return R.error("error");
@@ -67,29 +70,26 @@ public class QuestionController {
     }
 
     @RequestMapping("/getquestion")//提供错题id，返回错题详情
-    public R getQuestion(@RequestParam(value = "id") String id, Map<String, Object> map){
+    public String getQuestion(@RequestParam(value = "id") String id, Map<String, Object> map){
 
-
-        CommonQuestion question = new CommonQuestion();
-        question.setId(Integer.parseInt(id));
-        List<CommonQuestion> commonQuestions = questionService.searchByCommonQuestion(question);
-        if (commonQuestions !=null){
-            map.put("question", commonQuestions.get(0));
-            return  R.ok(map);
+        CommonQuestion commonQuestion = questionService.searchByPrimaryKey(Integer.parseInt(id));
+        if (commonQuestion !=null){
+            map.put("question", commonQuestion);
+            return  "question";
         }else {
-            return  R.error("该学生本周没有错题");
+            return  "error";
         }
 
     }
 
     @RequestMapping("getquestion_five")//根据学生id获取5个学生，用于下拉递增
-    public R getQuestion(@RequestParam(value = "sid") String sid, @RequestParam(value = "thispage") String thisPage, @RequestParam(value = "pagesize") String pageSize, Map<String, Object> map){
+    public String getQuestion(String sid, @RequestParam(value = "thispage") String thisPage, @RequestParam(value = "pagesize") String pageSize, Map<String, Object> map){
         List<CommonQuestion> commonQuestions = questionService.searchByPage(Integer.parseInt(sid), Integer.parseInt(thisPage) * Integer.parseInt(pageSize), Integer.parseInt(pageSize));
         if (commonQuestions !=null){
-            map.put("questions", commonQuestions.get(0));
-            return  R.ok(map);
+            map.put("questions", commonQuestions);
+            return  "note";
         }else {
-            return  R.error("没有错题");
+            return  "error";
         }
     }
 

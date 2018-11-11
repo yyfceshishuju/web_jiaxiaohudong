@@ -164,8 +164,10 @@
   <select id="selectByCommonQuestion" parameterType="com.jiaxiaohudong.entity.CommonQuestion" resultType="com.jiaxiaohudong.entity.CommonQuestion">
     SELECT * FROM common_question
     WHERE 1=1
-
-    <if test="cid != null" >
+    <if test="id != null" >
+      AND cid = #{cid,jdbcType=INTEGER},
+    </if>
+    <if test="cid != 0" >
       AND cid = #{cid,jdbcType=INTEGER},
     </if>
     <if test="name != null" >
@@ -180,25 +182,25 @@
     <if test="uid != null" >
       AND uid = #{uid,jdbcType=INTEGER},
     </if>
-    <if test="sid != null" >
+    <if test="sid != 0" >
       AND sid = #{uid,jdbcType=INTEGER},
     </if>
-    <if test="star != null" >
+    <if test="star != 0" >
       AND star = #{star,jdbcType=INTEGER},
     </if>
-    <if test="answer != null" >
+    <if test="answer != 0" >
       AND answer = #{answer,jdbcType=INTEGER},
     </if>
-    <if test="addtime != null" >
+    <if test="addtime != 0" >
       <![CDATA[  AND addtime >= #{addtime,jdbcType=BIGINT},
       AND addtime < #{addtime,jdbcType=BIGINT} + 604800 ]]>
     </if>
-    <if test="status != null" >
+    <if test="status != 0" >
       AND status = #{status,jdbcType=TINYINT},
     </if>
   </select>
 
     <select id="selectByPage" parameterType="Integer" resultMap="questionResult">
-        select * from common_question where sid = #{sid} limit (#{start}, #{pageSize})
+        select * from common_question where sid = #{0} limit #{1}, #{2}
     </select>
 </mapper>

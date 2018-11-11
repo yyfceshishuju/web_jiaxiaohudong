@@ -122,7 +122,7 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <!-- /**表示所有url包括子url路径 -->
-            <mvc:mapping path="/abc.do"/>
+            <mvc:mapping path="/**.do"/>
             <mvc:exclude-mapping path="/login.do"/>
             <mvc:exclude-mapping path="/register.do"/>
             <bean class="com.jiaxiaohudong.interceptor.SysInterceptor"/>

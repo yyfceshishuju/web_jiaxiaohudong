@@ -5,7 +5,7 @@
   Time: 20:51
   To change this template use File | Settings | File Templates.
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head lang="en">
@@ -26,18 +26,19 @@
         </div>
     </div>
     <div class="page__bd">
+        <c:forEach items="${reports}" var="report">
         <div class="weui-form-preview">
             <div class="weui-form-preview__hd">
                 <div class="weui-form-preview__item">
                     <label class="weui-form-preview__label">本周评分</label>
-                    <em class="weui-form-preview__value">A</em>
+                    <em class="weui-form-preview__value">${report.score}</em>
                 </div>
             </div>
             <div class="weui-form-preview__bd">
 
                 <div class="weui-form-preview__item">
                     <label class="weui-form-preview__label">姓名</label>
-                    <span class="weui-form-preview__value">小明同学</span>
+                    <span class="weui-form-preview__value">${report.uid}</span>
                 </div>
                 <div class="weui-form-preview__item">
                     <label class="weui-form-preview__label">日期</label>
@@ -45,14 +46,16 @@
                 </div>
                 <div class="weui-form-preview__item">
                     <label class="weui-form-preview__label">说明</label>
-                    <span class="weui-form-preview__value">本周提交的错题数目为2道，打败了20%的同学，继续努力哦。</span>
+                    <span class="weui-form-preview__value">${report.detail}</span>
                 </div>
             </div>
             <div class="weui-form-preview__ft">
-                <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="/report/detail.do">查看详情</a>
+                <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="../question/getquestion_five.do?sid=${report.uid}&thispage=0&pagesize=5">查看详情</a>
             </div>
         </div>
         <br>
+        </c:forEach>
+
         <div class="weui-form-preview">
             <div class="weui-form-preview__hd">
                 <div class="weui-form-preview__item">

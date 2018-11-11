@@ -5,7 +5,7 @@
   Time: 20:51
   To change this template use File | Settings | File Templates.
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head lang="en">
@@ -28,12 +28,9 @@
         <article class="weui-article">
             <section>
                 <h3 class="page__title">标题</h3>
-                <p class="page__desc">小明同学</p>
+                <p class="page__desc">${question.name}</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
+                    ${question.question}
                 </p>
             </section>
         </article>

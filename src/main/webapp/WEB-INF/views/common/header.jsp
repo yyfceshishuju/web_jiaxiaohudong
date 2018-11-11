@@ -7,10 +7,10 @@
 --%>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-<link rel="stylesheet" href="/weui/dist/example/example.css">
-<link rel="stylesheet" href="/weui/dist/style/weui.css">
-<link rel="stylesheet" href="/css/common.css">
-<script src="/weui/src/example/zepto.min.js"></script>
+<link rel="stylesheet" href="../weui/dist/example/example.css">
+<link rel="stylesheet" href="../weui/dist/style/weui.css">
+<link rel="stylesheet" href="../css/common.css">
+<script src="../weui/src/example/zepto.min.js"></script>
 <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
-<script src="/weui/dist/example/example.js"></script>
+<script src="../weui/dist/example/example.js"></script>

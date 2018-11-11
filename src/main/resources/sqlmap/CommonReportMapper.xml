@@ -172,4 +172,7 @@
       type = #{type,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectAll" resultMap="reportResult">
+    select * from common_report
+  </select>
 </mapper>
