@@ -140,7 +140,7 @@
             $list = $("#list"),
             uploadUrl = "/image/uploadImage",
             questionUrl = "/question/add",
-            categoryUrl = "/image/example2",
+            categoryUrl = "/teacher/scoreCategory?type=0",
             studentUrl = "/student/list",
             searchUrl = "/student/search"
         ;

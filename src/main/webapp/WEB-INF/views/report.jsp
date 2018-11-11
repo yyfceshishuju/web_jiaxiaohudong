@@ -57,33 +57,6 @@
             </div>
             <br>
         </c:forEach>
-
-        <div class="weui-form-preview">
-            <div class="weui-form-preview__hd">
-                <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">本周评分</label>
-                    <em class="weui-form-preview__value">A</em>
-                </div>
-            </div>
-            <div class="weui-form-preview__bd">
-
-                <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">姓名</label>
-                    <span class="weui-form-preview__value">小明的老师</span>
-                </div>
-                <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">日期</label>
-                    <span class="weui-form-preview__value">2018/10/22-2018/10/26</span>
-                </div>
-                <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">说明</label>
-                    <span class="weui-form-preview__value">本周您的学生提交的错题数目为2道，打败了20%的老师，小明同学提交了最多题目2道，请及时奖励，小华同学仅仅提交了0道题目，请进行监督</span>
-                </div>
-            </div>
-            <div class="weui-form-preview__ft">
-                <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="/report/detail.do">查看详情</a>
-            </div>
-        </div>
     </div>
     <div class="page__ft">
         <a href="javascript:home()"><img src="/img/logo.png" /></a>
