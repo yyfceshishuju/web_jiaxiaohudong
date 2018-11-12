@@ -123,7 +123,7 @@
                         </div>
                         <p class="weui-grid__label">添加学生</p>
                     </a>
-                    <a href="/report.do" class="weui-grid">
+                    <a href="/report/getreport.do" class="weui-grid">
                         <div class="weui-grid__icon">
                             <img src="/img/report.png" alt="">
                         </div>

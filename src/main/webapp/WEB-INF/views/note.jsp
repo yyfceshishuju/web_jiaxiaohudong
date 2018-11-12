@@ -28,7 +28,7 @@
         <div class="weui-panel__bd">
             <c:forEach items="${questions}" var="question">
 
-            <a class="weui-cell weui-cell_access" href="/question.do">
+            <a class="weui-cell weui-cell_access" href="/question/getquestion.do?id=${question.id}">
                 <div class="weui-media-box weui-media-box_text">
                     <h4 class="weui-media-box__title"><c:out value="${question.name}"/></h4>
                     <p class="weui-media-box__desc"><c:out value="${question.question}"/></p>
