@@ -91,7 +91,7 @@ public class QuestionController {
 
     @RequestMapping("getquestion_five")//根据学生id获取5个学生，用于下拉递增
     public String getQuestion(String sid, @RequestParam(value = "thispage") String thisPage, @RequestParam(value = "pagesize") String pageSize, Map<String, Object> map){
-        if(sid != null || sid != ""){
+        if(sid != null || "".equals(sid)){
             CommonStudent commonStudent = studentService.searchStrudent(Integer.valueOf(sid));
             List<CommonQuestion> commonQuestions = questionService.searchByPage(Integer.parseInt(sid), Integer.parseInt(thisPage) * Integer.parseInt(pageSize), Integer.parseInt(pageSize));
             if (commonQuestions !=null){

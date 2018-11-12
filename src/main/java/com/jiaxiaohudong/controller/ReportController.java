@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import com.jiaxiaohudong.entity.CommonUser;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/report")
@@ -24,10 +27,11 @@ public class ReportController {
 
 
     @RequestMapping("/getreport")
-    public String getReport(Integer id,HashMap<String, Object> map){
+    public String getReport(HttpSession session, HashMap<String, Object> map){
         Date date = new Date();
         long time = date.getTime();
-        List<CommonStudent> students = studentService.getStudents(id);
+	CommonUser user = (CommonUser)session.getAttribute("userinfo");
+        List<CommonStudent> students = studentService.getStudents(user.getId());
         List<CommonReport> commonReports = new ArrayList<CommonReport>();
         for (CommonStudent student:students) {
             Integer sid = student.getId();
