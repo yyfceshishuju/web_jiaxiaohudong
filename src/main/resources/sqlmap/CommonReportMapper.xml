@@ -175,4 +175,9 @@
   <select id="selectAll" resultMap="reportResult">
     select * from common_report
   </select>
+
+  <select id="selectBySid" parameterType="Long" resultMap="reportResult">
+    select * from common_report where stuid = #{0}
+     <![CDATA[  AND addtime > #{1} - 604800 ]]>
+  </select>
 </mapper>

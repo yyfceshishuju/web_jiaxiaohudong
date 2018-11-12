@@ -22,4 +22,9 @@ public interface CommonReportMapper {
     int updateByPrimaryKey(CommonReport record);
 
     List<CommonReport> selectAll();
+
+    List<CommonReport> selectByTid(Integer tid);
+
+    CommonReport selectBySid(Long sid, Long thisTime);
+
 }

@@ -1,11 +1,15 @@
 package com.jiaxiaohudong.controller;
 
 import com.jiaxiaohudong.entity.CommonReport;
+import com.jiaxiaohudong.entity.CommonStudent;
 import com.jiaxiaohudong.service.ReportService;
+import com.jiaxiaohudong.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,11 +17,23 @@ import java.util.List;
 @RequestMapping("/report")
 public class ReportController {
     @Autowired
-    ReportService reportService;
+    private ReportService reportService;
+    @Autowired
+    private StudentService studentService;
+
+
 
     @RequestMapping("/getreport")
-    public String getReport(HashMap<String, Object> map){
-        List<CommonReport> commonReports = reportService.showALl();
+    public String getReport(Integer id,HashMap<String, Object> map){
+        Date date = new Date();
+        long time = date.getTime();
+        List<CommonStudent> students = studentService.getStudents(id);
+        List<CommonReport> commonReports = new ArrayList<CommonReport>();
+        for (CommonStudent student:students) {
+            Integer sid = student.getId();
+            CommonReport commonReport = reportService.selectById(new Long(sid), time);
+            commonReports.add(commonReport);
+        }
         map.put("reports", commonReports);
         return "report";
     }

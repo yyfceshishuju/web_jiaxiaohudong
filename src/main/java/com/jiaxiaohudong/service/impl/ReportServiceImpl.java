@@ -15,4 +15,10 @@ public class ReportServiceImpl implements ReportService {
     public List<CommonReport> showALl() {
         return commonReportMapper.selectAll();
     }
+
+    public CommonReport selectById(Long sid, Long thisTime) {
+
+        return commonReportMapper.selectBySid(sid, thisTime);
+    }
+
 }
