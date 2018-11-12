@@ -36,4 +36,10 @@ public class StudentServiceImpl implements StudentService {
     public List<CommonStudent> searchStudentsByNameAPhone(CommonStudent stu) {
         return commonStudentMapper.selectByTidAndNameAndPhone(stu);
     }
+
+    public CommonStudent searchStrudent(Integer id) {
+        return commonStudentMapper.selectByPrimaryKey(id);
+    }
+
+
 }

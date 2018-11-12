@@ -5,6 +5,16 @@ public class CommonQuestion {
 
     private Integer cid = 0;
 
+    private CommonCategory commonCategory = null;
+
+    public CommonCategory getCommonCategory() {
+        return commonCategory;
+    }
+
+    public void setCommonCategory(CommonCategory commonCategory) {
+        this.commonCategory = commonCategory;
+    }
+
     private String name = null;
 
     private String question = null;
@@ -14,6 +24,16 @@ public class CommonQuestion {
     private Integer uid = 0;
 
     private  Integer sid = 0;
+
+    public CommonStudent student = null;
+
+    public CommonStudent getStudent() {
+        return student;
+    }
+
+    public void setStudent(CommonStudent student) {
+        this.student = student;
+    }
 
     public Integer getSid() {
         return sid;
@@ -28,6 +48,16 @@ public class CommonQuestion {
     private Integer answer = 0;
 
     private Long addtime = 0L;
+
+    private String utilTime = null;
+
+    public String getUtilTime() {
+        return utilTime;
+    }
+
+    public void setUtilTime(String utilTime) {
+        this.utilTime = utilTime;
+    }
 
     private Byte status = 0;
 

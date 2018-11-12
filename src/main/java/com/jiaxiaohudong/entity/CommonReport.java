@@ -3,6 +3,16 @@ package com.jiaxiaohudong.entity;
 public class CommonReport {
     private Integer id;
 
+    private String name = "李老师";
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private String title;
 
     private String description;

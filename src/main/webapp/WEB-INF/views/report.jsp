@@ -40,11 +40,11 @@
 
                     <div class="weui-form-preview__item">
                         <label class="weui-form-preview__label">姓名</label>
-                        <span class="weui-form-preview__value">${report.uid}</span>
+                        <span class="weui-form-preview__value">${report.name}</span>
                     </div>
                     <div class="weui-form-preview__item">
                         <label class="weui-form-preview__label">日期</label>
-                        <span class="weui-form-preview__value">2018/10/22-2018/10/26</span>
+                        <span class="weui-form-preview__value">${report.addtime}</span>
                     </div>
                     <div class="weui-form-preview__item">
                         <label class="weui-form-preview__label">说明</label>

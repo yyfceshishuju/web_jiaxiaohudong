@@ -13,4 +13,6 @@ public interface StudentService {
     List<CommonStudent> searchStudents(CommonStudent stu);
 
     List<CommonStudent> searchStudentsByNameAPhone(CommonStudent stu);
+
+    CommonStudent searchStrudent(Integer id);
 }

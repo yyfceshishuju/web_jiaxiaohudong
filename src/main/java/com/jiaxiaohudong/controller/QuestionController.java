@@ -1,8 +1,10 @@
 package com.jiaxiaohudong.controller;
 
+import com.jiaxiaohudong.entity.CommonCategory;
 import com.jiaxiaohudong.entity.CommonQuestion;
 import com.jiaxiaohudong.entity.CommonStudent;
 import com.jiaxiaohudong.entity.CommonUser;
+import com.jiaxiaohudong.service.CategoryService;
 import com.jiaxiaohudong.service.QuestionService;
 import com.jiaxiaohudong.service.StudentService;
 import com.jiaxiaohudong.util.JsonUtil;
@@ -28,6 +30,11 @@ import java.util.Map;
 public class QuestionController {
     @Autowired
     private QuestionService questionService;
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private CategoryService categoryService;
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
     public R addQuestion(CommonQuestion commonQuestion, HttpSession session) throws RuntimeException {
@@ -84,13 +91,30 @@ public class QuestionController {
 
     @RequestMapping("getquestion_five")//根据学生id获取5个学生，用于下拉递增
     public String getQuestion(String sid, @RequestParam(value = "thispage") String thisPage, @RequestParam(value = "pagesize") String pageSize, Map<String, Object> map){
-        List<CommonQuestion> commonQuestions = questionService.searchByPage(Integer.parseInt(sid), Integer.parseInt(thisPage) * Integer.parseInt(pageSize), Integer.parseInt(pageSize));
-        if (commonQuestions !=null){
-            map.put("questions", commonQuestions);
-            return  "note";
-        }else {
-            return  "error";
+        if(sid != null){
+            CommonStudent commonStudent = studentService.searchStrudent(Integer.valueOf(sid));
+            List<CommonQuestion> commonQuestions = questionService.searchByPage(Integer.parseInt(sid), Integer.parseInt(thisPage) * Integer.parseInt(pageSize), Integer.parseInt(pageSize));
+            if (commonQuestions !=null){
+                for (CommonQuestion c: commonQuestions){
+                    c.setStudent(commonStudent);
+                    Integer cid = c.getCid();
+                    CommonCategory commonCategory = categoryService.searchById(cid);
+                    c.setCommonCategory(commonCategory);
+                    Long addtime = c.getAddtime();
+                    Date date = new Date(addtime);
+                    SimpleDateFormat sdf =   new SimpleDateFormat( " yyyy-MM-dd HH:mm:ss " );
+
+                    c.setUtilTime(sdf.format(date));
+                }
+                map.put("questions", commonQuestions);
+                return  "note";
+            }else {
+                return  "error";
+            }
+        }else{
+            return "error";
         }
+
     }
 
 

@@ -33,9 +33,9 @@
                     <h4 class="weui-media-box__title"><c:out value="${question.name}"/></h4>
                     <p class="weui-media-box__desc"><c:out value="${question.question}"/></p>
                     <ul class="weui-media-box__info">
-                        <li class="weui-media-box__info__meta">小明同学</li>
-                        <li class="weui-media-box__info__meta">2018-10-26 11:11:11</li>
-                        <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">地理</li>
+                        <li class="weui-media-box__info__meta">${question.student.name}</li>
+                        <li class="weui-media-box__info__meta">${question.utilTime}</li>
+                        <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">${question.commonCategory.name}</li>
                     </ul>
                 </div>
 
