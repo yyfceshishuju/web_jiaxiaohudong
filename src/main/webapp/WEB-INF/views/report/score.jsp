@@ -57,7 +57,7 @@
     </div>
     <br>
     <div class="weui-cells__title">请先选择一个同学</div>
-    <div id="list"></div>
+    <div id="list" class="weui-grids"></div>
 </div>
 <div id="upload" class="weui-cells" hidden>
     <ul>
@@ -138,7 +138,7 @@
         });
 
 
-        $list.on("click", ".weui-cell_access", function () {
+        $list.on("click", ".weui-grid", function () {
 
             $student.val($(this).find(".id").val());
             $students.hide();
@@ -215,18 +215,12 @@
                     $list.empty();
                     for (var i=0; i<data.length; i++){
                         var status = data[i].pid==null || data[i].pid==0?"<p style='color: #FF0000'>未绑定家长</p>":"<p style='color: #00CD00'>已绑定家长</p>";
-                        $list.append('<a class="weui-cell weui-cell_access" href="javascript:;">' +
-                            '        <div class="weui-cell__hd">' +
+                        $list.append('<a class="weui-grid" href="javascript:;">' +
+                            '        <div class="weui-grid__icon">' +
                             '            <img class="circleImg" src="'+ data[i].icon +'"  />' +
                             '        </div>' +
-                            '        <div class="weui-cell__bd">' +
-                            '            <p>'+data[i].name+'</p>' +
-                            '            <p style="color: #999999">'+data[i].studentid+'</p>' +
-                            '        </div>' +
+                            '        <p class="weui-grid__label">'+data[i].name+'</p>' +
                             '        <input class="id" hidden value="' +data[i].id+ '">' +
-                            '        <div class="weui-cell__ft">' +
-                                        status +
-                            '        </div>' +
                             '    </a>');
                     }
 
