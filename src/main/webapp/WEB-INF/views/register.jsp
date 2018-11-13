@@ -135,7 +135,7 @@
             $countdown = 60,
 
             registerUrl = "/user/register",
-            sendUrl = "/wechat/send",
+            sendUrl = "/mp/send",
             loginUrl = "/login.do"
 
         ;

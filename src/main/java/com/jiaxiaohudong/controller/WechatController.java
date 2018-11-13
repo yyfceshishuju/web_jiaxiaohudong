@@ -30,7 +30,7 @@ import java.util.Date;
  */
 
 @Controller
-@RequestMapping("/wechat")
+@RequestMapping("/mp")
 public class WechatController {
 
 

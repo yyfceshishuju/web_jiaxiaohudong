@@ -15,7 +15,7 @@ public class Wechat {
 
     private static final String APPID = "wx3d0ec63734e74876";
     private static final String SECRET = "59f7ee88b51b0bf3cfe1237fac96c4e4";
-    private static final String REDIRECT_URL = "http://jiaxiaoshequ.com//wechat/callBackLogin";
+    private static final String REDIRECT_URL = "http://jiaxiaoshequ.com//mp/callBackLogin";
     private final static String AUTH_URL_OFFICIAL_URL="https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=snsapi_userinfo&state=%s#wechat_redirect";
     private final static String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=%s&secret=%s&code=%s&grant_type=authorization_code";
     private final static String USER_INFO_URL = "https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s";
