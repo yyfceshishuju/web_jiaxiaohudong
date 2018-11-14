@@ -3,6 +3,7 @@
 <mapper namespace="com.jiaxiaohudong.dao.CommonUserMapper" >
   <resultMap id="userResult" type="com.jiaxiaohudong.entity.CommonUser" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="id" property="id" jdbcType="BIGINT" />
     <result column="openid" property="openid" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="icon" property="icon" jdbcType="VARCHAR" />

@@ -182,32 +182,32 @@
                 </div>
             </div>
         </li>
-        <li>
-            <div id="other">
-                <div class="weui-cells__title">其他服务</div>
-                <div class="weui-grids">
-                    <a href="/mp/bind" class="weui-grid">
-                        <div class="weui-grid__icon">
-                            <img src="/img/wechat.png" alt="">
-                        </div>
-                        <p class="weui-grid__label">微信绑定</p>
-                    </a>
+        <%--<li>--%>
+            <%--<div id="other">--%>
+                <%--<div class="weui-cells__title">其他服务</div>--%>
+                <%--<div class="weui-grids">--%>
                     <%--<a href="/mp/bind" class="weui-grid">--%>
                         <%--<div class="weui-grid__icon">--%>
                             <%--<img src="/img/wechat.png" alt="">--%>
                         <%--</div>--%>
-                        <%--<p class="weui-grid__label">修改密码</p>--%>
+                        <%--<p class="weui-grid__label">微信绑定</p>--%>
                     <%--</a>--%>
-                    <%--<a href="/mp/bind" class="weui-grid">--%>
-                        <%--<div class="weui-grid__icon">--%>
-                            <%--<img src="/img/wechat.png" alt="">--%>
-                        <%--</div>--%>
-                        <%--<p class="weui-grid__label">修改手机号</p>--%>
-                    <%--</a>--%>
-                </div>
+                    <%--&lt;%&ndash;<a href="/mp/bind" class="weui-grid">&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;<div class="weui-grid__icon">&ndash;%&gt;--%>
+                            <%--&lt;%&ndash;<img src="/img/wechat.png" alt="">&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;<p class="weui-grid__label">修改密码</p>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;</a>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<a href="/mp/bind" class="weui-grid">&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;<div class="weui-grid__icon">&ndash;%&gt;--%>
+                            <%--&lt;%&ndash;<img src="/img/wechat.png" alt="">&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;<p class="weui-grid__label">修改手机号</p>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;</a>&ndash;%&gt;--%>
+                <%--</div>--%>
 
-            </div>
-        </li>
+            <%--</div>--%>
+        <%--</li>--%>
     </ul>
 
     <div class="weui-skin_android" id="androidActionsheet" style="display: none">

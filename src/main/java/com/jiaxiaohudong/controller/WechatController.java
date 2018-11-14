@@ -98,15 +98,17 @@ public class WechatController {
         if (openId != null){
             user = cuService.selectByOpenId(openId);
             if (user == null) {
-                user = (CommonUser) session.getAttribute("userinfo");
-                if (user != null){
-                    user.setOpenid(openId);
-                    cuService.update(user);
+                CommonUser login = (CommonUser) session.getAttribute("userinfo");
+                System.out.println("____________微信登录 当前登录信息_____________");
+                System.out.println(login);
+                if (login != null){
+                    login.setOpenid(openId);
+                    cuService.update(login);
+                    session.setAttribute("userinfo", login);
                 } else {
                     System.out.println("微信绑定——用户未登录");
                 }
             }
-            session.setAttribute("userinfo", user);
 
 
         }else {
