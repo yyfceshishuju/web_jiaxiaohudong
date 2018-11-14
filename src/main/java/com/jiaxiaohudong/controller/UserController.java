@@ -113,8 +113,7 @@ public class UserController {
         }
         JSONObject json = null;
         long time = new Date().getTime() / 1000;
-        String orignName = Upload.upload(time, uploaderInput, request);
-        String icon = orignName;
+        String icon = Upload.upload(time, uploaderInput, request);
         Long addtime = time;
         Byte status = 1;
         Byte type = 2;

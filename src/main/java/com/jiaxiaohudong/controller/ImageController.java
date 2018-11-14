@@ -4,6 +4,7 @@ import com.jiaxiaohudong.baidu_service.Sample;
 import com.jiaxiaohudong.entity.CommonCategory;
 import com.jiaxiaohudong.entity.CommonStudent;
 import com.jiaxiaohudong.util.R;
+import com.jiaxiaohudong.util.Upload;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -14,12 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import sun.misc.Request;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/image")
@@ -56,6 +55,20 @@ public class ImageController {
         return R.ok(result);
     }
 
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    @ResponseBody
+    public R upload(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request) throws RuntimeException {
+        JSONObject json = null;
+        if (file.isEmpty()) {
+            return R.error(-2, "文件不能为空");
+        }else{
+
+            long time = new Date().getTime() / 1000;
+            String icon = Upload.upload(time, file, request);
+            return R.ok(icon);
+        }
+
+    }
     @RequestMapping(value = "/class.do", method = RequestMethod.GET)
 
     public String toClass(){ return "test"; }
