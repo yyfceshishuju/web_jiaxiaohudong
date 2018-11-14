@@ -42,8 +42,8 @@ public class WechatController {
     public void login(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 
         try {
-            String url = Wechat.getOfficialAccAuthUrl(null, request.getSession().getId());
-            response.sendRedirect(url + "&param=1");
+            String url = Wechat.getOfficialAccAuthUrl(null, request.getSession().getId(), 1);
+            response.sendRedirect(url);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,56 +53,57 @@ public class WechatController {
     public void bind(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 
         try {
-            String url = Wechat.getOfficialAccAuthUrl(null, request.getSession().getId());
-            response.sendRedirect(url + "&param=2");
+            String url = Wechat.getOfficialAccAuthUrl(null, request.getSession().getId(), 2);
+            response.sendRedirect(url);
+            System.out.println(url );
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @RequestMapping(value = "/callBackLogin")
-    public String callBackLogin(HttpSession session, int param, HttpServletRequest request) {
-        System.out.println("callBackLogin....");
-        String code = request.getParameter("code");
-        String state = request.getParameter("state");
-        System.out.println("code=" + code);
-        System.out.println("state=" + state);
-
-
-        String url = Wechat.getTokenUrl(code);
-
-        JSONObject jsonObject = Wechat.httpGet(url);
-        String at = jsonObject.getString("access_token");//获取微信开放平台票据号
-        String openId = jsonObject.getString("openid");
-        if (at == null || openId == null){
-            return "home";
-        }
-        url=Wechat.getUserInfoUrl(at, openId);
-        jsonObject = Wechat.httpGet(url);
-        System.out.println("==============>"+jsonObject);
+    public String callBackLogin(HttpSession session, HttpServletRequest request) {
+        JSONObject jsonObject = Wechat.getUserInfo(request);
         CommonUser user ;
+        String openId = jsonObject.getString("openid");
 //  把用户微信信息保存到数据库（判断这个信息是否存在，如果不存在，新增到数据库表（自动创建一个用户），如果已存在，直接登录成功）
-        if (jsonObject.getString("openid") != null){
+        if (openId != null){
             user = cuService.selectByOpenId(openId);
             if (user == null) {
-                switch (param){
-                    case 1:
-                        String name = jsonObject.getString("nickname");
-                        String icon = jsonObject.getString("headimgurl");
-                        String openid = jsonObject.getString("openid");
-                        Byte status = 1;
-                        Byte type = 2;
-                        long time = new Date().getTime() / 1000;
-                        user = new CommonUser(name, icon, openid, time, status, type);
-                        cuService.insert(user);
-                        break;
-                    case 2:
-                        user = (CommonUser) session.getAttribute("userinfo");
-                        if (user != null){
-                            user.setOpenid(openId);
-                            cuService.update(user);
-                        } else {
-                            System.out.println("微信绑定——用户未登录");
-                        }
+
+                String name = jsonObject.getString("nickname");
+                String icon = jsonObject.getString("headimgurl");
+                String openid = jsonObject.getString("openid");
+                Byte status = 1;
+                Byte type = 2;
+                long time = new Date().getTime() / 1000;
+                user = new CommonUser(name, icon, openid, time, status, type);
+                cuService.insert(user);
+            }
+            session.setAttribute("userinfo", user);
+
+
+        }else {
+            R result = R.error(jsonObject.getIntValue("errcode"), jsonObject.getString("errmsg"));
+        }
+
+        return "home";
+    }
+
+    @RequestMapping(value = "/callBackBind")
+    public String callBackBind(HttpSession session, HttpServletRequest request) {
+        JSONObject jsonObject = Wechat.getUserInfo(request);
+        CommonUser user ;
+        String openId = jsonObject.getString("openid");
+//  把用户微信信息保存到数据库（判断这个信息是否存在，如果不存在，新增到数据库表（自动创建一个用户），如果已存在，直接登录成功）
+        if (openId != null){
+            user = cuService.selectByOpenId(openId);
+            if (user == null) {
+                user = (CommonUser) session.getAttribute("userinfo");
+                if (user != null){
+                    user.setOpenid(openId);
+                    cuService.update(user);
+                } else {
+                    System.out.println("微信绑定——用户未登录");
                 }
             }
             session.setAttribute("userinfo", user);
