@@ -24,7 +24,7 @@ import java.util.*;
  */
 @Controller
 @RequestMapping("/user")
-public class userController {
+public class UserController {
     @Autowired
     private CommonUserService cuService;
 

@@ -10,7 +10,10 @@ public class Translate {
         return types[type];
     }
     public static String getPath(HttpServletRequest request){
-        return  request.getSession().getServletContext().getRealPath("/") + "../../src/main/webapp/upload";
+//        return  request.getSession().getServletContext().getRealPath("/") + "../../src/main/webapp/upload";
+        //线上上传地址
+        return  request.getSession().getServletContext().getRealPath("/") + "../../webapps/ROOT/upload";
+
     }
 
     public static String getGrade(String grade){

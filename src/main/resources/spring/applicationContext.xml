@@ -22,7 +22,7 @@
     <mvc:resources location="/js/" mapping="/js/**"/>
     <mvc:resources location="/weui-master/" mapping="/weui/**"/>
     <mvc:resources location="/upload/" mapping="/upload/**"/>
-    <mvc:resources location="/mp/" mapping="/mp/**"/>
+    <mvc:resources location="/mp/" mapping="/**"/>
 
     <!-- Configures the @Controller programming model
     <mvc:annotation-driven />-->
