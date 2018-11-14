@@ -105,6 +105,7 @@ public class UserController {
     @ResponseBody
     public R addUser(@RequestParam(value="uploaderInput",required = false) MultipartFile uploaderInput, String name, long phone,String code, String password,
                     HttpServletRequest request) {
+
         CommonUser user = cuService.selectByPhone(phone);
         if (user != null){
             System.out.println(user);

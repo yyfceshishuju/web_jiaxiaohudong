@@ -1,11 +1,15 @@
 package com.jiaxiaohudong.dao;
 
+import com.jiaxiaohudong.entity.CommonUser;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.*;
 
 public class CommonUserMapperTest {
 
+    @Autowired
+    CommonUserMapper commonUserMapper;
     @Test
     public void deleteByPrimaryKey() {
     }
@@ -32,6 +36,10 @@ public class CommonUserMapperTest {
 
     @Test
     public void updateByPrimaryKeySelective() {
+        CommonUser user = new CommonUser();
+        user.setOpenid("123");
+        user.setId(678687234);
+        commonUserMapper.selectByPrimaryKey(user.getId());
     }
 
     @Test

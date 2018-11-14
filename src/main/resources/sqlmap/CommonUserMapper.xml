@@ -128,6 +128,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jiaxiaohudong.entity.CommonUser" >
     update common_user
     <set >
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>

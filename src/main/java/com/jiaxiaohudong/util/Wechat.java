@@ -16,20 +16,19 @@ public class Wechat {
 
     private static final String APPID = "wx3d0ec63734e74876";
     private static final String SECRET = "59f7ee88b51b0bf3cfe1237fac96c4e4";
-    private static final String REDIRECT_URL = "http://www.jiaxiaoshequ.com/mp/callBackLogin";
-    private static final String REDIRECT_BIND_URL = "http://www.jiaxiaoshequ.com/mp/callBackBind";
+    private static final String REDIRECT_URL = "http://www.jiaxiaoshequ.com/mp/callBackLogin?param=%s&phone=%s";
     private final static String AUTH_URL_OFFICIAL_URL="https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=snsapi_userinfo&state=%s&param=%s#wechat_redirect";
     private final static String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=%s&secret=%s&code=%s&grant_type=authorization_code";
     private final static String USER_INFO_URL = "https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s";
     private static final String RPLC="%s";
 
-    public static String getOfficialAccAuthUrl(String redirect_url,String state, int param)throws Exception{
+    public static String getOfficialAccAuthUrl(String redirect_url,String state, int param, long phone)throws Exception{
         String url=AUTH_URL_OFFICIAL_URL;
         try {
             if(redirect_url!=null&&!"".equals(redirect_url)){
                 url=url.replaceFirst(RPLC, APPID).replaceFirst(RPLC, URLEncoder.encode(redirect_url, "UTF-8")).replaceFirst(RPLC,state);
             }else{
-                redirect_url = param == 1? REDIRECT_URL:REDIRECT_BIND_URL;
+                redirect_url = REDIRECT_URL.replaceFirst(RPLC, String.valueOf(param)).replaceFirst(RPLC, String.valueOf(phone));
                 url=url.replaceFirst(RPLC, APPID).replaceFirst(RPLC, URLEncoder.encode(redirect_url,"UTF-8")).replaceFirst(RPLC,state);
             }
         } catch (Exception e) {
