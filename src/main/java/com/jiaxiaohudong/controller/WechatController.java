@@ -43,7 +43,7 @@ public class WechatController {
 
         try {
             String url = Wechat.getOfficialAccAuthUrl(null, request.getSession().getId());
-            response.sendRedirect(url + "?param=1");
+            response.sendRedirect(url + "&param=1");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -54,7 +54,7 @@ public class WechatController {
 
         try {
             String url = Wechat.getOfficialAccAuthUrl(null, request.getSession().getId());
-            response.sendRedirect(url + "?param=2");
+            response.sendRedirect(url + "&param=2");
         } catch (Exception e) {
             e.printStackTrace();
         }
