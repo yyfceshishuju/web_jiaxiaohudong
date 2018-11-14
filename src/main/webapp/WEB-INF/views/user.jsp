@@ -27,7 +27,7 @@
                <p>头像</p>
            </div>
            <div class="weui-cell__ft">
-               <input id="uploaderInput" name="uploaderInput" class="weui-uploader__input" type="file" accept="image/*"  multiple="">
+               <%--<input id="uploaderInput" name="uploaderInput" class="weui-uploader__input" type="file" accept="image/*"  multiple="">--%>
                <img id="icon" class="circleImg" src="/img/logo.png"  />
            </div>
        </a>

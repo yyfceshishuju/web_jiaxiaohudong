@@ -28,4 +28,10 @@ public class Translate {
         if(res == null) return "";
         return res;
     }
+
+    public static String getErrMsg(int errno){
+
+        //todo 返回错误信息
+        return "error";
+    }
 }

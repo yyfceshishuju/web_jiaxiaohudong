@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Type;
 import java.util.Date;
 
 /**
@@ -42,15 +43,24 @@ public class WechatController {
 
         try {
             String url = Wechat.getOfficialAccAuthUrl(null, request.getSession().getId());
-            response.sendRedirect(url);
+            response.sendRedirect(url + "?param=1");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @RequestMapping(value = "/bind")
+    public void bind(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 
+        try {
+            String url = Wechat.getOfficialAccAuthUrl(null, request.getSession().getId());
+            response.sendRedirect(url + "?param=2");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @RequestMapping(value = "/callBackLogin")
-    public String callBackLogin(HttpSession session, HttpServletRequest request) {
+    public String callBackLogin(HttpSession session, int param, HttpServletRequest request) {
         System.out.println("callBackLogin....");
         String code = request.getParameter("code");
         String state = request.getParameter("state");
@@ -69,24 +79,39 @@ public class WechatController {
         url=Wechat.getUserInfoUrl(at, openId);
         jsonObject = Wechat.httpGet(url);
         System.out.println("==============>"+jsonObject);
-//  把用户微信信息保存到数据库（判断这个信息是否存在，如果不存在，新增到数据库表（自动创建一个用户），如果已存在，直接登录成功）
         CommonUser user ;
+//  把用户微信信息保存到数据库（判断这个信息是否存在，如果不存在，新增到数据库表（自动创建一个用户），如果已存在，直接登录成功）
         if (jsonObject.getString("openid") != null){
             user = cuService.selectByOpenId(openId);
-            if (user == null){
-                String name = jsonObject.getString("nickname");
-                String icon = jsonObject.getString("headimgurl");
-                String openid = jsonObject.getString("openid");
-                Byte status = 1;
-                Byte type = 2;
-                long time = new Date().getTime() / 1000;
-                user = new CommonUser(name, icon, openid, time, status, type);
-                cuService.insert(user);
+            if (user == null) {
+                switch (param){
+                    case 1:
+                        String name = jsonObject.getString("nickname");
+                        String icon = jsonObject.getString("headimgurl");
+                        String openid = jsonObject.getString("openid");
+                        Byte status = 1;
+                        Byte type = 2;
+                        long time = new Date().getTime() / 1000;
+                        user = new CommonUser(name, icon, openid, time, status, type);
+                        cuService.insert(user);
+                        break;
+                    case 2:
+                        user = (CommonUser) session.getAttribute("userinfo");
+                        if (user != null){
+                            user.setOpenid(openId);
+                            cuService.update(user);
+                        } else {
+                            System.out.println("微信绑定——用户未登录");
+                        }
+                }
             }
             session.setAttribute("userinfo", user);
+
+
         }else {
             R result = R.error(jsonObject.getIntValue("errcode"), jsonObject.getString("errmsg"));
         }
+
         return "home";
     }
 

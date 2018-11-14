@@ -183,16 +183,29 @@
             </div>
         </li>
         <li>
-            <div id="other" hidden>
-                <div class="weui-cells__title">第三方服务</div>
+            <div id="other">
+                <div class="weui-cells__title">其他服务</div>
                 <div class="weui-grids">
-                    <a href="javascript:;" class="weui-grid">
+                    <a href="/mp/bind" class="weui-grid">
                         <div class="weui-grid__icon">
                             <img src="/img/wechat.png" alt="">
                         </div>
                         <p class="weui-grid__label">微信绑定</p>
                     </a>
+                    <%--<a href="/mp/bind" class="weui-grid">--%>
+                        <%--<div class="weui-grid__icon">--%>
+                            <%--<img src="/img/wechat.png" alt="">--%>
+                        <%--</div>--%>
+                        <%--<p class="weui-grid__label">修改密码</p>--%>
+                    <%--</a>--%>
+                    <%--<a href="/mp/bind" class="weui-grid">--%>
+                        <%--<div class="weui-grid__icon">--%>
+                            <%--<img src="/img/wechat.png" alt="">--%>
+                        <%--</div>--%>
+                        <%--<p class="weui-grid__label">修改手机号</p>--%>
+                    <%--</a>--%>
                 </div>
+
             </div>
         </li>
     </ul>
