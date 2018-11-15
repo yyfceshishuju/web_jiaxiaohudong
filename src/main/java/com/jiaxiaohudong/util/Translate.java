@@ -12,7 +12,7 @@ public class Translate {
     public static String getPath(HttpServletRequest request){
 //        return  request.getSession().getServletContext().getRealPath("/") + "../../src/main/webapp/upload";
         //线上上传地址
-        return  request.getSession().getServletContext().getRealPath("/") + "../../webapps/ROOT/upload";
+        return  request.getSession().getServletContext().getRealPath("/") + "../../webapps/upload";
 
     }
 
