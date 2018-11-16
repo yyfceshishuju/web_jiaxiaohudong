@@ -101,8 +101,8 @@
                       <div class="weui-cell__hd"><label class="weui-label">题目</label></div>
                       <div class="weui-cell__bd">
                           <textarea class="weui-textarea" placeholder="" rows="3" id="question" name="question" ></textarea>
-                          <div class="img-show" style="height: 200px;width: 300px;overflow: hidden">
-                              <img id="question1">
+                          <div class="img-show" style="height: 200px;width: 300px;">
+                              <img id="question1" style="width: 100%; height: 100%;">
                           </div>
                           <div class="weui-textarea-counter"><span>0</span>/200</div>
                       </div>
