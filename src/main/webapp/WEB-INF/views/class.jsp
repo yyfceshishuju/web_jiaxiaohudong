@@ -22,6 +22,14 @@
     </div>
 </div>
 
+<div class="weui-gallery" id="gallery">
+    <span class="weui-gallery__img" id="galleryImg"></span>
+    <div class="weui-gallery__opr">
+        <a href="javascript:" class="weui-gallery__del">
+            <i class="weui-icon-delete weui-icon_gallery-delete delete"></i>
+        </a>
+    </div>
+</div>
 
 <div class="js_dialog" id="dialog" style="display: none;">
     <div class="weui-mask"></div>
@@ -101,8 +109,8 @@
                       <div class="weui-cell__hd"><label class="weui-label">题目</label></div>
                       <div class="weui-cell__bd">
                           <textarea class="weui-textarea" placeholder="" rows="3" id="question" name="question" ></textarea>
-                          <div class="img-show" style="height: 200px;width: 300px;">
-                              <img id="question1" style="width: 100%; height: 100%;">
+                          <div class="img-show" style="height: 100px;width: 150px;overflow: hidden">
+                              <img id="question1">
                           </div>
                           <div class="weui-textarea-counter"><span>0</span>/200</div>
                       </div>
@@ -122,7 +130,8 @@
 
 <script type="text/javascript">
     $(function(){
-        var $searchBar = $('#searchBar'),
+        var $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
+            $searchBar = $('#searchBar'),
             $searchText = $('#searchText'),
             $searchInput = $('#searchInput'),
             $searchClear = $('#searchClear'),
@@ -256,6 +265,15 @@
                     alert(e);
                 }
             });
+        });
+
+        $question1.on("click", function(){
+            $galleryImg.attr("style", "background-image:url(" + $question1.attr("src")+")");
+            $gallery.fadeIn(100);
+        });
+
+        $gallery.on("click", function(){
+            $gallery.fadeOut(100);
         });
 
         $list.on("click", ".weui-grid", function () {
