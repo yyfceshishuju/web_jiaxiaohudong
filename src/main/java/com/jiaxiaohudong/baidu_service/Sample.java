@@ -1,7 +1,12 @@
 package com.jiaxiaohudong.baidu_service;
 
 import com.baidu.aip.ocr.AipOcr;
+import com.jiaxiaohudong.entity.CommonQuestion;
+import com.jiaxiaohudong.service.QuestionService;
+import com.jiaxiaohudong.service.impl.QuestionServiceImpl;
+import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -10,9 +15,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 
+import java.util.concurrent.LinkedBlockingQueue;
+
 public class Sample {
+
+    public static QuestionService questionService = null;
 
     public static void main(String[] args) {
 
@@ -73,7 +83,7 @@ public class Sample {
 
 
         // 参数为本地图片路径
-        JSONObject res = client.accurateGeneral(image, options);
+        JSONObject res = client.basicGeneral(image, options);
         System.out.println(res.toString());
         return res;
 
@@ -102,4 +112,42 @@ public class Sample {
         return sample(filepath);
 
     }
+    public static ImageTask imageTask = new ImageTask(new LinkedBlockingQueue<QuestionAndImage>());
+
+    public static Runnable getService(){
+        return new Runnable() {
+            public void run() {
+                while (true) {
+                    System.out.println("question 服务...");
+                    try {
+                        QuestionAndImage questionAndImage = imageTask.get();
+                        String imagePath = questionAndImage.getImagePath();
+                        System.out.println(imagePath);
+                        CommonQuestion question = questionAndImage.getQuestion();
+                        JSONObject json = sample(imagePath);
+                        JSONArray words_result = (JSONArray) json.get("words_result");
+                        List<Object> list = words_result.toList();
+                        String result = "";
+                        for (Object o : list) {
+                            HashMap jo = (HashMap) o;
+                            result = result + jo.get("words").toString() + "\n";
+
+                        }
+                        question.setQuestion(result);
+
+                        questionService.modifyByPrimaryKey(question);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        };
+    }
+    static {
+        new Thread(getService()).start();
+    }
+
+
 }

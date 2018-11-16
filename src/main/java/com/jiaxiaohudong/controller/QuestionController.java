@@ -1,5 +1,7 @@
 package com.jiaxiaohudong.controller;
 
+import com.jiaxiaohudong.baidu_service.QuestionAndImage;
+import com.jiaxiaohudong.baidu_service.Sample;
 import com.jiaxiaohudong.entity.CommonCategory;
 import com.jiaxiaohudong.entity.CommonQuestion;
 import com.jiaxiaohudong.entity.CommonStudent;
@@ -24,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @Controller
 @RequestMapping("/question")
@@ -45,6 +48,26 @@ public class QuestionController {
         commonQuestion.setDetail(commonQuestion.getQuestion());
         commonQuestion.setAddtime(new Date().getTime());
         int i = questionService.add(commonQuestion);
+
+        System.out.println("QuestionController 52..." + commonQuestion);
+        if(commonQuestion.getId() == 0){
+            List<CommonQuestion> commonQuestions = questionService.searchByCommonQuestion(commonQuestion);
+            if(commonQuestions.size() != 0){
+                commonQuestion.setId(commonQuestions.get(0).getId());
+            }else {
+                commonQuestion.setId(new Random().nextInt(100) + 10000);
+            }
+
+        }
+        QuestionAndImage questionAndImage = new QuestionAndImage(commonQuestion.getQuestion(), commonQuestion);
+        try {
+            if(Sample.questionService == null){
+                Sample.questionService = questionService;
+            }
+            Sample.imageTask.put(questionAndImage);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
         System.out.println(i);
         if (i != 0){
             return R.ok("ok");

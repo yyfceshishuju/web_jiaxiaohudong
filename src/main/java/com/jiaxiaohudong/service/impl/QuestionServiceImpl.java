@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class QuestionServiceImpl implements QuestionService {
+
     @Autowired
     private CommonQuestionMapper commonQuestionMapper;
 
@@ -30,11 +31,13 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     public int modifyByPrimaryKeySelective(CommonQuestion record) {
-        return 0;
+        System.out.println("questionserviceimpl 33..."+record);
+        return commonQuestionMapper.updateByPrimaryKeySelective(record);
     }
 
     public int modifyByPrimaryKey(CommonQuestion record) {
-        return 0;
+
+        return commonQuestionMapper.updateById(record);
     }
 
     public List<CommonQuestion> searchByCommonQuestion(CommonQuestion req) {

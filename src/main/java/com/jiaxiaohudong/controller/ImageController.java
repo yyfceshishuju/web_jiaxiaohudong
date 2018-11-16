@@ -5,6 +5,8 @@ import com.jiaxiaohudong.entity.CommonCategory;
 import com.jiaxiaohudong.entity.CommonStudent;
 import com.jiaxiaohudong.util.R;
 import com.jiaxiaohudong.util.Upload;
+import org.apache.log4j.Logger;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -23,36 +25,29 @@ import java.util.*;
 @Controller
 @RequestMapping("/image")
 public class ImageController {
+    private static Logger logger = Logger.getLogger(ImageController.class.getName());
 
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
     @ResponseBody
     public R uploadImage(@RequestParam(value = "file") MultipartFile file, Map<String, Object> map) throws RuntimeException {
-        JSONObject json = null;
+        String imagePath = null;
         if (file.isEmpty()) {
-            json = new JSONObject("error");
+           return R.error("空文件");
         }else{
-            // 获取文件名
             String fileName = file.getOriginalFilename();
+            logger.debug(fileName);
             try {
-                File f2 = new File(fileName);
+                imagePath = "/root/utils/tomcat-7.0/webapps/upload/"+new Date().getTime() + fileName;
+                File f2 = new File(imagePath);
                 file.transferTo(f2);
-                fileName = f2.getAbsolutePath();
-                json =  Sample.fielToJson(fileName);
             }catch (Exception e){
                 e.printStackTrace();
             }
 
         }
-        JSONArray words_result = (JSONArray)json.get("words_result");
-        List<Object> list = words_result.toList();
-        String result = "";
-        for (Object o: list){
-            HashMap jo = (HashMap)o;
-            result = result + jo.get("words").toString() + "\n";
-
-        }
-        map.put("result.size",result.getBytes().length);
-        return R.ok(result);
+        map.put("json.size",imagePath.getBytes().length);
+        System.out.println("ImageController ..."+imagePath);
+        return R.ok(imagePath);
     }
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)

@@ -27,7 +27,7 @@
     delete from common_question
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.jiaxiaohudong.entity.CommonQuestion" >
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.jiaxiaohudong.entity.CommonQuestion" >
     insert into common_question (id, cid, name, 
       question, detail, uid, sid,
       star, answer, addtime, 
@@ -203,4 +203,10 @@
     <select id="selectByPage" parameterType="Integer" resultMap="questionResult">
         select * from common_question where sid = #{0} limit #{1}, #{2}
     </select>
+
+    <update id="updateById" parameterType="com.jiaxiaohudong.entity.CommonQuestion">
+      update common_question set
+      question = #{question,jdbcType=VARCHAR}
+      where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>
