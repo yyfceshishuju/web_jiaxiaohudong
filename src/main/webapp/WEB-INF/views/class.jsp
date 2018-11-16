@@ -243,8 +243,11 @@
                 processData:false,
                 contentType:false,
                 success:function(data){
-                    $question.text(data.msg)
-                    $question1.attr('src', data.msg);
+                    ind = data.msg.indexOf("/upload");
+                    png_src = data.msg.substring(ind);
+                    console.log(png_src);
+                    $question.text(png_src.substring(8));
+                    $question1.attr('src', png_src);
                 },
                 error:function(){
                     alert(e);

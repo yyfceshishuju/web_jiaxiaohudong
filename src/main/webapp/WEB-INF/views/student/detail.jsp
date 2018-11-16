@@ -36,7 +36,7 @@
                 <div class="weui-cell__ft">
                     <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*"  multiple="">
                         <%--<img class="circleImg" src="/img/logo.png"  />--%>
-                    <img class="circleImg" src="http://localhost:8080/${stuList[0].icon}"/>
+                    <img class="circleImg" src="${stuList[0].icon}"/>
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="javascript:;">

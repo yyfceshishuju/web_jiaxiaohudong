@@ -54,9 +54,7 @@ public class StudentController {
         CommonUser user = (CommonUser) session.getAttribute("userinfo");
         CommonStudent student = new CommonStudent();
 
-
         String grad = user.getGrade();
-        System.out.println("grade: " + grad);
         if(grad == null){
             grad = "0";
         }
@@ -75,7 +73,17 @@ public class StudentController {
         }
 
         student.setName(request.getParameter("username"));
-        student.setStudentid(request.getParameter("studentId"));
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int tid = user.getId();
+        int radnum = (int)(Math.random()*899) + 100;
+        String strtid = Integer.toString(tid);
+        while (strtid.length() < 4){
+            strtid = "0" + strtid;
+        }
+        strtid = Integer.toString(year) + strtid + Integer.toString(radnum);
+        System.out.println(strtid);
+        student.setStudentid(strtid);
         System.out.println("sex: " + request.getParameter("radio1"));
         if(request.getParameter("radio1").equals("男")){
             student.setSex((byte)0);
@@ -106,7 +114,7 @@ public class StudentController {
         else{
             student.setGrad((byte)0);
         }
-        student.setTid(user.getId());
+        student.setTid(tid);
         Long addTime = time;
         student.setAddtime(addTime.intValue());
 

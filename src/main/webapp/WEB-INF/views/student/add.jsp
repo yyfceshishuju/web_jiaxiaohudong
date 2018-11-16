@@ -72,10 +72,7 @@
             <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
             <div class="weui-cell__bd weui-cell_primary"><input class="weui-input" type="text" placeholder="请输入姓名" name="username"></div>
         </div>
-        <div class="weui-cell">
-            <div class="weui-cell__hd"><label class="weui-label">学号</label></div>
-            <div class="weui-cell__bd weui-cell_primary"><input class="weui-input" type="text" placeholder="请输入学号" name="studentId"></div>
-        </div>
+
         <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">性别</label></div>
             <div class="weui-cells weui-cells_radio">
@@ -183,10 +180,7 @@
                 alert("请填写姓名");
                 return false;
             }
-            if(!$("input[name='studentId']").val()){
-                alert("请填写学号");
-                return false;
-            }
+
             var phNum = $("input[name='phoneNum']").val();
             if(!(/^1[34578]\d{9}$/.test(phNum))){
                 alert("电话填写有误");
