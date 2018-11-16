@@ -101,7 +101,7 @@
                       <div class="weui-cell__hd"><label class="weui-label">题目</label></div>
                       <div class="weui-cell__bd">
                           <textarea class="weui-textarea" placeholder="" rows="3" id="question" name="question" ></textarea>
-                          <img id="question1" >
+                          <img id="question1"  height="200" width="300">
                           <div class="weui-textarea-counter"><span>0</span>/200</div>
                       </div>
                   </div>
@@ -246,7 +246,8 @@
                     ind = data.msg.indexOf("/upload");
                     png_src = data.msg.substring(ind);
                     console.log(png_src);
-                    $question.text(png_src.substring(8));
+                    $question.text(data.msg);
+                    $question.hide();
                     $question1.attr('src', png_src);
                 },
                 error:function(){
