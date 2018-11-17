@@ -305,6 +305,8 @@
                         $student.val('');
                         $students.show();
                         $upload.hide();
+                        $question.val("");
+                        $question.attr("src", "");
                     }
                 },
                 error:function(){
