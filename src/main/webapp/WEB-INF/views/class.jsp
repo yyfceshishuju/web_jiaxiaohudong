@@ -330,11 +330,11 @@
         });
 
         $confirm.on("click", function () {
-            // console.log("hhh  " + $question.val());
-            // if ($question.val() === ""){
-            //     alert("请先上传图片");
-            //     return;
-            // }
+            console.log("hhh  " + $question.val());
+            if ($question.val() === ""){
+                alert("请先上传图片");
+                return;
+            }
             var form = new FormData(document.getElementById('questionForm'));
             $.ajax({
                 url:questionUrl,
