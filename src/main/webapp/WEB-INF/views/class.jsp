@@ -348,11 +348,11 @@
 
                     } else {
                         hint(data.msg);
-                        $student.val('');
+                        //$student.val('');
                         $("input[name='name']").val("");
                         // $students.show();
                         // $upload.hide();
-                        $question.val("");
+                        $question.text("");
                         $question1.attr("src", "");
 
                         // $question1.hide();
