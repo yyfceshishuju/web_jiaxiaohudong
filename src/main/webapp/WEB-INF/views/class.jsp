@@ -114,7 +114,7 @@
                       <div class="weui-cell__hd"><label class="weui-label">题目</label></div>
                       <div class="weui-cell__bd">
                           <div class="img-show" >
-                              <img id="question1" style="height:30%; width:30%;">
+                              <img id="question1" style="height:30%; width:30%;" src="" />
                           </div>
                           <div class="weui-textarea-counter"><span>0</span>/200</div>
                       </div>
@@ -330,11 +330,11 @@
         });
 
         $confirm.on("click", function () {
-            console.log($question.val());
-            if ($question.val() === ""){
-                alert("请先上传图片");
-                return;
-            }
+            // console.log("hhh  " + $question.val());
+            // if ($question.val() === ""){
+            //     alert("请先上传图片");
+            //     return;
+            // }
             var form = new FormData(document.getElementById('questionForm'));
             $.ajax({
                 url:questionUrl,
@@ -356,7 +356,7 @@
                         $question.val("");
                         $question1.attr("src", "");
 
-                        $question1.hide();
+                        // $question1.hide();
 
                     }
                 },
