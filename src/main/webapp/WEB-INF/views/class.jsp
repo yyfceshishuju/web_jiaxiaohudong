@@ -259,11 +259,11 @@
                             png_src = data.msg.substring(ind);
                             console.log(png_src);
                             $question.text(data.msg);
-                            $question.hide();
+                            console.log("ques text1" + data.msg);
                             $question1.attr('src', 'http://39.106.197.228'+png_src);
-                            $question1.show();
+                            // $question1.show();
                         },
-                        error:function(){
+                        error:function(e){
                             alert(e);
                         }
                     });
@@ -292,9 +292,9 @@
                         png_src = data.msg.substring(ind);
                         console.log(png_src);
                         $question.text(data.msg);
-                        $question.hide();
+                        console.log("ques text1" + data.msg);
                         $question1.attr('src', 'http://39.106.197.228'+png_src);
-                        $question1.show();
+                        // $question1.show();
                     },
                     error:function(){
                         alert(e);
@@ -304,25 +304,7 @@
             }
         }
         $file.on("change", function(){
-            filess($file)
-
-            $.ajax({
-                url:uploadUrl,
-                type:"post",
-                data:params,
-                processData:false,
-                contentType:false,
-                success:function(data){
-                    ind = data.msg.indexOf("/upload");
-                    png_src = data.msg.substring(ind);
-                    console.log(png_src);
-                    $question.text(data.msg);
-                    $question1.attr('src', png_src);
-                },
-                error:function(e){
-                    alert(e);
-                }
-            });
+            filess($file);
         });
 
         $question1.on("click", function(){
@@ -347,11 +329,11 @@
         });
 
         $confirm.on("click", function () {
-            // console.log("hhh  " + $question.val());
-            // if ($question.val() === ""){
-            //     alert("请先上传图片");
-            //     return;
-            // }
+            console.log("hhh  " + $question.text());
+            if ($question.text() === ""){
+                alert("请先上传图片");
+                return;
+            }
             var form = new FormData(document.getElementById('questionForm'));
             $.ajax({
                 url:questionUrl,
