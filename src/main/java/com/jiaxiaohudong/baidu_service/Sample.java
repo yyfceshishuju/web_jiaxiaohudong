@@ -1,12 +1,15 @@
 package com.jiaxiaohudong.baidu_service;
 
 import com.baidu.aip.ocr.AipOcr;
+import com.jiaxiaohudong.entity.CommonBaiduUser;
 import com.jiaxiaohudong.entity.CommonQuestion;
+import com.jiaxiaohudong.service.BaiduUserService;
 import com.jiaxiaohudong.service.QuestionService;
 import com.jiaxiaohudong.service.impl.QuestionServiceImpl;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -18,11 +21,41 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
+import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;
 
+@Component
 public class Sample {
 
-    public static QuestionService questionService = null;
+    private static Sample Sample;
+    public static QuestionService questionService;
+    public static BaiduUserService baiduUserService;
+    public static List<CommonBaiduUser> commonBaiduUsers;
+    public static Integer index = -1;
+
+
+    public static QuestionService getQuestionService() {
+        return questionService;
+    }
+
+    public static void setQuestionService(QuestionService questionService) {
+        com.jiaxiaohudong.baidu_service.Sample.questionService = questionService;
+    }
+
+    public static BaiduUserService getBaiduUserService() {
+        return baiduUserService;
+    }
+
+    public static void setBaiduUserService(BaiduUserService baiduUserService) {
+        com.jiaxiaohudong.baidu_service.Sample.baiduUserService = baiduUserService;
+    }
+
+    public void init(){
+        Sample = this;
+        Sample.questionService = this.questionService;
+        Sample.baiduUserService =this.baiduUserService;
+
+    }
 
     public static void main(String[] args) {
 
@@ -59,21 +92,8 @@ public class Sample {
 
     }
 
-    public static JSONObject sample(String image) {
-        /*Properties properties = new Properties();
-        InputStream is = Sample.class.getClassLoader().getSystemResourceAsStream("baidu.properties");
-        try {
-            System.out.println(is);
-            properties.load(is);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-        // 初始化一个AipOcr
-        String app_id= "14526643";
-        String api_key= "oMrGiCbiUe6IRcuTULzhuwxM";
-        String secret_key="LrzoK3vmyE7CQjP1dRn05jCs5mG5xlYu";
-        //AipOcr client = new AipOcr(properties.getProperty("app_id").toString(), properties.getProperty("api_key").toString(), properties.getProperty("secret_key").toString());
-        AipOcr client = new AipOcr(app_id, api_key, secret_key);
+    public static JSONObject sample(String image, CommonBaiduUser commonBaiduUser){
+        AipOcr client = new AipOcr(commonBaiduUser.getApp_id(), commonBaiduUser.getApi_key(), commonBaiduUser.getSecret_key());
         // 传入可选参数调用接口
         HashMap<String, String> options = new HashMap<String, String>();
         options.put("language_type", "CHN_ENG");
@@ -86,7 +106,16 @@ public class Sample {
         JSONObject res = client.basicGeneral(image, options);
         System.out.println(res.toString());
         return res;
+    }
 
+
+    public static JSONObject sample(String image) {
+       if(index == -1){
+           commonBaiduUsers = baiduUserService.getAll();
+           index = commonBaiduUsers.size();
+       }
+        CommonBaiduUser commonBaiduUser = commonBaiduUsers.get(new Random().nextInt(index));
+       return sample(image,commonBaiduUser);
     }
 
     public static byte[] fileToByte(File img) {

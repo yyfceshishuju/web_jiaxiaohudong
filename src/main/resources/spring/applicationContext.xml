@@ -35,6 +35,7 @@
         </property>
     </bean>
 
+
     <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>
@@ -131,4 +132,10 @@
             <bean class="com.jiaxiaohudong.interceptor.SysInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <!--百度sample类的注入-->
+    <bean id="sample" class="com.jiaxiaohudong.baidu_service.Sample" init-method="init">
+        <property name="questionService" ref="questionServiceImpl"/>
+        <property name="baiduUserService" ref="baiduUserServiceImpl"/>
+    </bean>
 </beans>

@@ -62,6 +62,7 @@ public class QuestionController {
         QuestionAndImage questionAndImage = new QuestionAndImage(commonQuestion.getQuestion(), commonQuestion);
         try {
             if(Sample.questionService == null){
+                System.out.println("没有被注入。。。");
                 Sample.questionService = questionService;
             }
             Sample.imageTask.put(questionAndImage);

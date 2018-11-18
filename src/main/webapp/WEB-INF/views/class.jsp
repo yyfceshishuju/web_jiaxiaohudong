@@ -113,12 +113,12 @@
                   <div class="weui-cell">
                       <div class="weui-cell__hd"><label class="weui-label">题目</label></div>
                       <div class="weui-cell__bd">
-                          <textarea class="weui-textarea" placeholder="" rows="3" id="question" name="question" ></textarea>
-                          <div class="img-show" style="height: 100px;width: 150px;overflow: hidden">
-                              <img id="question1" src=""/>
+                          <div class="img-show" >
+                              <img id="question1" style="height:30%; width:30%;">
                           </div>
                           <div class="weui-textarea-counter"><span>0</span>/200</div>
                       </div>
+                      <textarea class="weui-textarea" placeholder="" rows="3" id="question" name="question" ></textarea>
                   </div>
                   <input type="hidden" id="student" name="sid" value="2" ／>
               </div>
@@ -238,19 +238,73 @@
                     console.log("压缩后：" + base64Codes.length / 1024 + "k");
                     bl = convertBase64UrlToBlob(base64Codes);
                     console.log(bl);
+                    var params = new FormData();
+                    if (bl=="") {
+                        console.log("==")
+                        params.append("file",fileObj);
+                    }else{
+                        console.log("!=")
+                        params.append("file",bl,"file_"+Date.parse(new Date())+".jpg");
+                    }
+                    console.log(params)
 
+                    $.ajax({
+                        url:uploadUrl,
+                        type:"post",
+                        data:params,
+                        processData:false,
+                        contentType:false,
+                        success:function(data){
+                            ind = data.msg.indexOf("/upload");
+                            png_src = data.msg.substring(ind);
+                            console.log(png_src);
+                            $question.text(data.msg);
+                            $question.hide();
+                            $question1.attr('src', 'http://39.106.197.228'+png_src);
+                            $question1.show();
+                        },
+                        error:function(){
+                            alert(e);
+                        }
+                    });
+
+                });
+
+            }else{
+                var params = new FormData();
+                if (bl=="") {
+                    console.log("==")
+                    params.append("file",fileObj);
+                }else{
+                    console.log("!=")
+                    params.append("file",bl,"file_"+Date.parse(new Date())+".jpg");
+                }
+                console.log(params)
+
+                $.ajax({
+                    url:uploadUrl,
+                    type:"post",
+                    data:params,
+                    processData:false,
+                    contentType:false,
+                    success:function(data){
+                        ind = data.msg.indexOf("/upload");
+                        png_src = data.msg.substring(ind);
+                        console.log(png_src);
+                        $question.text(data.msg);
+                        $question.hide();
+                        $question1.attr('src', 'http://39.106.197.228'+png_src);
+                        $question1.show();
+                    },
+                    error:function(){
+                        alert(e);
+                    }
                 });
 
             }
         }
         $file.on("change", function(){
             filess($file)
-            var params = new FormData();
-            if (bl=="") {
-                params.append("file",fileObj);
-            }else{
-                params.append("file",bl,"file_"+Date.parse(new Date())+".jpg");
-            }
 
             $.ajax({
                 url:uploadUrl,
@@ -308,6 +362,8 @@
                 success:function(data){
                     if (data.code != 0){
                         alert(data.msg);
+
+
                     } else {
                         hint(data.msg);
                         $student.val('');
@@ -316,6 +372,9 @@
                         // $upload.hide();
                         $question.val("");
                         $question1.attr("src", "");
+
+                        $question1.hide();
+
                     }
                 },
                 error:function(error){
