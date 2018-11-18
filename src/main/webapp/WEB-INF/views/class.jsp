@@ -306,23 +306,6 @@
         $file.on("change", function(){
             filess($file)
 
-            $.ajax({
-                url:uploadUrl,
-                type:"post",
-                data:params,
-                processData:false,
-                contentType:false,
-                success:function(data){
-                    ind = data.msg.indexOf("/upload");
-                    png_src = data.msg.substring(ind);
-                    console.log(png_src);
-                    $question.text(data.msg);
-                    $question1.attr('src', png_src);
-                },
-                error:function(e){
-                    alert(e);
-                }
-            });
         });
 
         $question1.on("click", function(){
