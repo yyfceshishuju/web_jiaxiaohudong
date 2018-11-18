@@ -46,7 +46,7 @@ public class QuestionController {
         Integer uid = userinfo.getId();
         commonQuestion.setUid(uid);
         commonQuestion.setDetail(commonQuestion.getQuestion());
-        commonQuestion.setAddtime(new Date().getTime());
+        commonQuestion.setAddtime(new Date().getTime()/1000);
         int i = questionService.add(commonQuestion);
 
         System.out.println("QuestionController 52..." + commonQuestion);

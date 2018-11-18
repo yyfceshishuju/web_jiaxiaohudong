@@ -12,6 +12,11 @@
 <head lang="en">
     <title>错题上传</title>
     <%@include file="common/header.jsp"%>
+    <style type="text/css">
+        img[src=""]{
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
 <div class="page__hd"  style="background:#778899;">
@@ -110,7 +115,7 @@
                       <div class="weui-cell__bd">
                           <textarea class="weui-textarea" placeholder="" rows="3" id="question" name="question" ></textarea>
                           <div class="img-show" style="height: 100px;width: 150px;overflow: hidden">
-                              <img id="question1">
+                              <img id="question1" src=""/>
                           </div>
                           <div class="weui-textarea-counter"><span>0</span>/200</div>
                       </div>
@@ -157,7 +162,7 @@
             studentUrl = "/student/list",
             searchUrl = "/student/search"
         ;
-
+        $question.hide();
         reloadStudents(studentUrl);
         $.ajax({
             url: categoryUrl,
@@ -258,10 +263,9 @@
                     png_src = data.msg.substring(ind);
                     console.log(png_src);
                     $question.text(data.msg);
-                    $question.hide();
                     $question1.attr('src', png_src);
                 },
-                error:function(){
+                error:function(e){
                     alert(e);
                 }
             });
@@ -289,7 +293,11 @@
         });
 
         $confirm.on("click", function () {
-
+            console.log($question.val());
+            if ($question.val() === ""){
+                alert("请先上传图片");
+                return;
+            }
             var form = new FormData(document.getElementById('questionForm'));
             $.ajax({
                 url:questionUrl,
@@ -303,14 +311,15 @@
                     } else {
                         hint(data.msg);
                         $student.val('');
-                        $students.show();
-                        $upload.hide();
+                        $("input[name='name']").val("");
+                        // $students.show();
+                        // $upload.hide();
                         $question.val("");
-                        $question.attr("src", "");
+                        $question1.attr("src", "");
                     }
                 },
-                error:function(){
-                    alert(e);
+                error:function(error){
+                    alert("error:"+error);
                 }
 
             })
